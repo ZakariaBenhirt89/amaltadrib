@@ -2,13 +2,13 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateMonitoringTable extends Migration
+class CreateMonitoringsTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'monitoring';
+    public $tableName = 'monitorings';
     /**
      * Run the migrations.
      * @table monitoring
