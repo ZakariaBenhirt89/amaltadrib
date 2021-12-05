@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->text('avatar')->nullable();
             $table->string('fname', 45)->nullable();
             $table->string('lname', 45)->nullable();

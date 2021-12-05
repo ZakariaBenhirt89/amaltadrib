@@ -19,7 +19,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('title', 70)->nullable();
             $table->decimal('salary', 8, 2)->nullable();
             $table->string('position', 70)->nullable();
@@ -32,7 +32,7 @@ class CreateJobsTable extends Migration
             $table->string('end', 45)->nullable();
             $table->string('contract_type', 70)->nullable();
             $table->text('description')->nullable();
-            $table->integer('students_id');
+            $table->unsignedBigInteger('students_id');
 
             $table->index(["students_id"], 'fk_jobs_students1_idx');
 

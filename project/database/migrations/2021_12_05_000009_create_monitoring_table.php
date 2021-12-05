@@ -19,7 +19,7 @@ class CreateMonitoringTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('title', 70)->nullable();
             $table->string('start', 45)->nullable();
             $table->string('end', 45)->nullable();
@@ -27,7 +27,7 @@ class CreateMonitoringTable extends Migration
             $table->integer('status')->nullable()->comment('0:created,1:inprogress,2:finished');
             $table->text('service')->nullable();
             $table->text('description')->nullable();
-            $table->integer('students_id');
+            $table->unsignedBigInteger('students_id');
 
             $table->index(["students_id"], 'fk_monitoring_students1_idx');
 

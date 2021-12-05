@@ -19,7 +19,7 @@ class CreateInternshipsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('title', 70)->nullable();
             $table->string('provider', 70)->nullable();
             $table->string('start', 70)->nullable();
@@ -29,7 +29,7 @@ class CreateInternshipsTable extends Migration
             $table->string('supervisor_phone', 45)->nullable();
             $table->text('goals')->nullable();
             $table->text('guidlines')->nullable();
-            $table->integer('students_id');
+            $table->unsignedBigInteger('students_id');
 
             $table->index(["students_id"], 'fk_internships_students1_idx');
 

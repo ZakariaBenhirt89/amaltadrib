@@ -19,14 +19,14 @@ class CreateChefsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->text('avatar')->nullable();
             $table->string('fname', 70)->nullable();
             $table->string('lname', 70)->nullable();
             $table->string('birthday', 45)->nullable();
             $table->string('gender', 45)->nullable();
             $table->text('adress')->nullable();
-            $table->integer('centers_id');
+            $table->unsignedBigInteger('centers_id');
 
             $table->index(["centers_id"], 'fk_chefs_centers_idx');
 

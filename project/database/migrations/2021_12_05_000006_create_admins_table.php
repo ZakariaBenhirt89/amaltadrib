@@ -19,7 +19,7 @@ class CreateAdminsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('username', 70)->nullable();
             $table->string('email', 150)->nullable();
             $table->text('password')->nullable();

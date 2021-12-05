@@ -19,7 +19,7 @@ class CreateCentersTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('name', 70)->nullable();
             $table->text('adress')->nullable();
             $table->string('phone', 45)->nullable();

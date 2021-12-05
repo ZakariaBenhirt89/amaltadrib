@@ -19,7 +19,7 @@ class CreateMaterialsTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('id');
+            $table->id();
             $table->string('title', 70)->nullable();
             $table->text('file')->nullable();
         });

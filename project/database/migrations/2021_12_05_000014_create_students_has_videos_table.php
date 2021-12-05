@@ -19,8 +19,8 @@ class CreateStudentsHasVideosTable extends Migration
     {
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('students_id');
-            $table->integer('videos_id');
+            $table->unsignedBigInteger('students_id');
+            $table->unsignedBigInteger('videos_id');
 
             $table->index(["videos_id"], 'fk_students_has_videos_videos1_idx');
 
