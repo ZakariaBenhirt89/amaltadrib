@@ -41,9 +41,7 @@ Route::get('/', function () {
     // $passed = Auth::guard('admin')->attempt(['email' => "abc@def.gh", 'password' => '1234']);
     // echo json_encode($passed)."<br>";
     // echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
-    echo AuthHelper::getGuard()."<br>";
-    echo json_encode(AuthHelper::loggedUser()).'<br>';
-    return view('welcome');
+    return view('public.welcome');
 });
 Route::get('/something',function (){
     echo "From a protected route !!!!";
