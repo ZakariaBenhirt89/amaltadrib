@@ -28,6 +28,7 @@ class CreateAdminsTable extends Migration
             $table->unique(["username"], 'username_UNIQUE');
 
             $table->unique(["email"], 'email_UNIQUE');
+            $table->timestamps();
         });
     }
 
