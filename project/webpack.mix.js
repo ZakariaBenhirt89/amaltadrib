@@ -11,6 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').sass('resources/scss/app.scss', 'public/css/style.css').sourceMaps().version();
-// .postCss('resources/css/app.css', 'public/css');
+mix.js('resources/js/app.js', 'public/js')
+.sass('resources/scss/app.scss', 'public/css/style.css')
+.copy('resources/images','public/images')
+.sourceMaps().version();
 mix.disableNotifications();

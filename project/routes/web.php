@@ -12,7 +12,22 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+App::setLocale("ar");
 
+
+Route::get('test', function () {
+    return view("public.home");
+});
+
+Route::prefix("/")->name("public.")->group(function () {
+    Route::get('/home', function () {return "home";})->name("home");
+    Route::get('/informations-bank', function () {return "informations-bank";})->name("informations-bank");
+    Route::get('/about', function () {return "about";})->name("about");
+    Route::get('/contact', function () {return "contact";})->name("contact");
+});
+Route::prefix("student")->name("student.")->group(function () {
+    Route::get('/login', function () {return "login";})->name("login");
+});
 use App\Models\Admin;
 
 
