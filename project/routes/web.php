@@ -16,10 +16,13 @@ App::setLocale("ar");
 
 Route::prefix("/")->name("public.")->group(function () {
     Route::get('/', [App\Http\Controllers\public\HomeController::class,'index'])->name("home");
+    Route::get('/about', [App\Http\Controllers\public\AboutController::class,'index'])->name("about");
     Route::get('/informations-bank', function () {return "informations-bank";})->name("informations-bank");
-    Route::get('/about', function () {return "about";})->name("about");
     Route::get('/contact', function () {return "contact";})->name("contact");
 });
+
+
+
 Route::prefix("student")->name("student.")->group(function () {
     Route::get('/login', function () {return "login";})->name("login");
 });

@@ -3,7 +3,7 @@ $font-family-sans-serif: "'tajawal', Arial, sans-serif";
 $font-family-serif:      "'tajawal', Arial, sans-serif";
 $font-family-monospace:  "'tajawal', Arial, sans-serif";
 $font-family-base:       $font-family-sans-serif;
-
+$vh : calc(100vh - 70px);
 @import "bootstrap";
 @import "admin/main.scss";
 @import "student/main.scss";
