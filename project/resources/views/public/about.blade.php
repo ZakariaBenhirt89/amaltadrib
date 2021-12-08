@@ -1,5 +1,5 @@
 @extends('layouts.public')
-@section('title','home page')
+@section('title','من نحن')
 
 @section('content')
 <main class="about">

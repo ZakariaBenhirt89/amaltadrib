@@ -17,8 +17,8 @@ App::setLocale("ar");
 Route::prefix("/")->name("public.")->group(function () {
     Route::get('/', [App\Http\Controllers\public\HomeController::class,'index'])->name("home");
     Route::get('/about', [App\Http\Controllers\public\AboutController::class,'index'])->name("about");
+    Route::get('/contact', [App\Http\Controllers\public\ContactController::class,'index'])->name("contact");
     Route::get('/informations-bank', function () {return "informations-bank";})->name("informations-bank");
-    Route::get('/contact', function () {return "contact";})->name("contact");
 });
 
 

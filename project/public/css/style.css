@@ -11281,14 +11281,6 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.about {
-  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
-  background-size: contain;
-  background-position: left center;
-  background-repeat: no-repeat;
-  min-height: calc(100vh - 70px);
-}
-
 .home {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
@@ -11297,4 +11289,24 @@ textarea.form-control-lg {
 }
 .home .big-icon {
   height: 80vh !important;
+}
+
+.about {
+  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 70px);
+}
+
+.contact {
+  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 70px);
+}
+
+.form-control {
+  border: 1px solid black;
 }
