@@ -19,7 +19,8 @@ class ContactController extends Controller
         $request->validate([
             "name" => "required",
             "email_or_phone" => "required",
-            "message" => "required"
+            "message" => "required",
+            "subject" => 'required'
         ]);
 
         try {

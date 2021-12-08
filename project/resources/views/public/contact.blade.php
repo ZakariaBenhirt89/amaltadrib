@@ -22,6 +22,18 @@
                         @enderror
                     </div>
                     <div class="form-group mb-3">
+                        <label class="text-end d-block" for="subject">سبب الاتصال:</label>
+                        <select name="subject" id="subject" class="form-control @error('subject') is-invalid @enderror">
+                            <option value="" selected disabled>سبب الاتصال بنا...</option>
+                            <option @if(old('subject') == "طلب المعلومات") selected @endif value="طلب المعلومات">طلب المعلومات</option>
+                            <option @if(old('subject') == "طلب الانضمام إلى المنصة") selected @endif value="طلب الانضمام إلى المنصة">طلب الانضمام إلى المنصة</option>
+                            <option @if(old('subject') == "إبلاغ عن مشكلة") selected @endif value="إبلاغ عن مشكلة">إبلاغ عن مشكلة</option>
+                        </select>
+                        @error('subject')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
                         <label class="text-end d-block" for="email_or_phone">البريد الإلكتروني أو رقم الهاتف:</label>
                         <input id="email_or_phone" name="email_or_phone" type="email_or_phone" placeholder="البريد الإلكتروني أو رقم الهاتف..." value="{{old('email_or_phone')}}" class="form-control @error('email_or_phone') is-invalid @enderror">
                         @error('email_or_phone')
