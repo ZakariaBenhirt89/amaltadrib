@@ -1,8 +1,8 @@
-
-$font-family-sans-serif: "'tajawal', Arial, sans-serif";
-$font-family-serif:      "'tajawal', Arial, sans-serif";
-$font-family-monospace:  "'tajawal', Arial, sans-serif";
-$font-family-base:       $font-family-sans-serif;
+@import "https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;700&display=swap";
+$font-family-sans-serif:'Readex Pro', sans-serif;
+$font-family-serif: 'Readex Pro', sans-serif;
+$font-family-monospace: 'Readex Pro', sans-serif;
+$font-family-base: $font-family-sans-serif;
 $vh : calc(100vh - 70px);
 $warning : #ffd767;
 $dark : #383938;
