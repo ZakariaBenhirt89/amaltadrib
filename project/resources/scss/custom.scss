@@ -1,3 +1,7 @@
 .form-control{
     border: 1px solid black;
 }
+::placeholder {
+    font-size: .8rem;
+    opacity: .6 !important;
+}
