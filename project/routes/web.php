@@ -29,25 +29,43 @@ Route::prefix("student")->name("student.")->group(function () {
     Route::get('/login', function () {return "login";})->name("login");
 });
 use App\Models\Admin;
+use App\Models\Student;
+use App\Helpers\AuthHelper;
 
-
-function get_guard(){
-    if(Auth::guard('admin')->check())
-        {
-            return "admin";
-        }
-    return null;
-}
+// function get_guard(){
+//     if(Auth::guard('admin')->check())
+//         {
+//             return "admin";
+//         }
+//     return null;
+// }
 
 Route::get('/', function () {
+    // Student::create([
+    //     // 'username'=>"abc",
+    //     'email'=>"abc@def.gh",
+    //     'password'=>Hash::make("12345678"),
+    //     'avatar'=>"emptySTring",
+    // ]);
     // Admin::create([
     //     'username'=>"abc",
     //     'email'=>"abc@def.gh",
-    //     'password'=>Hash::make("1234"),
+    //     'password'=>Hash::make("12345678"),
     //     'avatar'=>"emptySTring",
     // ]);
     // $passed = Auth::guard('admin')->attempt(['email' => "abc@def.gh", 'password' => '1234']);
     // echo json_encode($passed)."<br>";
-    echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
+    // echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
     return view('public.welcome');
 });
+Route::get('/something',function (){
+    echo "From a protected route !!!!";
+})->middleware('authentificated');
+Route::post('/admin/login',[App\Http\Controllers\admin\AdminController::class,'adminLogin'])->name('adminlogin');
+Route::post('/student/login',[App\Http\Controllers\student\StudentController::class,'studentLogin'])->name('studentlogin');
+Route::get('/admin',function (){
+    echo "only admin can access here";
+})->middleware('admin');
+Route::get('/student',function (){
+    echo "only student can access here";
+})->middleware('student');

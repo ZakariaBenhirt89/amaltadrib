@@ -7,6 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    Hello from welcome view
+    <form action="{{ route('adminlogin') }}" method="POST">
+        <h1>
+            admin login
+        </h1>
+    @csrf
+    <input type="text" name="email">
+    <input type="password" name="password">
+    <input type="submit">
+    </form>
+    <form action="{{ route('studentlogin') }}" method="POST">
+        <h1>
+            student login
+        </h1>
+    @csrf
+    <input type="text" name="email">
+    <input type="password" name="password">
+    <input type="submit">
+    </form>
 </body>
 </html>
