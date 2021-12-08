@@ -11343,8 +11343,15 @@ textarea.form-control-lg {
   direction: ltr;
 }
 
+.login {
+  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
 .form-control {
-  border: 1px solid black;
+  border: 1px solid #383938;
 }
 
 ::-moz-placeholder {
@@ -11360,4 +11367,11 @@ textarea.form-control-lg {
 ::placeholder {
   font-size: 0.8rem;
   opacity: 0.6 !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(255, 215, 103, 0.18) !important;
+}
+.shadow-lg.border-warning {
+  border-color: rgba(255, 215, 103, 0.4) !important;
 }

@@ -7,6 +7,7 @@ $vh : calc(100vh - 70px);
 $warning : #ffd767;
 $dark : #383938;
 $body-color: #383938;
+
 @import "bootstrap";
 @import "admin/main.scss";
 @import "student/main.scss";

@@ -20,9 +20,9 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav px-0 mx-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
+                  {{-- <li class="nav-item">
                     <a class="nav-link" href="{{ route('public.informations-bank')}}">بنك المعلومات</a>
-                  </li>
+                  </li> --}}
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('public.about')}}">من نحن</a>
                   </li>
@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ route('public.contact')}}">تواصل معنا</a>
                   </li>
                 </ul>
-                  <a class="btn btn-dark" href="{{ route("student.login") }}">تسجيل الدخول</a>
+                  <a class="btn btn-dark" href="{{ route("public.login") }}">تسجيل الدخول</a>
               </div>
             </div>
           </nav>
