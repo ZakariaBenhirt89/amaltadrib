@@ -19,7 +19,7 @@ Route::prefix("/")->name("public.")->group(function () {
     Route::get('/about', [App\Http\Controllers\public\AboutController::class,'index'])->name("about");
     Route::get('/contact', [App\Http\Controllers\public\ContactController::class,'index'])->name("contact");
     Route::post('/contact', [App\Http\Controllers\public\ContactController::class,'store'])->name("contact");
-    Route::get('/informations-bank', function () {return "informations-bank";})->name("informations-bank");
+    Route::get('/informations-bank', [App\Http\Controllers\public\InformationsBankController::class,'index'])->name("informations-bank");
 });
 
 
