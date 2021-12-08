@@ -9,18 +9,17 @@ use Auth;
 class StudentController extends Controller
 {
 
-    public function studentLogin(Request $request)
+    public function login(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
+            'email'   => 'required',
             'password' => 'required|min:6'
         ]);
         $remember_me = true ?? $request->get('remember');
         if (Auth::guard('student')->attempt(['email' => $request->email, 'password' => $request->password], $remember_me)) {
-            // TODO use named routes
-            return redirect()->intended('/student');
+            return redirect()->route('student.home');
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return back()->withErrors([__('message.email or password is not good, please verify and try again')])->withInput($request->only('email', 'remember'));
     }
 
 }

@@ -11,12 +11,19 @@
                 @if(session('success'))
                     <div class="alert alert-success text-center p-1 my-2">{{session('success')}}</div>
                 @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger p-2">
+                        @foreach ($errors->all() as $error)
+                            <span class="d-block small">{{ $error }}</span>
+                        @endforeach
+                    </div>
+                @endif
                 <form action="{{ route('public.login') }}" method="POST" class="text-md-start">
                     @csrf
                     <div class="form-group mb-3">
-                        <label class="text-end d-block" for="email_or_phone">البريد الإلكتروني أو رقم الهاتف:</label>
-                        <input id="email_or_phone" name="email_or_phone" type="email_or_phone" placeholder="البريد الإلكتروني أو رقم الهاتف..." value="{{old('email_or_phone')}}" class="form-control @error('email_or_phone') is-invalid @enderror">
-                        @error('email_or_phone')
+                        <label class="text-end d-block" for="email">البريد الإلكتروني:</label>
+                        <input id="email" name="email" type="email" placeholder="البريد الإلكتروني..." value="{{old('email')}}" class="form-control @error('email') is-invalid @enderror">
+                        @error('email')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
@@ -26,6 +33,10 @@
                         @error('password')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
+                    </div>
+                    <div class="form-group text-start">
+                        <input type="checkbox" name="remeber" id="remeber" class="form-check-input">
+                        <label for="remeber" class="form-check-label">تذكرنى</label>
                     </div>
                     <div class="form-group mb-3">
                         <button type="submit" class="btn btn-warning d-block w-100">تسجيل الدخول</button>

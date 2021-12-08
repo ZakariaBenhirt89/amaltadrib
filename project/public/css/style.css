@@ -11375,3 +11375,7 @@ textarea.form-control-lg {
 .shadow-lg.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
 }
+
+.text-start {
+  text-align: right !important;
+}

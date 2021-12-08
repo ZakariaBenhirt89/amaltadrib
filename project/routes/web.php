@@ -16,6 +16,7 @@ App::setLocale("ar");
 
 Route::prefix("/")->name("public.")->group(function () {
     Route::get('/login', function () {return view("public.login");})->name("login");
+    Route::post('/login', [App\Http\Controllers\student\StudentController::class,'login'])->name("login");
     Route::get('/', [App\Http\Controllers\public\HomeController::class,'index'])->name("home");
     Route::get('/about', [App\Http\Controllers\public\AboutController::class,'index'])->name("about");
     Route::get('/contact', [App\Http\Controllers\public\ContactController::class,'index'])->name("contact");
@@ -26,6 +27,7 @@ Route::prefix("/")->name("public.")->group(function () {
 
 
 Route::prefix("student")->name("student.")->group(function () {
+    Route::get('/home', function () {return view('student.home');})->name("home");
 });
 use App\Models\Admin;
 use App\Models\Student;
