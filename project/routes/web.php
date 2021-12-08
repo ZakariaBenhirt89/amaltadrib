@@ -14,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 App::setLocale("ar");
 
-
-Route::get('test', function () {
-    return view("public.home");
-});
-
 Route::prefix("/")->name("public.")->group(function () {
-    Route::get('/home', function () {return "home";})->name("home");
+    Route::get('/', [App\Http\Controllers\public\HomeController::class,'index'])->name("home");
     Route::get('/informations-bank', function () {return "informations-bank";})->name("informations-bank");
     Route::get('/about', function () {return "about";})->name("about");
     Route::get('/contact', function () {return "contact";})->name("contact");
@@ -40,24 +35,24 @@ use App\Helpers\AuthHelper;
 //     return null;
 // }
 
-Route::get('/', function () {
-    // Student::create([
-    //     // 'username'=>"abc",
-    //     'email'=>"abc@def.gh",
-    //     'password'=>Hash::make("12345678"),
-    //     'avatar'=>"emptySTring",
-    // ]);
-    // Admin::create([
-    //     'username'=>"abc",
-    //     'email'=>"abc@def.gh",
-    //     'password'=>Hash::make("12345678"),
-    //     'avatar'=>"emptySTring",
-    // ]);
-    // $passed = Auth::guard('admin')->attempt(['email' => "abc@def.gh", 'password' => '1234']);
-    // echo json_encode($passed)."<br>";
-    // echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
-    return view('public.welcome');
-});
+// Route::get('/', function () {
+//     // Student::create([
+//     //     // 'username'=>"abc",
+//     //     'email'=>"abc@def.gh",
+//     //     'password'=>Hash::make("12345678"),
+//     //     'avatar'=>"emptySTring",
+//     // ]);
+//     // Admin::create([
+//     //     'username'=>"abc",
+//     //     'email'=>"abc@def.gh",
+//     //     'password'=>Hash::make("12345678"),
+//     //     'avatar'=>"emptySTring",
+//     // ]);
+//     // $passed = Auth::guard('admin')->attempt(['email' => "abc@def.gh", 'password' => '1234']);
+//     // echo json_encode($passed)."<br>";
+//     // echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
+//     return view('public.welcome');
+// });
 Route::get('/something',function (){
     echo "From a protected route !!!!";
 })->middleware('authentificated');
