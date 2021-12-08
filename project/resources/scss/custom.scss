@@ -1,0 +1,16 @@
+.form-control{
+    border: 1px solid $dark;
+}
+::placeholder {
+    font-size: .8rem;
+    opacity: .6 !important;
+}
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba($warning,0.18) !important;
+    &.border-warning {
+        border-color: rgba($warning,0.40) !important;
+    }
+}
+.text-start{
+    text-align: right !important;
+}
