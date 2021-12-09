@@ -1,5 +1,8 @@
 .student{
     .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
         transition: .3s;
         *{
             transition: .3s;

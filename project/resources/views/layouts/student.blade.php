@@ -17,7 +17,7 @@
                     <img src="{{ asset('images/big-icon.svg') }}" alt="" class="icon w-75 img img-responsive mx-auto mb-5">
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('student.home') }}">
                         <i class="fa fa-home text-warning"></i><span>الصفحة الرئيسية</span>
                     </a>
                 </li>
@@ -25,17 +25,17 @@
                     <span>دورات أمل</span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('student.videos') }}">
                         <i class="fa fa-play-circle text-warning"></i><span>فيديوهات</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('student.podcasts') }}">
                         <i class="fa fa-microphone-alt text-warning"></i><span>بودكاستات</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('student.files') }}">
                         <i class="fa fa-folder-open text-warning"></i><span>ملفات تربوية</span>
                     </a>
                 </li>

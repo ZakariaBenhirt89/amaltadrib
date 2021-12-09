@@ -4,9 +4,10 @@
         margin-inline-start: auto;
         margin-inline-end: 0px;
         header{
-            i{
-    
-            }
+            position: sticky;
+            top: 0;
+            z-index: 9;
+            // i{}
             &.sidebar{
                 width: calc(100vw - 300px);
                 margin-inline-end: 0px;
