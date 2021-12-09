@@ -35,9 +35,7 @@
             </div>
           </nav>
     </div>
-    <main>
         @yield('content')
-    </main>
     <footer></footer>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -8,7 +8,57 @@
     <link rel="shortcut icon" href="{{ asset('images/logo.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body>
-    @yield('content')
+<body class="student show-side-bar">
+    <div class="sidebar shadow-sm bg-white py-2" id="sideBar">
+        <nav>
+            <ul>
+                <li class="d-block">
+                    <img src="{{ asset('images/logo.svg') }}" alt="" class="logo w-75 m-auto img img-responsive m-1 mb-5">
+                    <img src="{{ asset('images/big-icon.svg') }}" alt="" class="icon w-75 img img-responsive mx-auto mb-5">
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-home text-warning"></i><span>الصفحة الرئيسية</span>
+                    </a>
+                </li>
+                <li class="title">
+                    <span>دورات أمل</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-play-circle text-warning"></i><span>فيديوهات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-microphone-alt text-warning"></i><span>بودكاستات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-folder-open text-warning"></i><span>ملفات تربوية</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        <header class="shadow-sm bg-white py-2">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-auto"><button onclick="window.toggleSideBar()" class="btn text-warning btn-lg"><i class="fas fa-bars"></i></button></div>
+                    <div class="col"></div>
+                    <div class="col-auto">
+                        <img src="{{asset('images/student/avatar.png')}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border">
+                        <a href="{{ route("student.logout") }}" class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="p-3">
+            @yield('content')
+        </div>
+    </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

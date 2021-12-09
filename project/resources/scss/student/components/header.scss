@@ -1,0 +1,22 @@
+.student{
+    .content{
+        width: calc(100vw - 70px);
+        margin-inline-start: auto;
+        margin-inline-end: 0px;
+        header{
+            i{
+    
+            }
+            &.sidebar{
+                width: calc(100vw - 300px);
+                margin-inline-end: 0px;
+                margin-inline-start: auto;
+            }
+        }
+    }
+    &.show-side-bar{
+        .content{
+            width: calc(100vw - 300px);
+        }
+    }
+}

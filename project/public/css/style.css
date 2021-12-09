@@ -15888,17 +15888,114 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-.home {
+.student .content {
+  width: calc(100vw - 70px);
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+}
+.student .content header.sidebar {
+  width: calc(100vw - 300px);
+  -webkit-margin-end: 0px;
+          margin-inline-end: 0px;
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+}
+.student.show-side-bar .content {
+  width: calc(100vw - 300px);
+}
+
+.student .sidebar {
+  transition: 0.3s;
+  float: right;
+  width: 70px;
+  min-height: 100vh;
+  display: inline-block;
+}
+.student .sidebar * {
+  transition: 0.3s;
+}
+.student .sidebar .icon {
+  display: block;
+}
+.student .sidebar .logo {
+  display: none;
+}
+.student .sidebar nav ul {
+  padding: 0;
+  list-style: none;
+}
+.student .sidebar nav ul li {
+  text-align: center;
+}
+.student .sidebar nav ul li a {
+  font-size: 1rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
+  display: block;
+}
+.student .sidebar nav ul li a span {
+  display: none;
+}
+.student .sidebar nav ul li.title {
+  display: none;
+}
+.student.show-side-bar .sidebar {
+  width: 300px;
+}
+.student.show-side-bar .sidebar .icon {
+  display: none;
+}
+.student.show-side-bar .sidebar .logo {
+  display: block;
+}
+.student.show-side-bar .sidebar nav ul {
+  padding: 40px;
+  list-style: none;
+}
+.student.show-side-bar .sidebar nav ul li {
+  text-align: start;
+  -webkit-margin-after: 1.5rem;
+          margin-block-end: 1.5rem;
+}
+.student.show-side-bar .sidebar nav ul li a {
+  font-size: 1.2rem;
+}
+.student.show-side-bar .sidebar nav ul li a i {
+  -webkit-margin-end: 1rem;
+          margin-inline-end: 1rem;
+  display: inline-block;
+}
+.student.show-side-bar .sidebar nav ul li a span {
+  display: inline-block;
+  color: #ffd767;
+  text-decoration: none;
+}
+.student.show-side-bar .sidebar nav ul li.title {
+  color: #383938;
+  -webkit-margin-start: -1rem;
+          margin-inline-start: -1rem;
+  display: block;
+}
+.student.show-side-bar .sidebar nav ul li.title a {
+  color: #fff;
+}
+.student.show-side-bar .sidebar nav ul li.title i {
+  color: #fff;
+}
+
+.public .home {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
   background-position: left center;
   background-repeat: no-repeat;
 }
-.home .big-icon {
+.public .home .big-icon {
   height: 80vh !important;
 }
 
-.about {
+.public .about {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
   background-position: left center;
@@ -15906,7 +16003,7 @@ textarea.form-control-lg {
   min-height: calc(100vh - 70px);
 }
 
-.contact {
+.public .contact {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
   background-position: left center;
@@ -15914,27 +16011,27 @@ textarea.form-control-lg {
   min-height: calc(100vh - 70px);
 }
 
-.informations-bank {
+.public .informations-bank {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
   background-position: left center;
   background-repeat: no-repeat;
 }
-.informations-bank .file {
+.public .informations-bank .file {
   overflow: hidden;
 }
-.informations-bank .file .thumbnail {
+.public .informations-bank .file .thumbnail {
   position: relative;
   width: 120px;
   height: 120px;
   margin-inline: auto;
   margin-block: 16px;
 }
-.informations-bank .file .thumbnail img {
+.public .informations-bank .file .thumbnail img {
   max-height: 100%;
   min-width: 100%;
 }
-.informations-bank .file .thumbnail .extention {
+.public .informations-bank .file .thumbnail .extention {
   position: absolute;
   inset-block-end: 0px;
   inset-inline-start: 5px;
@@ -15949,7 +16046,7 @@ textarea.form-control-lg {
   direction: ltr;
 }
 
-.login {
+.public .login {
   background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
   background-size: contain;
   background-position: left center;

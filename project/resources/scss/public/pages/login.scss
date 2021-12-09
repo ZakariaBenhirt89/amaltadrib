@@ -1,6 +1,8 @@
-.login{
-    background-image: url("./../../../images/bg-icon.png");
-    background-size: contain;
-    background-position: left center;
-    background-repeat: no-repeat;
+.public{
+    .login{
+        background-image: url("./../../../images/bg-icon.png");
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+    }
 }

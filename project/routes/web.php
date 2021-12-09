@@ -28,6 +28,7 @@ Route::prefix("/")->name("public.")->group(function () {
 
 Route::prefix("student")->name("student.")->group(function () {
     Route::get('/home', function () {return view('student.home');})->name("home");
+    Route::get('/logout', function () {return "logout";})->name("logout");
 });
 use App\Models\Admin;
 use App\Models\Student;
