@@ -37,10 +37,6 @@ Route::prefix('admin')->group(function () {
     Route::put('students/{student}', [App\Http\Controllers\admin\StudentController::class,'editStudent'])->name('admin-students-action_edit');
     Route::delete('students/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('admin-students-action_delete');
 
-    // chefs routes
-    Route::get('chefs', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('admin-chefs');
-    Route::get('chefs/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('admin-chefs_new');
-
     // centers routes
     Route::get('centers', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('admin-centers');
     Route::post('centers', [App\Http\Controllers\admin\CenterController::class,'addCenter']);
@@ -48,6 +44,14 @@ Route::prefix('admin')->group(function () {
     Route::get('centers/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('admin-centers_edit');
     Route::put('centers/{center}', [App\Http\Controllers\admin\CenterController::class,'editCenter'])->name('admin-centers-action_edit');
     Route::delete('centers/{center}', [App\Http\Controllers\admin\CenterController::class,'deleteCenter'])->name('admin-centers-action_delete');
+
+    // chefs routes
+    Route::get('chefs', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('admin-chefs');
+    Route::get('chefs/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('admin-chefs_new');
+    Route::post('chefs', [App\Http\Controllers\admin\ChefController::class,'addChefs']);
+    Route::get('chefs/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('admin-chefs_edit');
+    Route::put('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('admin-chefs_action-edit');
+    Route::delete('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin-chefs-action_delete');
 });
 
 Route::get('/students/avatars/{avatar}', function ($avatar) {

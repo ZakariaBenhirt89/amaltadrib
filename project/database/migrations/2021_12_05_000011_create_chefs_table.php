@@ -27,7 +27,7 @@ class CreateChefsTable extends Migration
             $table->string('gender', 45)->nullable();
             $table->text('adress')->nullable();
             $table->unsignedBigInteger('centers_id');
-
+            $table->timestamps();
             $table->index(["centers_id"], 'fk_chefs_centers_idx');
 
 
