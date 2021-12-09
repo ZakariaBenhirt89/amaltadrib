@@ -23,6 +23,7 @@ class CreateCentersTable extends Migration
             $table->string('name', 70)->nullable();
             $table->text('adress')->nullable();
             $table->string('phone', 45)->nullable();
+            $table->timestamps();
         });
     }
 
