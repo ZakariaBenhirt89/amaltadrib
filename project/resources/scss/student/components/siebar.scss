@@ -1,0 +1,85 @@
+.student{
+    .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        transition: .3s;
+        *{
+            transition: .3s;
+        }
+        float: right;
+        width: 70px;
+        min-height: 100vh;
+        display: inline-block;
+        .icon{
+            display: block;
+        }
+        .logo{
+            display: none;
+        }
+        nav{
+            ul{
+                padding: 0;
+                list-style: none;
+                li{
+                    text-align: center;
+                    a{
+                        font-size: 1rem;
+                        margin-block-end: 1rem;
+                        display: block;
+                        span{
+                            display: none;
+                        }
+                    }
+                    &.title{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    &.show-side-bar{
+        .sidebar{
+            width: 300px;
+            .icon{
+                display: none;
+            }
+            .logo{
+                display: block;
+            }
+            nav{
+                ul{
+                    padding: 40px;
+                    list-style: none;
+                    li{
+                        text-align: start;
+                        margin-block-end: 1.5rem;
+                        a{
+                            font-size: 1.2rem;
+                            i{
+                                margin-inline-end: 1rem;
+                                display: inline-block;
+                            }
+                            span{
+                                display: inline-block;
+                                color: $warning;
+                                text-decoration: none;
+                            }
+                        }
+                        &.title{
+                            color: $dark;
+                            margin-inline-start: -1rem;
+                            display: block;
+                            a{
+                                color: $white;
+                            }
+                            i{
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

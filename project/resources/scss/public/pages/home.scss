@@ -1,9 +1,11 @@
-.home{
-    background-image: url("./../../../images/bg-icon.png");
-    background-size: contain;
-    background-position: left center;
-    background-repeat: no-repeat;
-    .big-icon{
-        height: 80vh !important;
+.public{
+    .home{
+        background-image: url("./../../../images/bg-icon.png");
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        .big-icon{
+            height: 80vh !important;
+        }
     }
 }

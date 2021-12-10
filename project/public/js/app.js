@@ -596,9 +596,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n\n\nwindow.toggleSideBar = function () {\n  var body = document.querySelector('body');\n\n  if (body.classList.contains('show-side-bar')) {\n    body.classList.remove('show-side-bar');\n  } else {\n    body.classList.add('show-side-bar');\n  }\n};//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwibWFwcGluZ3MiOiI7O0FBQUE7O0FBRUNBLE1BQU0sQ0FBQ0MsYUFBUCxHQUF1QixZQUFNO0FBQzFCLE1BQUlDLElBQUksR0FBR0MsUUFBUSxDQUFDQyxhQUFULENBQXVCLE1BQXZCLENBQVg7O0FBQ0EsTUFBR0YsSUFBSSxDQUFDRyxTQUFMLENBQWVDLFFBQWYsQ0FBd0IsZUFBeEIsQ0FBSCxFQUE0QztBQUN4Q0osSUFBQUEsSUFBSSxDQUFDRyxTQUFMLENBQWVFLE1BQWYsQ0FBc0IsZUFBdEI7QUFDSCxHQUZELE1BRUs7QUFDREwsSUFBQUEsSUFBSSxDQUFDRyxTQUFMLENBQWVHLEdBQWYsQ0FBbUIsZUFBbkI7QUFDSDtBQUNILENBUEQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzP2NlZDYiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFwiYm9vdHN0cmFwXCI7XHJcblxyXG4gd2luZG93LnRvZ2dsZVNpZGVCYXIgPSAoKSA9PiB7XHJcbiAgICBsZXQgYm9keSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2JvZHknKTtcclxuICAgIGlmKGJvZHkuY2xhc3NMaXN0LmNvbnRhaW5zKCdzaG93LXNpZGUtYmFyJykpe1xyXG4gICAgICAgIGJvZHkuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdy1zaWRlLWJhcicpO1xyXG4gICAgfWVsc2V7XHJcbiAgICAgICAgYm9keS5jbGFzc0xpc3QuYWRkKCdzaG93LXNpZGUtYmFyJylcclxuICAgIH1cclxuIH0iXSwibmFtZXMiOlsid2luZG93IiwidG9nZ2xlU2lkZUJhciIsImJvZHkiLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJjbGFzc0xpc3QiLCJjb250YWlucyIsInJlbW92ZSIsImFkZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 

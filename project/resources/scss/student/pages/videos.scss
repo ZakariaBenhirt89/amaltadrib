@@ -1,0 +1,56 @@
+.video-box {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    &::before{
+        content: "\f144";
+        position: absolute;
+        inset-block: 0px;
+        inset-inline: 0px;
+        background-color: rgba($dark,0.4);
+        z-index: 0;
+        transition: .3s;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba($white,0.4);
+        font-size: 3rem;
+    }
+    &:hover{
+        &::before{
+            background-color: rgba($dark,0.6);
+            font-size: 4rem;
+        }
+    }
+    &.disabled{
+        cursor: not-allowed;
+        &::after{
+            content: "\f023";
+            position: absolute;
+            inset-block: 0px;
+            inset-inline: 0px;
+            background-color: rgba($white,0.3);
+            z-index: 0;
+            transition: .3s;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba($white,0.7);
+            font-size: 4rem;
+        }
+        &::before{
+            display: none;
+        }
+    }
+    .details{
+        position: absolute;
+        inset-block-end: 15px;
+        inset-inline: 15px;
+        z-index: 1;
+        color: $white;
+    }
+}
