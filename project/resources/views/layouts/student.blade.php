@@ -39,6 +39,26 @@
                         <i class="fa fa-folder-open text-warning"></i><span>ملفات تربوية</span>
                     </a>
                 </li>
+                <li><hr class="p-0 m-0 border-none border-bottom border-warning"></li>
+                <li>
+                    <a href="{{ route('student.rotations') }}">
+                        <i class="fa fa-sync text-warning"></i><span>دوراتي</span>
+                    </a>
+                </li>
+                <hr class="p-0 mt-0">
+                <li class="title">
+                    <span>فرص</span>
+                </li>
+                <li>
+                    <a href="{{ route('student.jobs') }}">
+                        <i class="fas fa-user-tie text-warning"></i><span>عمل</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('student.internships') }}">
+                        <i class="far fa-id-badge text-warning"></i><span>سطاج</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
