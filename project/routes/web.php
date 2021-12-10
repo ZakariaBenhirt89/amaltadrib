@@ -27,13 +27,19 @@ Route::prefix("/")->name("public.")->group(function () {
 
 
 Route::prefix("student")->name("student.")->group(function () {
+    // Logout
+    Route::get('/logout', function () {return "logout";})->name("logout");
+    // Home
     Route::get('/home', function () {return view('student.home');})->name("home");
+    // Videos
     Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
     Route::get('/video/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
+    // Podcasts
     Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
     Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
-    Route::get('/files', function () {return "files";})->name("files");
-    Route::get('/logout', function () {return "logout";})->name("logout");
+    // Files
+    Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
+    Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
 });
 use App\Models\Admin;
 use App\Models\Student;

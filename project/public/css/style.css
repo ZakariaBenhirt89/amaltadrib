@@ -4653,7 +4653,7 @@ readers do not read off random characters that represent icons */
   --bs-dark-rgb: 56, 57, 56;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-body-color-rgb: 241, 243, 244;
+  --bs-body-color-rgb: 56, 57, 56;
   --bs-body-bg-rgb: 255, 255, 255;
   --bs-font-sans-serif: "Readex Pro", sans-serif;
   --bs-font-monospace: "Readex Pro", sans-serif;
@@ -4662,7 +4662,7 @@ readers do not read off random characters that represent icons */
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
-  --bs-body-color: #f1f3f4;
+  --bs-body-color: #383938;
   --bs-body-bg: #fff;
 }
 
@@ -6561,15 +6561,15 @@ progress {
 .table {
   --bs-table-bg: transparent;
   --bs-table-accent-bg: transparent;
-  --bs-table-striped-color: #f1f3f4;
+  --bs-table-striped-color: #383938;
   --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
-  --bs-table-active-color: #f1f3f4;
+  --bs-table-active-color: #383938;
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
-  --bs-table-hover-color: #f1f3f4;
+  --bs-table-hover-color: #383938;
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
-  color: #f1f3f4;
+  color: #383938;
   vertical-align: top;
   border-color: #dee2e6;
 }
@@ -6794,7 +6794,7 @@ progress {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #f1f3f4;
+  color: #383938;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
@@ -6816,7 +6816,7 @@ progress {
   cursor: pointer;
 }
 .form-control:focus {
-  color: #f1f3f4;
+  color: #383938;
   background-color: #fff;
   border-color: #86b7fe;
   outline: 0;
@@ -6846,7 +6846,7 @@ progress {
   margin: -0.375rem -0.75rem;
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
-  color: #f1f3f4;
+  color: #383938;
   background-color: #e9ecef;
   pointer-events: none;
   border-color: inherit;
@@ -6862,7 +6862,7 @@ progress {
   margin: -0.375rem -0.75rem;
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
-  color: #f1f3f4;
+  color: #383938;
   background-color: #e9ecef;
   pointer-events: none;
   border-color: inherit;
@@ -6892,7 +6892,7 @@ progress {
   margin: -0.375rem -0.75rem;
   -webkit-margin-end: 0.75rem;
           margin-inline-end: 0.75rem;
-  color: #f1f3f4;
+  color: #383938;
   background-color: #e9ecef;
   pointer-events: none;
   border-color: inherit;
@@ -6919,7 +6919,7 @@ progress {
   padding: 0.375rem 0;
   margin-bottom: 0;
   line-height: 1.5;
-  color: #f1f3f4;
+  color: #383938;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
@@ -7014,7 +7014,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #f1f3f4;
+  color: #383938;
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
@@ -7046,7 +7046,7 @@ textarea.form-control-lg {
 }
 .form-select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 #f1f3f4;
+  text-shadow: 0 0 0 #383938;
 }
 
 .form-select-sm {
@@ -7368,7 +7368,7 @@ textarea.form-control-lg {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #f1f3f4;
+  color: #383938;
   text-align: center;
   white-space: nowrap;
   background-color: #e9ecef;
@@ -7597,7 +7597,7 @@ textarea.form-control-lg {
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
-  color: #f1f3f4;
+  color: #383938;
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
@@ -7619,7 +7619,7 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: #f1f3f4;
+  color: #383938;
 }
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
@@ -8163,7 +8163,7 @@ textarea.form-control-lg {
   padding: 0.5rem 0;
   margin: 0;
   font-size: 1rem;
-  color: #f1f3f4;
+  color: #383938;
   text-align: left;
   list-style: none;
   background-color: #fff;
@@ -9273,7 +9273,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: 1rem;
-  color: #f1f3f4;
+  color: #383938;
   text-align: left;
   background-color: #fff;
   border: 0;
@@ -9301,7 +9301,7 @@ textarea.form-control-lg {
   height: 1.25rem;
   margin-left: auto;
   content: "";
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23f1f3f4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23383938'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-size: 1.25rem;
   transition: transform 0.2s ease-in-out;
@@ -9687,7 +9687,7 @@ textarea.form-control-lg {
   background-color: #f8f9fa;
 }
 .list-group-item-action:active {
-  color: #f1f3f4;
+  color: #383938;
   background-color: #e9ecef;
 }
 
@@ -10585,7 +10585,7 @@ textarea.form-control-lg {
 
 .popover-body {
   padding: 1rem 1rem;
-  color: #f1f3f4;
+  color: #383938;
 }
 
 .carousel {
@@ -16048,6 +16048,35 @@ textarea.form-control-lg {
   inset-inline: 15px;
   z-index: 1;
   color: #fff;
+}
+
+.materials .file {
+  overflow: hidden;
+}
+.materials .file .thumbnail {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-inline: auto;
+  margin-block: 16px;
+}
+.materials .file .thumbnail img {
+  max-height: 100%;
+  min-width: 100%;
+}
+.materials .file .thumbnail .extention {
+  position: absolute;
+  inset-block-end: 0px;
+  inset-inline-start: 5px;
+  background-color: #ffd767;
+  color: #383938;
+  padding: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.19) -2px -3px 8px;
+  direction: ltr;
 }
 
 .public .home {

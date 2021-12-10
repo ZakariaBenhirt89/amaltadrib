@@ -21,6 +21,7 @@ class CreateMaterialsTable extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->string('title', 70)->nullable();
+            $table->string('extention', 10)->nullable()->default(null);
             $table->text('file')->nullable();
         });
     }
