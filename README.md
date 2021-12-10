@@ -14,3 +14,9 @@
 - AuthHelper 
     - getGuard() : return role of current user (or null in case guest user)
     - loggedUSer() : return current user from corespondent table ( or null in case guest user )   
+
+
+
+## Validation 
+
+    - passwords must have atleast 6 characters
