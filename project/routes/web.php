@@ -28,9 +28,10 @@ Route::prefix("/")->name("public.")->group(function () {
 
 Route::prefix("student")->name("student.")->group(function () {
     Route::get('/home', function () {return view('student.home');})->name("home");
-    Route::get('/videos', [App\Http\Controllers\student\VideosController::class,'index'])->name("videos");
-    Route::get('/video/{video:id}', [App\Http\Controllers\student\VideosController::class,'get'])->name("video");
-    Route::get('/podcasts', function () {return "podcasts";})->name("podcasts");
+    Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
+    Route::get('/video/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
+    Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
+    Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
     Route::get('/files', function () {return "files";})->name("files");
     Route::get('/logout', function () {return "logout";})->name("logout");
 });

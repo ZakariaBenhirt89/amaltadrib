@@ -6,8 +6,8 @@ $font-family-base: $font-family-sans-serif;
 $vh : calc(100vh - 70px);
 $warning : #ffd767;
 $dark : #383938;
-$body-color: #383938;
-
+$body-color: #f1f3f4;
+$light:#f1f3f4;
 @import "bootstrap";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "admin/main.scss";
