@@ -40,7 +40,7 @@ Route::prefix("student")->name("student.")->group(function () {
     // Files
     Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
     Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
-    Route::get('/rotations', function () { return "rotations";})->name("rotations");
+    Route::get('/rotations', [App\Http\Controllers\student\RotationController::class,'index'])->name("rotations");
     Route::get('/internships', function () { return "internships";})->name("internships");
     Route::get('/jobs', function () { return "jobs";})->name("jobs");
 });

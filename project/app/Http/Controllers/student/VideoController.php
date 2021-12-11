@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Video;
 use App\Models\WatchedVideo;
+use App\Helpers\AuthHelper;
 class VideoController extends Controller
 {
     public function index(){
-        $id = 1;
+        $id = AuthHelper::loggedUser()->id;
         $videos = Video::all();
         $watched = WatchedVideo::where('students_id',$id)->get();
         foreach($videos as $key=>$video){

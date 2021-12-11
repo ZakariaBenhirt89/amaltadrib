@@ -36,3 +36,97 @@
 //         background-color: #f1f3f4 !important;
 //     }
 // }
+tr:nth-of-type(odd){
+    > *{
+        --bs-table-accent-bg: #ffd76747 !important;
+    }
+}
+.btn{
+    transition: .3s;
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: rgba($warning,0.40) 0px 3px 8px;
+    }
+}
+
+div#example_length {
+    width: auto;
+    float: right;
+    margin-inline-end: 16px;
+}
+div.dataTables_wrapper div.dataTables_filter input.form-control.form-control-sm {
+    margin-inline-start: 8px;
+    border-color: black;
+    padding: 8px 16px;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    font-size: 1.3rem;
+}
+div.dataTables_wrapper div.dataTables_filter {
+    text-align: end;
+    float: left;
+    width: fit-content;
+}   
+div.dataTables_wrapper div.dataTables_length label {
+    font-weight: normal;
+    text-align: left;
+    white-space: nowrap;
+}
+div#table_length {
+    float: right;
+    margin-block: 16px;
+}
+input[type="search"] {
+    border:$warning 1px solid;
+    display: inline-block;
+    border-radius: 5px;
+    margin-inline-start: 8px;
+}
+select[name="table_length"] {
+    padding: 0.3rem;
+    border-radius: 3px;
+    border: $warning 1px solid;
+}
+div#table_filter {
+    margin-block: 8px;
+}
+div#table_paginate {
+    width: fit-content;
+    float: left;
+    color: $dark;
+}
+div#table_info {
+    float: right;
+    width: fit-content;
+    padding: 8px;
+    color: $dark;
+}
+.paginate_button {
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid rgba($warning,0.40);
+    background-color: rgba($warning,0.18);
+    margin-inline: 3px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover{
+        background-color: $warning;
+        border-color: $warning;
+        transform: translateY(-2px);
+        display: inline-block;
+    }
+    &.disabled{
+        background-color: $dark;
+        border-color: $dark;
+        color: $white;
+        opacity: .7;
+        cursor: not-allowed;
+    }
+    &.current{
+        background-color: $warning;
+        border-color: $warning;
+    }
+}
