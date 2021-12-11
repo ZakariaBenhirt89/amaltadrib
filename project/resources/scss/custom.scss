@@ -37,9 +37,12 @@
 //     }
 // }
 tr:nth-of-type(odd){
-    > *{
+    td{
         --bs-table-accent-bg: #ffd76747 !important;
     }
+}
+.table-bordered > :not(caption) > * {
+    border-color: rgba($warning,0.18);
 }
 .btn{
     transition: .3s;

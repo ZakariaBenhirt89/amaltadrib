@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <div class="p-2 shadow-md rounded border border-warning">
                     <div class="table-responsive">
-                        <table class="table table-striped" id="table">
+                        <table class="table table-striped table-bordered" id="table">
                             <thead>
                                 <th>العنوان</th>
                                 <th>من</th>
