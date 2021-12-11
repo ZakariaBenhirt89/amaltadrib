@@ -43,7 +43,8 @@ Route::prefix("student")->name("student.")->group(function () {
     Route::get('/rotations', [App\Http\Controllers\student\RotationController::class,'index'])->name("rotations");
     Route::get('/jobs',  [App\Http\Controllers\student\JobController::class,'index'])->name("jobs");
     Route::post('/job/apply/{job:id}',  [App\Http\Controllers\student\JobController::class,'apply'])->name("job.apply");
-    Route::get('/internships', function () { return "internships";})->name("internships");
+    Route::get('/internships', [App\Http\Controllers\student\InternshipController::class,'index'])->name("internships");
+    Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply");
 });
 use App\Models\Admin;
 use App\Models\Student;

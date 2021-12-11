@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Monitoring;
 use App\Helpers\AuthHelper;
-class rotationController extends Controller
+class RotationController extends Controller
 {
     public function index()
     {

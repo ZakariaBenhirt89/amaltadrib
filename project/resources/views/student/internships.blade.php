@@ -1,10 +1,10 @@
 @extends('layouts.student')
-@section('title','فرص العمل')
+@section('title','فرص سطاج')
 @section('content')
     <div class="container-fluid materials">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="h3 mb-3">فرص العمل</h2>
+                <h2 class="h3 mb-3">فرص سطاج</h2>
             </div>
         </div>
         <div class="row">
@@ -14,38 +14,35 @@
                         <table class="table table-striped table-bordered" id="table">
                             <thead>
                                 <th>العنوان</th>
-                                <th>الراتب</th>
-                                <th>المنصب</th>
                                 <th>المزود</th>
-                                <th>الموقع</th>
+                                <th>تبدأ في</th>
+                                <th>ينتهي عند</th>
                                 <th>المشرف</th>
                                 <th>البريد الإلكتروني للمشرف</th>
                                 <th>هاتف المشرف</th>
-                                <th>من</th>
-                                <th>إلى</th>
-                                <th>نوع العقد</th>
-                                <th>الوصف</th>
+                                <th>الأهداف</th>
+                                <th>إرشادات</th>
                                 <th></th>
                             </thead>
                             <tbody>
-                                @isset($jobs)
-                                    @foreach ($jobs as $job)
+                                @isset($internships)
+                                    @foreach ($internships as $internship)
                                         <tr>
-                                            <td>{{ $job->title }}</td>
-                                            <td>{{ $job->salary }}</td>
-                                            <td>{{ $job->position }}</td>
-                                            <td>{{ $job->provider }}</td>
-                                            <td>{{ $job->location }}</td>
-                                            <td>{{ $job->supervisor }}</td>
-                                            <td>{{ $job->supervisor_email }}</td>
-                                            <td>{{ $job->supervisor_phone }}</td>
-                                            <td>{{ $job->start }}</td>
-                                            <td>{{ $job->end }}</td>
-                                            <td>{{ $job->contract_type }}</td>
-                                            <td>{{ $job->description }}</td>
+                                            <td>{{ $internship->title }}</td>
+                                            <td>{{ $internship->salary }}</td>
+                                            <td>{{ $internship->position }}</td>
+                                            <td>{{ $internship->provider }}</td>
+                                            <td>{{ $internship->location }}</td>
+                                            <td>{{ $internship->supervisor }}</td>
+                                            <td>{{ $internship->supervisor_email }}</td>
+                                            <td>{{ $internship->supervisor_phone }}</td>
+                                            <td>{{ $internship->start }}</td>
+                                            <td>{{ $internship->end }}</td>
+                                            <td>{{ $internship->contract_type }}</td>
+                                            <td>{{ $internship->description }}</td>
                                             <td>
-                                                @if ($job->applied == 0)
-                                                    <form action="{{ route('student.job.apply',$job->id) }}" method="post">
+                                                @if ($internship->applied == 0)
+                                                    <form action="{{ route('student.internship.apply',$internship->id) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-success text-white">تقديم طلب</button>
                                                     </form>
@@ -59,17 +56,14 @@
                             </tbody>
                             <tfoot>
                                 <th>العنوان</th>
-                                <th>الراتب</th>
-                                <th>المنصب</th>
                                 <th>المزود</th>
-                                <th>الموقع</th>
+                                <th>تبدأ في</th>
+                                <th>ينتهي عند</th>
                                 <th>المشرف</th>
                                 <th>البريد الإلكتروني للمشرف</th>
                                 <th>هاتف المشرف</th>
-                                <th>من</th>
-                                <th>إلى</th>
-                                <th>نوع العقد</th>
-                                <th>الوصف</th>
+                                <th>الأهداف</th>
+                                <th>إرشادات</th>
                                 <th></th>
                             </tfoot>
                         </table>
