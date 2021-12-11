@@ -27,12 +27,25 @@ Route::prefix("/")->name("public.")->group(function () {
 
 
 Route::prefix("student")->name("student.")->group(function () {
-    Route::get('/home', function () {return view('student.home');})->name("home");
-    Route::get('/videos', [App\Http\Controllers\student\VideosController::class,'index'])->name("videos");
-    Route::get('/video/{video:id}', [App\Http\Controllers\student\VideosController::class,'get'])->name("video");
-    Route::get('/podcasts', function () {return "podcasts";})->name("podcasts");
-    Route::get('/files', function () {return "files";})->name("files");
+    // Logout
     Route::get('/logout', function () {return "logout";})->name("logout");
+    // Home
+    Route::get('/home', function () {return view('student.home');})->name("home");
+    // Videos
+    Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
+    Route::get('/video/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
+    // Podcasts
+    Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
+    Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
+    // Files
+    Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
+    Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
+    Route::get('/rotations', [App\Http\Controllers\student\RotationController::class,'index'])->name("rotations");
+    Route::post('/rotations/accept/{monitoring:id}', [App\Http\Controllers\student\RotationController::class,'accept'])->name("rotations.accept");
+    Route::get('/jobs',  [App\Http\Controllers\student\JobController::class,'index'])->name("jobs");
+    Route::post('/job/apply/{job:id}',  [App\Http\Controllers\student\JobController::class,'apply'])->name("job.apply");
+    Route::get('/internships', [App\Http\Controllers\student\InternshipController::class,'index'])->name("internships");
+    Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply");
 });
 use App\Models\Admin;
 use App\Models\Student;

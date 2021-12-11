@@ -32,7 +32,9 @@ class CreateJobsTable extends Migration
             $table->string('end', 45)->nullable();
             $table->string('contract_type', 70)->nullable();
             $table->text('description')->nullable();
+            $table->boolean('applied')->nullable()->default(false);
             $table->unsignedBigInteger('students_id');
+            $table->timestamps();
 
             $table->index(["students_id"], 'fk_jobs_students1_idx');
 

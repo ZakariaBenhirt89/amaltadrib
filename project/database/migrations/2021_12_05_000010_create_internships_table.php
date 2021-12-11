@@ -29,7 +29,9 @@ class CreateInternshipsTable extends Migration
             $table->string('supervisor_phone', 45)->nullable();
             $table->text('goals')->nullable();
             $table->text('guidlines')->nullable();
+            $table->boolean('applied')->nullable()->default(false);
             $table->unsignedBigInteger('students_id');
+            $table->timestamps();
 
             $table->index(["students_id"], 'fk_internships_students1_idx');
 
