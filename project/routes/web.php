@@ -41,6 +41,7 @@ Route::prefix("student")->name("student.")->group(function () {
     Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
     Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
     Route::get('/rotations', [App\Http\Controllers\student\RotationController::class,'index'])->name("rotations");
+    Route::post('/rotations/accept/{monitoring:id}', [App\Http\Controllers\student\RotationController::class,'accept'])->name("rotations.accept");
     Route::get('/jobs',  [App\Http\Controllers\student\JobController::class,'index'])->name("jobs");
     Route::post('/job/apply/{job:id}',  [App\Http\Controllers\student\JobController::class,'apply'])->name("job.apply");
     Route::get('/internships', [App\Http\Controllers\student\InternshipController::class,'index'])->name("internships");

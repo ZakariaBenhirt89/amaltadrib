@@ -24,7 +24,7 @@ class CreateMonitoringsTable extends Migration
             $table->string('start', 45)->nullable();
             $table->string('end', 45)->nullable();
             $table->string('place', 150)->nullable();
-            $table->integer('status')->nullable()->comment('0:created,1:inprogress,2:finished');
+            $table->boolean('accepted')->nullable()->default(false);
             $table->text('service')->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('students_id');

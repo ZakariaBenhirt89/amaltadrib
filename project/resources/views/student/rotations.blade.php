@@ -43,7 +43,10 @@
                                             <td>{{ $monitoring->description }}</td>
                                             <td>
                                                 @if ($monitoring->status == 0)
-                                                    <a class="btn btn-sm btn-success text-white">موافقة</a>
+                                                <form action="{{ route("student.rotations.accept",$monitoring->id)}}" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-success text-white">موافقة</button>
+                                                </form>
                                                 @else
                                                 <span></span>
                                                 @endif
