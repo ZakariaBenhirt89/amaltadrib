@@ -28,9 +28,9 @@ class CreateMonitoringsTable extends Migration
             $table->text('service')->nullable();
             $table->text('description')->nullable();
             $table->unsignedBigInteger('students_id');
+            $table->timestamps();
 
             $table->index(["students_id"], 'fk_monitoring_students1_idx');
-
 
             $table->foreign('students_id', 'fk_monitoring_students1_idx')
                 ->references('id')->on('students')

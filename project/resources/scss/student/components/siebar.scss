@@ -10,7 +10,7 @@
         float: right;
         width: 70px;
         min-height: 100vh;
-        display: inline-block;
+        // display: inline-block;
         .icon{
             display: block;
         }
@@ -21,11 +21,17 @@
             ul{
                 padding: 0;
                 list-style: none;
+                hr{
+                    display: none !important;
+                    // transform: translateX(-5px);
+                }
                 li{
                     text-align: center;
+                    padding: 0.5rem;
+                    margin-block-end: 1rem;
                     a{
                         font-size: 1rem;
-                        margin-block-end: 1rem;
+                        // margin-block-end: 1rem;
                         display: block;
                         span{
                             display: none;
@@ -33,6 +39,11 @@
                     }
                     &.title{
                         display: none;
+                    }
+                    &:hover{
+                        background-color: $dark;
+                        border-radius: 8px;
+                        margin-inline: 8px;
                     }
                 }
             }
@@ -49,11 +60,19 @@
             }
             nav{
                 ul{
-                    padding: 40px;
+                    padding-inline: 40px;
                     list-style: none;
+                    hr{
+                        border: none;
+                        width: 70%;
+                        margin-inline: auto;
+                        height: 1px;
+                        background-color: $dark;
+                        // display: inline-block;
+                    }   
                     li{
                         text-align: start;
-                        margin-block-end: 1.5rem;
+                        margin-block-end: .5rem;
                         a{
                             font-size: 1.2rem;
                             i{
@@ -62,19 +81,29 @@
                             }
                             span{
                                 display: inline-block;
-                                color: $warning;
+                                color: $dark;
                                 text-decoration: none;
                             }
                         }
                         &.title{
-                            color: $dark;
+                            color: $white;
                             margin-inline-start: -1rem;
                             display: block;
+                            background-color: $dark;
+                            border-radius: 8px;
                             a{
                                 color: $white;
                             }
                             i{
                                 color: $white;
+                            }
+                        }
+                        &:hover{
+                            margin-inline: 8px;
+                            a{
+                                span{
+                                    color: $white;
+                                }
                             }
                         }
                     }

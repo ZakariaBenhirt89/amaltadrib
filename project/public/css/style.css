@@ -15921,7 +15921,6 @@ textarea.form-control-lg {
   float: right;
   width: 70px;
   min-height: 100vh;
-  display: inline-block;
 }
 .student .sidebar * {
   transition: 0.3s;
@@ -15936,13 +15935,17 @@ textarea.form-control-lg {
   padding: 0;
   list-style: none;
 }
+.student .sidebar nav ul hr {
+  display: none !important;
+}
 .student .sidebar nav ul li {
   text-align: center;
+  padding: 0.5rem;
+  -webkit-margin-after: 1rem;
+          margin-block-end: 1rem;
 }
 .student .sidebar nav ul li a {
   font-size: 1rem;
-  -webkit-margin-after: 1rem;
-          margin-block-end: 1rem;
   display: block;
 }
 .student .sidebar nav ul li a span {
@@ -15950,6 +15953,11 @@ textarea.form-control-lg {
 }
 .student .sidebar nav ul li.title {
   display: none;
+}
+.student .sidebar nav ul li:hover {
+  background-color: #1e272e;
+  border-radius: 8px;
+  margin-inline: 8px;
 }
 .student.show-side-bar .sidebar {
   width: 300px;
@@ -15961,13 +15969,20 @@ textarea.form-control-lg {
   display: block;
 }
 .student.show-side-bar .sidebar nav ul {
-  padding: 40px;
+  padding-inline: 40px;
   list-style: none;
+}
+.student.show-side-bar .sidebar nav ul hr {
+  border: none;
+  width: 70%;
+  margin-inline: auto;
+  height: 1px;
+  background-color: #1e272e;
 }
 .student.show-side-bar .sidebar nav ul li {
   text-align: start;
-  -webkit-margin-after: 1.5rem;
-          margin-block-end: 1.5rem;
+  -webkit-margin-after: 0.5rem;
+          margin-block-end: 0.5rem;
 }
 .student.show-side-bar .sidebar nav ul li a {
   font-size: 1.2rem;
@@ -15979,19 +15994,27 @@ textarea.form-control-lg {
 }
 .student.show-side-bar .sidebar nav ul li a span {
   display: inline-block;
-  color: #ffd767;
+  color: #1e272e;
   text-decoration: none;
 }
 .student.show-side-bar .sidebar nav ul li.title {
-  color: #1e272e;
+  color: #fff;
   -webkit-margin-start: -1rem;
           margin-inline-start: -1rem;
   display: block;
+  background-color: #1e272e;
+  border-radius: 8px;
 }
 .student.show-side-bar .sidebar nav ul li.title a {
   color: #fff;
 }
 .student.show-side-bar .sidebar nav ul li.title i {
+  color: #fff;
+}
+.student.show-side-bar .sidebar nav ul li:hover {
+  margin-inline: 8px;
+}
+.student.show-side-bar .sidebar nav ul li:hover a span {
   color: #fff;
 }
 
@@ -16167,19 +16190,19 @@ textarea.form-control-lg {
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(255, 215, 103, 0.18) !important;
+  box-shadow: 0 1rem 3rem rgba(30, 39, 46, 0.18) !important;
 }
 .shadow-lg.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
 }
 .shadow-md {
-  box-shadow: 0 0.5rem 1rem rgba(255, 215, 103, 0.18) !important;
+  box-shadow: 0 0.5rem 1rem rgba(30, 39, 46, 0.18) !important;
 }
 .shadow-md.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
 }
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(255, 215, 103, 0.18) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(30, 39, 46, 0.18) !important;
 }
 .shadow-sm.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
