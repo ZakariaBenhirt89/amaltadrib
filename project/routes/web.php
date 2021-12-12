@@ -46,7 +46,7 @@ Route::prefix("student")->name("student.")->group(function () {
         Route::get('/jobs',  [App\Http\Controllers\student\JobController::class,'index'])->name("jobs");
         Route::post('/job/apply/{job:id}',  [App\Http\Controllers\student\JobController::class,'apply'])->name("job.apply");
         Route::get('/internships', [App\Http\Controllers\student\InternshipController::class,'index'])->name("internships");
-        Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply"); 
+        Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply");
     });
 });
 use App\Models\Admin;
@@ -93,6 +93,9 @@ Route::prefix('admin')->group(function () {
     Route::get('videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('admin-videos');
     Route::get('videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
     Route::post('videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
+    Route::get('videos/{video}/edit', [App\Http\Controllers\admin\VideoController::class,'showEditVideos'])->name('admin-videos_edit');
+    Route::put('videos/{video}', [App\Http\Controllers\admin\VideoController::class,'editVideo'])->name('admin-videos-action_edit');
+    Route::delete('videos/{video}', [App\Http\Controllers\admin\VideoController::class,'deleteVideo'])->name('admin-videos-action_delete');
 });
 
 

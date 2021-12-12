@@ -8,5 +8,16 @@
 </head>
 <body>
     {{ json_encode($videos) }}
+    <br>
+    @foreach ($videos as $video)
+        <h1>{{ $video->title }}</h1>
+        <p>{{ $video->durartion }}</p>
+        <form action="{{ route('admin-videos-action_delete',[$video->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Delete">
+        </form>
+        <hr>
+    @endforeach
 </body>
 </html>
