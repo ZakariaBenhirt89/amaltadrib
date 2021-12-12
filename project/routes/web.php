@@ -30,7 +30,7 @@ Route::prefix("student")->name("student.")->group(function () {
     // Logout
     Route::get('/logout', function () {return "logout";})->name("logout");
     // Home
-    Route::get('/home', function () {return view('student.home');})->name("home");
+    Route::get('/home', [App\Http\Controllers\student\HomeController::class,'index'])->name("home");
     // Videos
     Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
     Route::get('/video/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");

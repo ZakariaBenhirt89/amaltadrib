@@ -8,14 +8,15 @@
     <link rel="shortcut icon" href="{{ asset('images/logo.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="student show-side-bar">
+<body class="student">
     <div class="sidebar shadow-sm bg-white py-2" id="sideBar">
+        <span class="close d-md-none" onclick="window.toggleSideBar()"><i class="fa fa-times-circle"></i></span>
         <nav>
             <ul>
-                <li class="d-block">
-                    <img src="{{ asset('images/logo.svg') }}" alt="" class="logo w-75 m-auto img img-responsive m-1 mb-5">
+                {{-- <li class="d-block"> --}}
+                    <img src="{{ asset('images/logo.svg') }}" alt="" class="logo w-75 mx-auto mb-5 img img-responsive">
                     <img src="{{ asset('images/big-icon.svg') }}" alt="" class="icon w-75 img img-responsive mx-auto mb-5">
-                </li>
+                {{-- </li> --}}
                 <li>
                     <a href="{{ route('student.home') }}">
                         <i class="fa fa-home text-warning"></i><span>الصفحة الرئيسية</span>
@@ -39,13 +40,13 @@
                         <i class="fa fa-folder-open text-warning"></i><span>ملفات تربوية</span>
                     </a>
                 </li>
-                <li><hr class="p-0 m-0 border-none border-bottom border-warning"></li>
+                <hr>
                 <li>
                     <a href="{{ route('student.rotations') }}">
                         <i class="fa fa-sync text-warning"></i><span>دوراتي</span>
                     </a>
                 </li>
-                <hr class="p-0 mt-0">
+                <hr>
                 <li class="title">
                     <span>فرص</span>
                 </li>
