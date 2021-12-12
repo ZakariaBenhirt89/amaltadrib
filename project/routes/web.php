@@ -65,13 +65,16 @@ Route::prefix("student")->name("student.")->group(function () {
 // });
 
 Route::prefix('/admin')->name("admin.")->group(function () {
+    
     Route::get('/login', function () {return view("admin.login");});
     Route::post('/login', [App\Http\Controllers\admin\AdminController::class,"login"])->name("login");
+    // protected
     Route::middleware(['admin'])->group(function () {
+        Route::post('/logout', [App\Http\Controllers\admin\AdminController::class,"logout"])->name("logout");
         Route::get('/home', [App\Http\Controllers\admin\HomeController::class,'index'])->name("home");
         // students routes
         Route::prefix("/students")->name("students.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\StudentController::class,'showStudents'])->name('students');
+            Route::get('/', [App\Http\Controllers\admin\StudentController::class,'showStudents'])->name('all');
             Route::post('/', [App\Http\Controllers\admin\StudentController::class,'addStudent']);
             Route::get('/new', [App\Http\Controllers\admin\StudentController::class,'showAddStudent'])->name('students_add');
             Route::get('/{student}/edit', [App\Http\Controllers\admin\StudentController::class,'showEditStudent'])->name('students_edit');
@@ -81,7 +84,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
         // centers routes
         Route::prefix('/centers')->name("centers.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('centers');
+            Route::get('/', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('all');
             Route::post('/', [App\Http\Controllers\admin\CenterController::class,'addCenter']);
             Route::get('/new', [App\Http\Controllers\admin\CenterController::class,'showNewCenter'])->name('centers_new');
             Route::get('/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('centers_edit');
@@ -91,7 +94,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
         // chefs routes
         Route::prefix('/chefs')->name("chefs.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('chefs');
+            Route::get('/', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('all');
             Route::post('/', [App\Http\Controllers\admin\ChefController::class,'addChefs']);
             Route::get('/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('chefs_new');
             Route::get('/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('chefs_edit');
@@ -101,9 +104,27 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
         // videos routes
         Route::prefix('/videos')->name("videos.")->group(function () {
-            Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('admin-videos');
+            Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('all');
             Route::get('/videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
             Route::post('/videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
+        });
+        Route::prefix('/podcasts')->name("podcasts.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
+        });
+        Route::prefix('/materials')->name("materials.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
+        });
+        Route::prefix('/jobs')->name("jobs.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
+        });
+        Route::prefix('/internships')->name("internships.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
+        });
+        Route::prefix('/monitorings')->name("monitorings.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
+        });
+        Route::prefix('/services')->name("services.")->group(function () {
+            Route::get('/', function () {return "////";})->name("all");
         });
     });
 });
