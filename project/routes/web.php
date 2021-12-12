@@ -49,10 +49,10 @@ Route::prefix("student")->name("student.")->group(function () {
         Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply"); 
     });
 });
-use App\Models\Admin;
-use App\Models\Student;
-use App\Helpers\AuthHelper;
-use Illuminate\Support\Facades\Storage;
+// use App\Models\Admin;
+// use App\Models\Student;
+// use App\Helpers\AuthHelper;
+// use Illuminate\Support\Facades\Storage;
 
 
 
@@ -64,57 +64,68 @@ use Illuminate\Support\Facades\Storage;
 
 // });
 
-Route::prefix('admin')->group(function () {
-    // students routes
-    Route::get('students', [App\Http\Controllers\admin\StudentController::class,'showStudents'])->name('admin-students');
-    Route::post('students', [App\Http\Controllers\admin\StudentController::class,'addStudent']);
-    Route::get('students/new', [App\Http\Controllers\admin\StudentController::class,'showAddStudent'])->name('admin-students_add');
-    Route::get('students/{student}/edit', [App\Http\Controllers\admin\StudentController::class,'showEditStudent'])->name('admin-students_edit');
-    Route::put('students/{student}', [App\Http\Controllers\admin\StudentController::class,'editStudent'])->name('admin-students-action_edit');
-    Route::delete('students/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('admin-students-action_delete');
+Route::prefix('/admin')->name("admin.")->group(function () {
+    Route::get('/login', function () {return view("admin.login");});
+    Route::post('/login', [App\Http\Controllers\admin\AdminController::class,"login"])->name("login");
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/home', [App\Http\Controllers\admin\HomeController::class,'index'])->name("home");
+        // students routes
+        Route::prefix("/students")->name("students.")->group(function () {
+            Route::get('/', [App\Http\Controllers\admin\StudentController::class,'showStudents'])->name('students');
+            Route::post('/', [App\Http\Controllers\admin\StudentController::class,'addStudent']);
+            Route::get('/new', [App\Http\Controllers\admin\StudentController::class,'showAddStudent'])->name('students_add');
+            Route::get('/{student}/edit', [App\Http\Controllers\admin\StudentController::class,'showEditStudent'])->name('students_edit');
+            Route::put('/{student}', [App\Http\Controllers\admin\StudentController::class,'editStudent'])->name('students_action_edit');
+            Route::delete('/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('students_action_delete');
+        });
 
-    // centers routes
-    Route::get('centers', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('admin-centers');
-    Route::post('centers', [App\Http\Controllers\admin\CenterController::class,'addCenter']);
-    Route::get('centers/new', [App\Http\Controllers\admin\CenterController::class,'showNewCenter'])->name('admin-centers_new');
-    Route::get('centers/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('admin-centers_edit');
-    Route::put('centers/{center}', [App\Http\Controllers\admin\CenterController::class,'editCenter'])->name('admin-centers-action_edit');
-    Route::delete('centers/{center}', [App\Http\Controllers\admin\CenterController::class,'deleteCenter'])->name('admin-centers-action_delete');
+        // centers routes
+        Route::prefix('/centers')->name("centers.")->group(function () {
+            Route::get('/', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('centers');
+            Route::post('/', [App\Http\Controllers\admin\CenterController::class,'addCenter']);
+            Route::get('/new', [App\Http\Controllers\admin\CenterController::class,'showNewCenter'])->name('centers_new');
+            Route::get('/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('centers_edit');
+            Route::put('/{center}', [App\Http\Controllers\admin\CenterController::class,'editCenter'])->name('centers_action_edit');
+            Route::delete('/{center}', [App\Http\Controllers\admin\CenterController::class,'deleteCenter'])->name('centers_action_delete');
+        });
 
-    // chefs routes
-    Route::get('chefs', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('admin-chefs');
-    Route::get('chefs/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('admin-chefs_new');
-    Route::post('chefs', [App\Http\Controllers\admin\ChefController::class,'addChefs']);
-    Route::get('chefs/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('admin-chefs_edit');
-    Route::put('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('admin-chefs_action-edit');
-    Route::delete('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin-chefs-action_delete');
+        // chefs routes
+        Route::prefix('/chefs')->name("chefs.")->group(function () {
+            Route::get('/', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('chefs');
+            Route::post('/', [App\Http\Controllers\admin\ChefController::class,'addChefs']);
+            Route::get('/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('chefs_new');
+            Route::get('/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('chefs_edit');
+            Route::put('/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('chefs_action_edit');
+            Route::delete('/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin_chefs_action_delete');
+        });
 
-    // videos routes
-    Route::get('videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('admin-videos');
-    Route::get('videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
-    Route::post('videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
+        // videos routes
+        Route::prefix('/videos')->name("videos.")->group(function () {
+            Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('admin-videos');
+            Route::get('/videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
+            Route::post('/videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
+        });
+    });
 });
 
-
-//* Resources Routes
-Route::get('/students/avatars/{avatar}', function ($avatar) {
-    $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
-    if(!Storage::disk('local')->exists($filePath)){
-        return abort(404);
-    }
-    return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
-});
-// ->middleware('authentificated');
-Route::get('/chefs/avatars/{avatar}', function ($avatar) {
-    $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
-    if(!Storage::disk('local')->exists($filePath)){
-        return abort(404);
-    }
-    return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
-});
-
-
-
+/*
+    //* Resources Routes
+    Route::get('/students/avatars/{avatar}', function ($avatar) {
+        $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+        if(!Storage::disk('local')->exists($filePath)){
+            return abort(404);
+        }
+        return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+    })->name("student-avatar");
+    // ->middleware('authentificated');
+    Route::get('/chefs/avatars/{avatar}', function ($avatar) {
+        $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+        if(!Storage::disk('local')->exists($filePath)){
+            return abort(404);
+        }
+        return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+    })->name("admin-avatar");;
+*/
 
 
 
@@ -127,8 +138,7 @@ Route::get('/chefs/avatars/{avatar}', function ($avatar) {
 
 
 
-
-
+/*
 
 // For testing Authentification
 Route::get('/something',function (){
@@ -166,3 +176,7 @@ Route::get('/student',function (){
 // $passed = Auth::guard('admin')->attempt(['email' => "abc@def.gh", 'password' => '1234']);
 // echo json_encode($passed)."<br>";
 // echo json_encode(Auth::guard('admin')->user())."<br>".get_guard()."<br>";
+Route::get("/admin/login",function(){
+    echo "hello admin";
+});
+*/

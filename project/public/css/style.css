@@ -15888,6 +15888,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.public .admin-login {
+  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+.public .admin-login .row > div {
+  background-image: url(/images/bg-icon.png?5d2d244da9ed4e7fa7ad5f8497b307a5);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+}
+
 .student .content {
   width: calc(100vw - 70px);
   -webkit-margin-start: auto;
