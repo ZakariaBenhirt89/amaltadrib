@@ -9,7 +9,7 @@ require( 'datatables.net-buttons/js/buttons.print.js' )();
 
 
 $(document).ready( function () {
-    var table = $('#table').DataTable({
+    var table = $('.table').DataTable({
         buttons: [
           {
             extend: "excel",
