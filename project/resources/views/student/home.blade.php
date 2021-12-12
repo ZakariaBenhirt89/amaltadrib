@@ -42,8 +42,8 @@
                 <div class="shadow-md rounded border-warning border p-3">
                     <div class=""><strong>الملفات</strong></div>
                     <div class="d-flex justify-content-between">
-                      <div class="count"><span class="display-3 text-dark">@isset($files)
-                        {{ $files->count() }}
+                      <div class="count"><span class="display-3 text-dark">@isset($materials)
+                        {{ $materials->count() }}
                     @else
                     0
                     @endisset  </span></div>
@@ -77,7 +77,7 @@
                     </div>
                 @endforeach
             @endisset
-          <div class="col-md-12 text-end">
+          <div class="col-md-12 text-center text-md-start">
             <a href="{{ route("student.videos") }}" class="btn btn-warning">أظهر المزيد</a>
           </div>
         </div>
@@ -103,7 +103,7 @@
                     </div>
                 @endforeach
             @endisset
-          <div class="col-md-12 text-end">
+          <div class="col-md-12 text-center text-md-start">
             <a href="{{ route("student.podcasts") }}" class="btn btn-warning">أظهر المزيد</a>
           </div>
         </div>
@@ -129,7 +129,7 @@
                   </div>
                 @endforeach
             @endisset
-          <div class="col-md-12 text-end">
+          <div class="col-md-12 text-center text-md-start">
             <a href="{{ route("student.files") }}" class="btn btn-warning">أظهر المزيد</a>
           </div>
         </div>
