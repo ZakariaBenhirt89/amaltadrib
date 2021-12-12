@@ -112,3 +112,41 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+ .student{
+     .sidebar{
+        position: fixed;
+        z-index: 20;
+        left: 0px;
+        right: 0px;
+        min-width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        overflow-y: auto;
+        transform: translateX(100%);
+        .close {
+            color: $danger;
+            padding: 1rem;
+            display: block;
+            width: fit-content;
+            font-size: 2rem;
+            position: fixed;
+            cursor: pointer;
+            inset-inline-start: .5rem;
+            inset-block-start: .5rem;
+        }
+     }
+     &.show-side-bar{
+        .sidebar{
+            transform: translateX(0px);
+        }
+        .content {
+            width: 100%;
+        }
+     }
+    .content {
+        width: 100%;
+    }
+ } 
+}

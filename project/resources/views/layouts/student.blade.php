@@ -8,8 +8,9 @@
     <link rel="shortcut icon" href="{{ asset('images/logo.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="student show-side-bar">
+<body class="student">
     <div class="sidebar shadow-sm bg-white py-2" id="sideBar">
+        <span class="close d-md-none" onclick="window.toggleSideBar()"><i class="fa fa-times-circle"></i></span>
         <nav>
             <ul>
                 {{-- <li class="d-block"> --}}
