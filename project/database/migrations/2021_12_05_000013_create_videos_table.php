@@ -23,8 +23,9 @@ class CreateVideosTable extends Migration
             $table->string('title', 70)->nullable();
             $table->string('durartion', 45)->nullable();
             $table->text('file')->nullable();
+            $table->text('thumbnail')->nullable();
             $table->unsignedBigInteger('chefs_id');
-
+            $table->timestamps();
             $table->index(["chefs_id"], 'fk_videos_chefs1_idx');
 
 
