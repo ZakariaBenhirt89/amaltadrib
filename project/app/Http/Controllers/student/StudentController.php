@@ -22,4 +22,14 @@ class StudentController extends Controller
         return back()->withErrors([__('message.email or password is not good, please verify and try again')])->withInput($request->only('email', 'remember'));
     }
 
+    public function logout(Request $request)
+    {
+        Auth::guard('student')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        return redirect()->route('public.login');
+    }
+
 }
