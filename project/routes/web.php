@@ -73,15 +73,30 @@ Route::prefix('admin')->group(function () {
     Route::get('chefs/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('admin-chefs_edit');
     Route::put('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('admin-chefs_action-edit');
     Route::delete('chefs/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin-chefs-action_delete');
+
+    // videos routes
+    Route::get('videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('admin-videos');
+    Route::get('videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
+    Route::post('videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
 });
 
+
+//* Resources Routes
 Route::get('/students/avatars/{avatar}', function ($avatar) {
     $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
     if(!Storage::disk('local')->exists($filePath)){
         return abort(404);
     }
     return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
-})->middleware('authentificated');
+});
+// ->middleware('authentificated');
+Route::get('/chefs/avatars/{avatar}', function ($avatar) {
+    $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+    if(!Storage::disk('local')->exists($filePath)){
+        return abort(404);
+    }
+    return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+});
 
 
 

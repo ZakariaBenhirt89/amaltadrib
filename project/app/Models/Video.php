@@ -9,6 +9,14 @@ class Video extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "title",
+        "durartion",
+        "file",
+        "thumbnail",
+        "chefs_id",
+    ];
+
     /**
      * Get the Chef that owns the Video
      *
