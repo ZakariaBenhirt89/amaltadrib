@@ -26,12 +26,12 @@
                     <span>عناصر أساسية</span>
                 </li>
                 <li>
-                    <a href="{{ route('admin.chefs.all') }}">
+                    <a href="{{ route('admin.students.all') }}">
                         <i class="fas fa-user-graduate text-warning"></i><span>المتدربين</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.students.all') }}">
+                    <a href="{{ route('admin.chefs.all') }}">
                         <i class="fas fa-chalkboard-teacher text-warning"></i><span>مدربين</span>
                     </a>
                 </li>

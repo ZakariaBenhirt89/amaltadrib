@@ -11,7 +11,7 @@ class ChefController extends Controller
     function showChefs()
     {
         $chefs = Chef::all();
-        return view('public.show-chefs',['chefs'=>$chefs]);
+        return view('admin.chefs',['chefs'=>$chefs]);
     }
     function showNewChefs()
     {
