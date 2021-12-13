@@ -14,13 +14,13 @@ class StudentController extends Controller
 {
     function showStudents(){
         $students = Student::all();
-        return view('public.show-students',['students'=>$students]);
+        return view('admin.show-students',['students'=>$students]);
     }
     function showAddStudent(){
-        return view('public.add-students');
+        return view('admin.add-students');
     }
     function showEditStudent(Student $student){
-        return view('public.edit-students',['student'=>$student]);
+        return view('admin.edit-students',['student'=>$student]);
     }
     function addStudent(Request $request){
         // dd($request);
@@ -47,7 +47,7 @@ class StudentController extends Controller
         $studentData['avatar'] = basename($imageName);
         $studentData['password'] = Hash::make($studentData['password']);
         Student::create($studentData);
-        return redirect()->route('admin-students');
+        return redirect()->route('admin.students.all');
     }
     function editStudent(Student $student,Request $request){
         // dd($request);
@@ -70,10 +70,10 @@ class StudentController extends Controller
         $studentData = ['password'=>$request->password];
         $studentData['password'] = Hash::make($studentData['password']);
         Student::where('id',$student->id)->update($studentData);
-        return redirect()->route('admin-students');
+        return redirect()->route('admin.students.all');
     }
     function deleteStudent(Student $student){
         $student->delete();
-        return redirect()->route('admin-students');
+        return redirect()->route('admin.students.all');
     }
 }

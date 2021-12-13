@@ -19,7 +19,7 @@
         <p>{{ $student->email }}</p>
         <p>{{ $student->phone }}</p>
         <p>{{ $student->address }}</p>
-        <form action="{{ route('admin-students-action_delete',[$student->id]) }}" method="POST">
+        <form action="{{ route('admin.students.action_delete',[$student->id]) }}" method="POST">
             @method('DELETE')
             @csrf
             <input type="submit" value="DELETE">

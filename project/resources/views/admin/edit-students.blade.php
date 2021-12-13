@@ -12,7 +12,7 @@
         {{ json_encode($errors->all()) }}
     </pre>
     @endif
-    <form action="{{ route('admin-students-action_edit',[$student->id]) }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
+    <form action="{{ route('admin.students.action_edit',[$student->id]) }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
         @method('PUT')
         @csrf
         {{-- <input type="file" name="avatar" placeholder="avatar" value="{{ $student->avatar }}"/>

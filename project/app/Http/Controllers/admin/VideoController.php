@@ -13,11 +13,11 @@ class VideoController extends Controller
     function showVideos()
     {
         $videos = Video::all();
-        return view('public.show-videos',compact('videos'));
+        return view('admin.show-videos',compact('videos'));
     }
     function showAddVideos(){
         $chefs = \App\Models\Chef::all();
-        return view('public.new-video',compact('chefs'));
+        return view('admin.new-video',compact('chefs'));
     }
     function addVideos(Request $request){
         $this->validate($request,[
@@ -54,11 +54,11 @@ class VideoController extends Controller
             'thumbnail' => basename($thumbnailPath),
             'chefs_id' => $request->chefs_id,
         ]);
-        return redirect()->route('admin-videos');
+        return redirect()->route('admin.videos.all');
     }
     function showEditVideos(Video $video){
         $chefs = \App\Models\Chef::all();
-        return view('public.edit-video',compact('chefs','video'));
+        return view('admin.edit-video',compact('chefs','video'));
     }
 
     function editVideo(Video $video,Request $request){
@@ -73,10 +73,10 @@ class VideoController extends Controller
             'thumbnail' => $thumbnail,
             'chefs_id' => $request->chefs_id,
         ]);
-        return redirect()->route('admin-videos');
+        return redirect()->route('admin.videos.all');
     }
     function deleteVideo(Video $video){
         $video->delete();
-        return redirect()->route('admin-videos');
+        return redirect()->route('admin.videos.all');
     }
 }

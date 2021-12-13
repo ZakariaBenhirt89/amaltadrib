@@ -12,7 +12,7 @@
                         </div>
                         <div class="shadow-md border border-warning rounded p-1 bg-warning">
                             <video width="100%" controls>
-                                <source src="{{$video->file}}" type="video/mp4">
+                                <source src="{{ route('videos',[$video->file]) }}" type="video/mp4">
                                 متصفحك لا يدعم مشغل الفيديو
                             </video>
                         </div>
@@ -20,4 +20,26 @@
             @endisset
         </div>
     </div>
+
+    <script>
+        const videoId = "video-{{ $video->id }}";
+        const video = document.querySelector('video');
+        const requiredDuration = 50
+        const api = "/"
+        video.addEventListener('timeupdate', function() {
+            const persentage = video.currentTime / video.duration * 100;
+            if( persentage > requiredDuration && localStorage.getItem(videoId) === null ) {
+                localStorage.setItem(videoId, true);
+                notifyServer();
+            }
+        });
+
+        function notifyServer(){
+            const options = {
+                method: 'POST',
+                //Todo include id of video
+            }
+            fetch(api,options);
+        }
+    </script>
 @endsection
