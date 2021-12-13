@@ -10,7 +10,7 @@ class CenterController extends Controller
     function showCenters()
     {
         $centers = Center::all();
-        return view('public.show-centers', compact('centers'));
+        return view('admin.centers', compact('centers'));
     }
     function showNewCenter(Request $request)
     {

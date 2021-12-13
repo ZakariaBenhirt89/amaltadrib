@@ -89,7 +89,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/new', [App\Http\Controllers\admin\CenterController::class,'showNewCenter'])->name('centers_new');
             Route::get('/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('centers_edit');
             Route::put('/{center}', [App\Http\Controllers\admin\CenterController::class,'editCenter'])->name('centers_action_edit');
-            Route::delete('/{center}', [App\Http\Controllers\admin\CenterController::class,'deleteCenter'])->name('centers_action_delete');
+            Route::delete('/{center}', [App\Http\Controllers\admin\CenterController::class,'delete'])->name('delete');
         });
 
         // chefs routes
