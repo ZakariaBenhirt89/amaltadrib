@@ -13,11 +13,11 @@ class VideoController extends Controller
     function index()
     {
         $videos = Video::all();
-        return view('admin.videos',compact('videos'));
+        return view('admin.videos.all',compact('videos'));
     }
-    function create(){
+    function add(){
         $chefs = \App\Models\Chef::all();
-        return view('public.new-video',compact('chefs'));
+        return view('admin.videos.add',compact('chefs'));
     }
     function store(Request $request){
         $this->validate($request,[
