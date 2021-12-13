@@ -162,7 +162,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
     });
 });
 
-/*
+
     //* Resources Routes
     Route::get('/students/avatars/{avatar}', function ($avatar) {
         $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
@@ -179,7 +179,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         }
         return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
     })->name("admin-avatar");;
-*/
+
 
 
 
