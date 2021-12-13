@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title','فرص عمل')
+@section('title','سطاج')
 @section('content')
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">فرص عمل</h2>
+          <h2 class="h3 mb-3">سطاج</h2>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -33,8 +33,8 @@
                               <td>{{ $internship->start}}</td>
                               <td>{{ $internship->end}}</td>
                               <td>{{ $internship->supervisor}}</td>
-                              <td>{{ $internship->supervisor_email}}</td>
-                              <td>{{ $internship->supervisor_phone}}</td>
+                              <td><a class="btn btn-sm btn-info" href="mailto:{{ $internship->supervisor_email}}">{{ $internship->supervisor_email}}</a></td>
+                              <td><a class="btn btn-sm btn-secondary" href="tel:{{ $internship->supervisor_phone}}">{{ $internship->supervisor_phone}}</a></td>
                               <td>{{ $internship->goals}}</td>
                               <td>{{ $internship->guidlines}}</td>
                               <td>

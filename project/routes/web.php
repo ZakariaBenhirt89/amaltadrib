@@ -126,10 +126,12 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::post('/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'delete'])->name("delete");
         });
         Route::prefix('/monitorings')->name("monitorings.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\MonitoringController::class,'index'])->name("all");
+            Route::post('/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'delete'])->name("delete");
         });
         Route::prefix('/services')->name("services.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\ServiceController::class,'index'])->name("all");
+            Route::post('/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'delete'])->name("delete");
         });
     });
 });

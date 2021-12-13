@@ -18,4 +18,14 @@ class Monitoring extends Model
     {
         return $this->belongsTo(Student::class, 'students_id', 'id');
     }
+
+    /**
+     * Get the Service associated with the Monitoring
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Service()
+    {
+        return $this->hasOne(Service::class, 'id', 'services_id');
+    }
 }
