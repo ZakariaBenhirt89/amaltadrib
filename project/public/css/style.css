@@ -4642,7 +4642,7 @@ readers do not read off random characters that represent icons */
   --bs-warning: #ffd767;
   --bs-danger: #dc3545;
   --bs-light: #f1f3f4;
-  --bs-dark: #1e272e;
+  --bs-dark: #18113c;
   --bs-primary-rgb: 60, 64, 198;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 5, 196, 107;
@@ -4650,7 +4650,7 @@ readers do not read off random characters that represent icons */
   --bs-warning-rgb: 255, 215, 103;
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 241, 243, 244;
-  --bs-dark-rgb: 30, 39, 46;
+  --bs-dark-rgb: 24, 17, 60;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 56, 57, 56;
@@ -6711,15 +6711,15 @@ progress {
 }
 
 .table-dark {
-  --bs-table-bg: #1e272e;
-  --bs-table-striped-bg: #293238;
+  --bs-table-bg: #18113c;
+  --bs-table-striped-bg: #241d46;
   --bs-table-striped-color: #fff;
-  --bs-table-active-bg: #353d43;
+  --bs-table-active-bg: #2f2950;
   --bs-table-active-color: #fff;
-  --bs-table-hover-bg: #2f373e;
+  --bs-table-hover-bg: #29234b;
   --bs-table-hover-color: #fff;
   color: #fff;
-  border-color: #353d43;
+  border-color: #2f2950;
 }
 
 .table-responsive {
@@ -7842,32 +7842,32 @@ textarea.form-control-lg {
 
 .btn-dark {
   color: #fff;
-  background-color: #1e272e;
-  border-color: #1e272e;
+  background-color: #18113c;
+  border-color: #18113c;
 }
 .btn-dark:hover {
   color: #fff;
-  background-color: #1a2127;
-  border-color: #181f25;
+  background-color: #140e33;
+  border-color: #130e30;
 }
 .btn-check:focus + .btn-dark, .btn-dark:focus {
   color: #fff;
-  background-color: #1a2127;
-  border-color: #181f25;
-  box-shadow: 0 0 0 0.25rem rgba(64, 71, 77, 0.5);
+  background-color: #140e33;
+  border-color: #130e30;
+  box-shadow: 0 0 0 0.25rem rgba(59, 53, 89, 0.5);
 }
 .btn-check:checked + .btn-dark, .btn-check:active + .btn-dark, .btn-dark:active, .btn-dark.active, .show > .btn-dark.dropdown-toggle {
   color: #fff;
-  background-color: #181f25;
-  border-color: #171d23;
+  background-color: #130e30;
+  border-color: #120d2d;
 }
 .btn-check:checked + .btn-dark:focus, .btn-check:active + .btn-dark:focus, .btn-dark:active:focus, .btn-dark.active:focus, .show > .btn-dark.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(64, 71, 77, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(59, 53, 89, 0.5);
 }
 .btn-dark:disabled, .btn-dark.disabled {
   color: #fff;
-  background-color: #1e272e;
-  border-color: #1e272e;
+  background-color: #18113c;
+  border-color: #18113c;
 }
 
 .btn-outline-primary {
@@ -8046,27 +8046,27 @@ textarea.form-control-lg {
 }
 
 .btn-outline-dark {
-  color: #1e272e;
-  border-color: #1e272e;
+  color: #18113c;
+  border-color: #18113c;
 }
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #1e272e;
-  border-color: #1e272e;
+  background-color: #18113c;
+  border-color: #18113c;
 }
 .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
-  box-shadow: 0 0 0 0.25rem rgba(30, 39, 46, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(24, 17, 60, 0.5);
 }
 .btn-check:checked + .btn-outline-dark, .btn-check:active + .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show {
   color: #fff;
-  background-color: #1e272e;
-  border-color: #1e272e;
+  background-color: #18113c;
+  border-color: #18113c;
 }
 .btn-check:checked + .btn-outline-dark:focus, .btn-check:active + .btn-outline-dark:focus, .btn-outline-dark:active:focus, .btn-outline-dark.active:focus, .btn-outline-dark.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(30, 39, 46, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(24, 17, 60, 0.5);
 }
 .btn-outline-dark:disabled, .btn-outline-dark.disabled {
-  color: #1e272e;
+  color: #18113c;
   background-color: transparent;
 }
 
@@ -9597,12 +9597,12 @@ textarea.form-control-lg {
 }
 
 .alert-dark {
-  color: #12171c;
-  background-color: #d2d4d5;
-  border-color: #bcbec0;
+  color: #0e0a24;
+  background-color: #d1cfd8;
+  border-color: #bab8c5;
 }
 .alert-dark .alert-link {
-  color: #0e1216;
+  color: #0b081d;
 }
 
 @-webkit-keyframes progress-bar-stripes {
@@ -9979,17 +9979,17 @@ textarea.form-control-lg {
 }
 
 .list-group-item-dark {
-  color: #12171c;
-  background-color: #d2d4d5;
+  color: #0e0a24;
+  background-color: #d1cfd8;
 }
 .list-group-item-dark.list-group-item-action:hover, .list-group-item-dark.list-group-item-action:focus {
-  color: #12171c;
-  background-color: #bdbfc0;
+  color: #0e0a24;
+  background-color: #bcbac2;
 }
 .list-group-item-dark.list-group-item-action.active {
   color: #fff;
-  background-color: #12171c;
-  border-color: #12171c;
+  background-color: #0e0a24;
+  border-color: #0e0a24;
 }
 
 .btn-close {
@@ -11084,10 +11084,10 @@ textarea.form-control-lg {
 }
 
 .link-dark {
-  color: #1e272e;
+  color: #18113c;
 }
 .link-dark:hover, .link-dark:focus {
-  color: #181f25;
+  color: #130e30;
 }
 
 .ratio {
@@ -11516,7 +11516,7 @@ textarea.form-control-lg {
 }
 
 .border-dark {
-  border-color: #1e272e !important;
+  border-color: #18113c !important;
 }
 
 .border-white {
@@ -15969,7 +15969,7 @@ textarea.form-control-lg {
   margin-inline: 8px;
 }
 .admin .sidebar nav ul li:hover i {
-  color: #1e272e !important;
+  color: #18113c !important;
 }
 .admin.show-side-bar .sidebar {
   width: 300px;
@@ -15989,7 +15989,7 @@ textarea.form-control-lg {
   width: 70%;
   margin-inline: auto;
   height: 1px;
-  background-color: #1e272e;
+  background-color: #18113c;
 }
 .admin.show-side-bar .sidebar nav ul li {
   text-align: start;
@@ -16010,7 +16010,7 @@ textarea.form-control-lg {
   text-decoration: none;
 }
 .admin.show-side-bar .sidebar nav ul li.title {
-  color: #1e272e;
+  color: #18113c;
   -webkit-margin-start: -1rem;
           margin-inline-start: -1rem;
   display: block;
@@ -16146,7 +16146,7 @@ textarea.form-control-lg {
   display: none;
 }
 .student .sidebar nav ul li:hover {
-  background-color: #1e272e;
+  background-color: #18113c;
   border-radius: 8px;
   margin-inline: 8px;
 }
@@ -16168,7 +16168,7 @@ textarea.form-control-lg {
   width: 70%;
   margin-inline: auto;
   height: 1px;
-  background-color: #1e272e;
+  background-color: #18113c;
 }
 .student.show-side-bar .sidebar nav ul li {
   text-align: start;
@@ -16185,7 +16185,7 @@ textarea.form-control-lg {
 }
 .student.show-side-bar .sidebar nav ul li a span {
   display: inline-block;
-  color: #1e272e;
+  color: #18113c;
   text-decoration: none;
 }
 .student.show-side-bar .sidebar nav ul li.title {
@@ -16193,7 +16193,7 @@ textarea.form-control-lg {
   -webkit-margin-start: -1rem;
           margin-inline-start: -1rem;
   display: block;
-  background-color: #1e272e;
+  background-color: #18113c;
   border-radius: 8px;
 }
 .student.show-side-bar .sidebar nav ul li.title a {
@@ -16254,7 +16254,7 @@ textarea.form-control-lg {
   position: absolute;
   inset-block: 0px;
   inset-inline: 0px;
-  background-color: rgba(30, 39, 46, 0.4);
+  background-color: rgba(24, 17, 60, 0.4);
   z-index: 0;
   transition: 0.3s;
   font-family: "Font Awesome 5 Free";
@@ -16266,7 +16266,7 @@ textarea.form-control-lg {
   font-size: 3rem;
 }
 .video-box:hover::before {
-  background-color: rgba(30, 39, 46, 0.6);
+  background-color: rgba(24, 17, 60, 0.6);
   font-size: 4rem;
 }
 .video-box.disabled {
@@ -16318,7 +16318,7 @@ textarea.form-control-lg {
   inset-block-end: 0px;
   inset-inline-start: 5px;
   background-color: #ffd767;
-  color: #1e272e;
+  color: #18113c;
   padding: 4px;
   display: flex;
   justify-content: center;
@@ -16379,7 +16379,7 @@ textarea.form-control-lg {
   inset-block-end: 0px;
   inset-inline-start: 5px;
   background-color: #ffd767;
-  color: #1e272e;
+  color: #18113c;
   padding: 4px;
   display: flex;
   justify-content: center;
@@ -16397,7 +16397,7 @@ textarea.form-control-lg {
 }
 
 .form-control {
-  border: 1px solid #1e272e;
+  border: 1px solid #18113c;
 }
 
 ::-moz-placeholder {
@@ -16416,19 +16416,19 @@ textarea.form-control-lg {
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(30, 39, 46, 0.18) !important;
+  box-shadow: 0 1rem 3rem rgba(24, 17, 60, 0.18) !important;
 }
 .shadow-lg.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
 }
 .shadow-md {
-  box-shadow: 0 0.5rem 1rem rgba(30, 39, 46, 0.18) !important;
+  box-shadow: 0 0.5rem 1rem rgba(24, 17, 60, 0.18) !important;
 }
 .shadow-md.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
 }
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(30, 39, 46, 0.18) !important;
+  box-shadow: 0 0.125rem 0.25rem rgba(24, 17, 60, 0.18) !important;
 }
 .shadow-sm.border-warning {
   border-color: rgba(255, 215, 103, 0.4) !important;
@@ -16518,7 +16518,7 @@ div#table_paginate {
   width: -moz-fit-content;
   width: fit-content;
   float: left;
-  color: #1e272e;
+  color: #18113c;
 }
 
 div#table_info {
@@ -16527,7 +16527,7 @@ div#table_info {
   width: -moz-fit-content;
   width: fit-content;
   padding: 8px;
-  color: #1e272e;
+  color: #18113c;
 }
 
 .paginate_button {
@@ -16548,8 +16548,8 @@ div#table_info {
   display: inline-block;
 }
 .paginate_button.disabled {
-  background-color: #1e272e;
-  border-color: #1e272e;
+  background-color: #18113c;
+  border-color: #18113c;
   color: #fff;
   opacity: 0.7;
   cursor: not-allowed;
@@ -16557,4 +16557,171 @@ div#table_info {
 .paginate_button.current {
   background-color: #ffd767;
   border-color: #ffd767;
+}
+
+audio {
+  width: 300px;
+  height: 30px;
+  /* FIXME these shouldn't use special pseudoShadowIds, but nicer rules.
+     https://code.google.com/p/chromium/issues/detail?id=112508
+     https://bugs.webkit.org/show_bug.cgi?id=62218
+  */
+  /* The negative right margin causes the track to overflow its container. */
+}
+audio::-webkit-media-controls, audio::-webkit-media-controls-enclosure, audio video::-webkit-media-controls-enclosure {
+  width: 100%;
+  max-width: 800px;
+  height: 30px;
+  flex-shrink: 0;
+  bottom: 0;
+  text-indent: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+audio::-webkit-media-controls-panel, audio video::-webkit-media-controls-panel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* We use flex-start here to ensure that the play button is visible even
+   * if we are too small to show all controls.
+   */
+  justify-content: flex-start;
+  -webkit-user-select: none;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+  overflow: hidden;
+  text-align: right;
+  bottom: auto;
+  height: 30px;
+  background-color: #ffd767;
+  border-radius: 5px;
+  /* The duration is also specified in MediaControlElements.cpp and LayoutTests/media/media-controls.js */
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+audio audio:-webkit-full-page-media, audio video:-webkit-full-page-media {
+  max-height: 100%;
+  max-width: 100%;
+}
+audio audio:-webkit-full-page-media::-webkit-media-controls-panel, audio::-webkit-media-controls-mute-button, audio video::-webkit-media-controls-mute-button {
+  -webkit-appearance: media-mute-button;
+  display: flex;
+  flex: none;
+  border: none;
+  box-sizing: border-box;
+  width: 35px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 6px 0 0;
+  padding: 0;
+  background-color: initial;
+  color: inherit;
+}
+audio::-webkit-media-controls-overlay-enclosure {
+  display: none;
+}
+audio::-webkit-media-controls-play-button, audio video::-webkit-media-controls-play-button {
+  -webkit-appearance: media-play-button;
+  display: flex;
+  flex: none;
+  border: none;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: 9px;
+  margin-right: 9px;
+  padding: 0;
+  background-color: initial;
+  color: inherit;
+}
+audio::-webkit-media-controls-timeline-container, audio video::-webkit-media-controls-timeline-container {
+  -webkit-appearance: media-controls-background;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1;
+  -webkit-user-select: none;
+  height: 16px;
+  min-width: 0;
+}
+audio::-webkit-media-controls-current-time-display, audio video::-webkit-media-controls-current-time-display, audio::-webkit-media-controls-time-remaining-display, audio video::-webkit-media-controls-time-remaining-display {
+  -webkit-appearance: media-current-time-display;
+  -webkit-user-select: none;
+  flex: none;
+  display: flex;
+  border: none;
+  cursor: default;
+  height: 30px;
+  margin: 0 9px 0 0;
+  padding: 0;
+  line-height: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  font-style: normal;
+  color: white;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0;
+  text-shadow: none;
+  text-decoration: none;
+}
+audio::-webkit-media-controls-timeline, audio video::-webkit-media-controls-timeline {
+  -webkit-appearance: media-slider;
+  display: flex;
+  flex: 1 1 auto;
+  height: 8px;
+  margin: 0 15px 0 0;
+  padding: 0;
+  background-color: transparent;
+  min-width: 25px;
+  border: initial;
+  color: inherit;
+}
+audio::-webkit-media-controls-volume-slider, audio video::-webkit-media-controls-volume-slider {
+  -webkit-appearance: media-volume-slider;
+  display: flex;
+  /* The 1.9 value was empirically chosen to match old-flexbox behaviour
+   * and be aesthetically pleasing.
+   */
+  flex: 1 1.9 auto;
+  height: 8px;
+  max-width: 70px;
+  margin: 0 15px 0 0;
+  padding: 0;
+  background-color: transparent;
+  min-width: 15px;
+  border: initial;
+  color: inherit;
+}
+audio::-webkit-media-controls-fullscreen-button, audio video::-webkit-media-controls-fullscreen-button {
+  -webkit-appearance: media-enter-fullscreen-button;
+  display: flex;
+  flex: none;
+  border: none;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: -5px;
+  margin-right: 9px;
+  padding: 0;
+  background-color: initial;
+  color: inherit;
+}
+audio::-webkit-media-controls-toggle-closed-captions-button {
+  display: none;
+}
+audio::-webkit-media-controls-fullscreen-volume-slider, audio video::-webkit-media-controls-fullscreen-volume-slider {
+  display: none;
+}
+audio::-webkit-media-controls-fullscreen-volume-min-button, audio video::-webkit-media-controls-fullscreen-volume-min-button {
+  display: none;
+}
+audio::-webkit-media-controls-fullscreen-volume-max-button, audio video::-webkit-media-controls-fullscreen-volume-max-button {
+  display: none;
 }

@@ -33,7 +33,7 @@ class CreateChefsTable extends Migration
 
             $table->foreign('centers_id', 'fk_chefs_centers_idx')
                 ->references('id')->on('centers')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }

@@ -59,24 +59,6 @@
         </div>
         <div class="col-md-3 mb-3">
             <div class="shadow-md rounded border-warning border p-3">
-                <div class=""><strong>فرص عمل</strong></div>
-                <div class="d-flex justify-content-between">
-                  <div class="count"><span class="display-3 text-dark">
-                    @isset($jobs)
-                      {{$jobs->count()}}
-                      @else
-                      0  
-                    @endisset
-                </span></div>
-                  <div class=" h2 display-4 text-warning">
-                    <i class="fas fa-user-tie"></i>
-                  </div>
-                </div>
-                <div class="small text-muted"> أشرطة فيديو تدريبية</div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-3">
-            <div class="shadow-md rounded border-warning border p-3">
                 <div class=""><strong>بودكاستات</strong></div>
                 <div class="d-flex justify-content-between">
                   <div class="count"><span class="display-3 text-dark">
@@ -130,6 +112,24 @@
             </div>
         </div>
         <div class="col-md-3 mb-3">
+          <div class="shadow-md rounded border-warning border p-3">
+              <div class=""><strong>فرص عمل</strong></div>
+              <div class="d-flex justify-content-between">
+                <div class="count"><span class="display-3 text-dark">
+                  @isset($jobs)
+                    {{$jobs->count()}}
+                    @else
+                    0  
+                  @endisset
+              </span></div>
+                <div class=" h2 display-4 text-warning">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+              </div>
+              <div class="small text-muted"> أشرطة فيديو تدريبية</div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
             <div class="shadow-md rounded border-warning border p-3">
                 <div class=""><strong>سطاج</strong></div>
                 <div class="d-flex justify-content-between">
@@ -174,8 +174,24 @@
                         @isset($students)
                           @foreach ($students as $student)
                             <tr>
-                              <td></td>
-                            </tr> 
+                              <td class="text-nowrap"><img src="{{ asset($student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
+                              <td><a href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
+                              <td>{{ $student->birthday }}</td>
+                              <td class="text-nowrap">{{ $student->level }}</td>
+                              <td><a href="tel:{{ $student->gardian_number}}" class="btn btn-sm btn-dark">{{ $student->gardian_number}}</a></td>
+                              <td>{{ $student->family_situation }}</td>
+                              <td>{{ $student->number_of_children }}</td>
+                              <td>{{ $student->cin_number }}</td>
+                              <td><span class="text-nowrap">{{ $student->adress }}</span></td>
+                              <td><a href="mailto:{{ $student->email }}" class="btn btn-sm btn-info">{{ $student->email }}</a></td>
+                              <td><small title="{{ $student->more_details }}" class="text-truncate d-block" title style="max-width: 150px;">{{ $student->more_details }}</small></td>
+                              <td>
+                                  <form action="{{ route("admin.students.delete",$student->id) }}" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                </form>
+                              </td>
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
@@ -217,7 +233,16 @@
                         @isset($videos)
                           @foreach ($videos as $video)
                             <tr>
-                              <td></td>
+                              <td><img src="{{ $video->thumbnail }}" width="30" height="30" class="mx-3" alt="">{{ $video->title }}</td>
+                              <td>{{ $video->durartion }}</td>
+                              <td><a target="_blank" href="{{ $video->file }}" class="btn btn-primary btn-sm">عرض</a></td>
+                              <td>{{ $video->chef->fname }} {{ $video->chef->lname }}</td>
+                              <td>
+                                <form action="{{ route("admin.videos.delete",$video->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                              </form>
+                            </td>
                             </tr> 
                           @endforeach
                         @endisset
@@ -252,7 +277,19 @@
                         @isset($podcasts)
                           @foreach ($podcasts as $podcast)
                             <tr>
-                              <td></td>
+                              <td>{{ $podcast->title }}</td>
+                              <td>{{ $podcast->duration }}</td>
+                              <td>
+                                <audio controls>
+                                  <source src="{{ $podcast->file }}" type="audio/mp4">
+                                </audio>
+                              </td>
+                              <td>
+                                <form action="{{ route("admin.podcasts.delete",$podcast->id) }}" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                </form>
+                              </td>
                             </tr> 
                           @endforeach
                         @endisset
@@ -283,10 +320,18 @@
                         <th></th>
                       </thead>
                       <tbody>
-                        @isset($matarials)
-                          @foreach ($matarials as $material)
+                        @isset($materials)
+                          @foreach ($materials as $material)
                             <tr>
-                              <td></td>
+                              <td>{{ $material->title}}</td>
+                              <td>{{ $material->extention}}</td>
+                              <td><a href="{{ $material->file}}" download="true" class="btn btn-sm btn-dark">تحميل</a></td>
+                              <td>
+                                <form action="{{ route("admin.materials.delete",$material->id) }}" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                </form>
+                              </td>
                             </tr> 
                           @endforeach
                         @endisset

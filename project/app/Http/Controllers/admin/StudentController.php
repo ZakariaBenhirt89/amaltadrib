@@ -12,17 +12,17 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
-    function showStudents(){
+    function index(){
         $students = Student::all();
-        return view('admin.show-students',['students'=>$students]);
+        return view('admin.students',['students'=>$students]);
     }
-    function showAddStudent(){
-        return view('admin.add-students');
+    function add(){
+        return view('public.add-students');
     }
     function showEditStudent(Student $student){
         return view('admin.edit-students',['student'=>$student]);
     }
-    function addStudent(Request $request){
+    function store(Request $request){
         // dd($request);
         $request->validate([
             "avatar"=>"required|mimes:jpg,jpeg,png",
@@ -49,7 +49,7 @@ class StudentController extends Controller
         Student::create($studentData);
         return redirect()->route('admin.students.all');
     }
-    function editStudent(Student $student,Request $request){
+    function update(Student $student,Request $request){
         // dd($request);
         $request->validate([
             // "avatar"=>"mimes:jpg,jpeg,png",
@@ -72,8 +72,8 @@ class StudentController extends Controller
         Student::where('id',$student->id)->update($studentData);
         return redirect()->route('admin.students.all');
     }
-    function deleteStudent(Student $student){
+    function delete(Student $student){
         $student->delete();
-        return redirect()->route('admin.students.all');
+        return redirect()->route('admin.students');
     }
 }

@@ -74,61 +74,91 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         Route::get('/home', [App\Http\Controllers\admin\HomeController::class,'index'])->name("home");
         // students routes
         Route::prefix("/students")->name("students.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\StudentController::class,'showStudents'])->name('all');
-            Route::post('/', [App\Http\Controllers\admin\StudentController::class,'addStudent']);
-            Route::get('/new', [App\Http\Controllers\admin\StudentController::class,'showAddStudent'])->name('students_add');
-            Route::get('/{student}/edit', [App\Http\Controllers\admin\StudentController::class,'showEditStudent'])->name('edit');
-            Route::put('/{student}', [App\Http\Controllers\admin\StudentController::class,'editStudent'])->name('action_edit');
-            Route::delete('/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('action_delete');
+            Route::get('/', [App\Http\Controllers\admin\StudentController::class,'index'])->name('all');
+            Route::get('/add', [App\Http\Controllers\admin\StudentController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\StudentController::class,'store'])->name('store');
+            Route::get('/edit/{student}', [App\Http\Controllers\admin\StudentController::class,'edit'])->name('edit');
+            Route::put('/update/{student}', [App\Http\Controllers\admin\StudentController::class,'update'])->name('update');
+            Route::post('/delete/{student}', [App\Http\Controllers\admin\StudentController::class,'delete'])->name('delete');
         });
 
         // centers routes
         Route::prefix('/centers')->name("centers.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\CenterController::class,'showCenters'])->name('all');
-            Route::post('/', [App\Http\Controllers\admin\CenterController::class,'addCenter']);
-            Route::get('/new', [App\Http\Controllers\admin\CenterController::class,'showNewCenter'])->name('centers_new');
-            Route::get('/{center}/edit', [App\Http\Controllers\admin\CenterController::class,'showEditCenter'])->name('centers_edit');
-            Route::put('/{center}', [App\Http\Controllers\admin\CenterController::class,'editCenter'])->name('centers_action_edit');
-            Route::delete('/{center}', [App\Http\Controllers\admin\CenterController::class,'deleteCenter'])->name('centers_action_delete');
+            Route::get('/', [App\Http\Controllers\admin\CenterController::class,'index'])->name('all');
+            Route::get('/add', [App\Http\Controllers\admin\CenterController::class,'add'])->name('add');
+            Route::post('/store', [App\Http\Controllers\admin\CenterController::class,'store'])->name("store");
+            Route::get('/edit/{center}', [App\Http\Controllers\admin\CenterController::class,'edit'])->name('edit');
+            Route::put('/update/{center}', [App\Http\Controllers\admin\CenterController::class,'update'])->name('update');
+            Route::delete('/delete/{center}', [App\Http\Controllers\admin\CenterController::class,'delete'])->name('delete');
         });
 
         // chefs routes
         Route::prefix('/chefs')->name("chefs.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\ChefController::class,'showChefs'])->name('all');
-            Route::post('/', [App\Http\Controllers\admin\ChefController::class,'addChefs']);
-            Route::get('/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('chefs_new');
-            Route::get('/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('chefs_edit');
-            Route::put('/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('chefs_action_edit');
-            Route::delete('/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin_chefs_action_delete');
+            Route::get('/', [App\Http\Controllers\admin\ChefController::class,'index'])->name('all');
+            Route::get('/add', [App\Http\Controllers\admin\ChefController::class,'add'])->name('add');
+            Route::post('/sotre', [App\Http\Controllers\admin\ChefController::class,'store'])->name("store");
+            Route::get('/edit/{chef}', [App\Http\Controllers\admin\ChefController::class,'edit'])->name('edit');
+            Route::put('/update/{chef}', [App\Http\Controllers\admin\ChefController::class,'update'])->name('update');
+            Route::delete('/delete/{chef}', [App\Http\Controllers\admin\ChefController::class,'delete'])->name('delete');
         });
 
         // videos routes
         Route::prefix('/videos')->name("videos.")->group(function () {
-            Route::get('/', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('all');
-            Route::get('/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('new');
-            Route::post('/', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
-            Route::get('/{video}/edit', [App\Http\Controllers\admin\VideoController::class,'showEditVideos'])->name('edit');
-            Route::put('/{video}', [App\Http\Controllers\admin\VideoController::class,'editVideo'])->name('action_edit');
-            Route::delete('/{video}', [App\Http\Controllers\admin\VideoController::class,'deleteVideo'])->name('action_delete');
+            Route::get('/', [App\Http\Controllers\admin\VideoController::class,'index'])->name('all');
+            Route::get('/add', [App\Http\Controllers\admin\VideoController::class,'add'])->name("add");
+            Route::post('/stroe', [App\Http\Controllers\admin\VideoController::class,'store'])->name("store");
+            Route::post('/edit/{video:id}', [App\Http\Controllers\admin\VideoController::class,'edit'])->name("edit");
+            Route::post('/update/{video:id}', [App\Http\Controllers\admin\VideoController::class,'update'])->name("update");
+            Route::post('/delete/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
         });
 
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\PodcastController::class,'store'])->name("store");
+            Route::post('/edit/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'edit'])->name("edit");
+            Route::post('/update/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'update'])->name("update");
+            Route::post('/delete/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'delete'])->name("delete");
         });
         Route::prefix('/materials')->name("materials.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\MaterialController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\MaterialController::class,'store'])->name("store");
+            Route::post('/edit/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'edit'])->name("edit");
+            Route::post('/update/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'update'])->name("update");
+            Route::post('/delete/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'delete'])->name("delete");
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\JobController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\JobController::class,'store'])->name("store");
+            Route::post('/edit/{job:id}', [App\Http\Controllers\admin\JobController::class,'edit'])->name("edit");
+            Route::post('/update/{job:id}', [App\Http\Controllers\admin\JobController::class,'update'])->name("update");
+            Route::post('/{job:id}', [App\Http\Controllers\admin\JobController::class,'delete'])->name("delete");
         });
         Route::prefix('/internships')->name("internships.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\InternshipController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\InternshipController::class,'store'])->name("store");
+            Route::post('/edit/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'edit'])->name("edit");
+            Route::post('/update/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'update'])->name("update");
+            Route::post('/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'delete'])->name("delete");
         });
         Route::prefix('/monitorings')->name("monitorings.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\MonitoringController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\MonitoringController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\MonitoringController::class,'store'])->name("store");
+            Route::post('/edit/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'edit'])->name("edit");
+            Route::post('/update/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'update'])->name("update");
+            Route::post('/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'delete'])->name("delete");
         });
         Route::prefix('/services')->name("services.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\ServiceController::class,'index'])->name("all");
+            Route::post('/add', [App\Http\Controllers\admin\ServiceController::class,'add'])->name("add");
+            Route::post('/store', [App\Http\Controllers\admin\ServiceController::class,'store'])->name("store");
+            Route::post('/edit/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'edit'])->name("edit");
+            Route::post('/update/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'update'])->name("update");
+            Route::post('/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'delete'])->name("delete");
         });
     });
 });

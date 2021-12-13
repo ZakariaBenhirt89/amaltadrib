@@ -4,22 +4,22 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Podcast;
-class PodcastController extends Controller
+use App\Models\Service;
+class ServiceController extends Controller
 {
     public function index()
     {
         $data = [
-            "podcasts" => Podcast::all()
+            "services" => Service::all()
         ];
-        return view("admin.podcasts",$data);
+        return view("admin.services",$data);
     }
 
-    public function delete(Podcast $podcast)
+    public function delete(Service $service)
     {
         try {
-            $podcast->delete();
-            return redirect()->route("admin.podcasts.all");
+            $service->delete();
+            return redirect()->route("admin.services.all");
         } catch (\Throwable $th) {
             return redirect()->back();
         }

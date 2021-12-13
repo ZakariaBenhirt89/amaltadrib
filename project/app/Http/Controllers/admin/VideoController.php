@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
-    function showVideos()
+    function index()
     {
         $videos = Video::all();
-        return view('admin.show-videos',compact('videos'));
+        return view('admin.videos',compact('videos'));
     }
-    function showAddVideos(){
+    function create(){
         $chefs = \App\Models\Chef::all();
         return view('admin.new-video',compact('chefs'));
     }
-    function addVideos(Request $request){
+    function store(Request $request){
         $this->validate($request,[
             'title' => 'required',
             'durartion' => 'numeric|required',
@@ -78,5 +78,15 @@ class VideoController extends Controller
     function deleteVideo(Video $video){
         $video->delete();
         return redirect()->route('admin.videos.all');
+    }
+
+    public function delete(Video $video)
+    {
+        try {
+            $video->delete();
+            return redirect()->route("admin.videos.all");
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
 }
