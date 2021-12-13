@@ -13,7 +13,7 @@ class VideoController extends Controller
     function index()
     {
         $videos = Video::all();
-        return view('public.show-videos',compact('videos'));
+        return view('admin.videos',compact('videos'));
     }
     function create(){
         $chefs = \App\Models\Chef::all();

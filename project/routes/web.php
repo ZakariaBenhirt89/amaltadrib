@@ -104,7 +104,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
         // videos routes
         Route::prefix('/videos')->name("videos.")->group(function () {
-            Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('all');
+            Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'index'])->name('all');
             Route::get('/videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
             Route::post('/videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
             Route::post('/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
