@@ -19,7 +19,7 @@ class ServiceController extends Controller
     {
         try {
             $service->delete();
-            return redirect()->route("admin.services");
+            return redirect()->route("admin.services.all");
         } catch (\Throwable $th) {
             return redirect()->back();
         }
