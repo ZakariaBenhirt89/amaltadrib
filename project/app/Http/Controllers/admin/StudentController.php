@@ -25,26 +25,28 @@ class StudentController extends Controller
     function store(Request $request){
         // dd($request);
         $request->validate([
-            "avatar"=>"required|mimes:jpg,jpeg,png",
+            "avatar"=>"mimes:jpg,jpeg,png",
             "fname"=>"required",
             "lname"=>"required",
             "phone"=>"required",
-            "birthday"=>"required|date",
-            "level"=>"required",
+            "birthday"=>"date",
+            "level"=>"",
             "gardian_number"=>"required",
-            "family_situation"=>"required",
-            "number_of_children"=>"required|integer",
+            "family_situation"=>"",
+            "number_of_children"=>"integer",
             "cin_number"=>"required",
             "adress"=>"required",
             "email"=>"required|unique:students",
             "password"=>"required|min:6",
-            "more_details"=>"required",
+            "more_details"=>"",
         ]);
-        // $imageName = Storage::disk('local')->put('students/avatars', $request->avatar);
-        $imageName = $request->file('avatar')->store('students/avatars');
-        // dd([$imageName,basename($imageName)]);
         $studentData = $request->except('avatar');
-        $studentData['avatar'] = basename($imageName);
+        if($request->hasFile('avatar')){
+            // $imageName = Storage::disk('local')->put('students/avatars', $request->avatar);
+            $imageName = $request->file('avatar')->store('students/avatars');
+            // dd([$imageName,basename($imageName)]);
+            $studentData['avatar'] = basename($imageName);
+        }
         $studentData['password'] = Hash::make($studentData['password']);
         Student::create($studentData);
         return redirect()->route('admin.students.all');

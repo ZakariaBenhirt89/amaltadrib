@@ -8,6 +8,13 @@
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                </div>
+            @endif
             <form action="{{ route('admin.students.store') }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
                 @csrf
                 <div class="row">
@@ -17,36 +24,36 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">الإسم:</label>
-                        <input class="form-control" type="text" name="fname" value="{{ old("fname") }}" placeholder="الإسم..." />
+                        <input required class="form-control" type="text" name="fname" value="{{ old("fname") }}" placeholder="الإسم..." />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">النسب:</label>
-                        <input class="form-control" type="text" name="lname" value="{{ old("lname") }}" placeholder="النسب..." />
+                        <input required class="form-control" type="text" name="lname" value="{{ old("lname") }}" placeholder="النسب..." />
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">الهاتف:</label>
-                        <input class="form-control" type="tel" name="phone" value="{{ old("phone") }}" placeholder="الهاتف..." />
+                        <input required class="form-control" type="tel" name="phone" value="{{ old("phone") }}" placeholder="الهاتف..." />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">تاريخ الميلاد:</label>
                         <input class="form-control" type="date" name="birthday" value="{{ old("birthday") }}" placeholder="تاريخ الميلاد..." />
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="">المستوى الدراسي:</label>
+                        <label for="">المستوى الدراسي: {{ old("level") }}</label>
                         <select name="level" id="level" class="form-control form-select">
                             <option value="" disabled selected>المستوى الدراسي...</option>
-                            <option @if(old("level" == "مرتبط")) selected @endif value="مرتبط">مرتبط</option>
-                            <option @if(old("level" == "غير مرتبطة")) selected @endif value="غير مرتبطة">غير مرتبطة</option>
-                            <option @if(old("level" == "مطلق")) selected @endif value="مطلق">مطلق</option>
+                            <option {{ old('level') == "مرتبط" ? 'selected="true"' : 'مرتبط' }} value="مرتبط">مرتبط</option>
+                            <option {{ old('level') == "غير مرتبط" ? 'selected="true"' : 'غير مرتبط' }} value="غير مرتبط">غير مرتبط</option>
+                            <option {{ old('level') == "مطلق" ? 'selected="true"' : 'مطلق' }} value="مطلق">مطلق</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">رفم هاتف الوصي:</label>
-                        <input class="form-control" type="tel" name="gardian_number" value="{{ old("gardian_number") }}" placeholder="رفم هاتف الوصي..." />
+                        <input required class="form-control" type="tel" name="gardian_number" value="{{ old("gardian_number") }}" placeholder="رفم هاتف الوصي..." />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">الحالة العائلية:</label>
@@ -60,11 +67,11 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">رقم البطاقة الوطنية:</label>
-                        <input class="form-control" type="text" name="cin_number" value="{{ old("cin_number") }}" placeholder="رقم البطاقة الوطنية..." />
+                        <input required class="form-control" type="text" name="cin_number" value="{{ old("cin_number") }}" placeholder="رقم البطاقة الوطنية..." />
                     </div>
                     <div class="form-group col-md-8">
                         <label for="">العنوان:</label>
-                        <input class="form-control" type="text" name="adress" value="{{ old("adress") }}" placeholder="العنوان..." />
+                        <input required class="form-control" type="text" name="adress" value="{{ old("adress") }}" placeholder="العنوان..." />
                     </div>
                     <div class="form-group col-md-12">
                         <label for="">المزيد من التفاصيل:</label>
@@ -74,11 +81,11 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="">البريد الإلكتروني:</label>
-                        <input class="form-control" type="text" name="email" value="{{ old("email") }}" placeholder="البريد الإلكتروني..." />
+                        <input required class="form-control" type="text" name="email" value="{{ old("email") }}" placeholder="البريد الإلكتروني..." />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">كلمة المرور:</label>
-                        <input class="form-control" type="password" name="password" placeholder="كلمة المرور..." />
+                        <input required class="form-control" type="password" name="password" placeholder="كلمة المرور..." />
                     </div>
                 </div>
                 <div class="form-group">

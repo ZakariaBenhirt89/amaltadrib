@@ -30,7 +30,7 @@
                       <tbody>
                         @isset($students)
                           @foreach ($students as $student)
-                            <tr>
+                          <tr>
                               <td class="text-nowrap"><img src="{{ route("student-avatar",$student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
                               <td class="text-nowrap"><a dir="ltr" href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
                               <td>{{ $student->birthday }}</td>

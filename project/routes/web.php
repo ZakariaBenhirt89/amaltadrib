@@ -164,7 +164,10 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
 
     //* Resources Routes
-    Route::get('/students/avatars/{avatar}', function ($avatar) {
+    Route::get('/students/avatars/{avatar?}', function ($avatar = null) {        
+        if($avatar == null){
+            return response()->file("../public/images/student/avatar.png");
+        }
         $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
         if(!Storage::disk('local')->exists($filePath)){
             return abort(404);
@@ -172,7 +175,10 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
     })->name("student-avatar");
     // ->middleware('authentificated');
-    Route::get('/chefs/avatars/{avatar}', function ($avatar) {
+    Route::get('/chefs/avatars/{avatar?}', function ($avatar) {
+        if($avatar == null){
+            return response()->file("../public/images/chefs/avatar.png");
+        }
         $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
         if(!Storage::disk('local')->exists($filePath)){
             return abort(404);
