@@ -114,7 +114,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::post('/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'delete'])->name("delete");
         });
         Route::prefix('/materials')->name("materials.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\MaterialController::class,'index'])->name("all");
             Route::post('/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'delete'])->name("delete");
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
