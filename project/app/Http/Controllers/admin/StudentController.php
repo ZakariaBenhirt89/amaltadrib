@@ -14,7 +14,7 @@ class StudentController extends Controller
 {
     function showStudents(){
         $students = Student::all();
-        return view('admin.show-students',['students'=>$students]);
+        return view('admin.students',['students'=>$students]);
     }
     function showAddStudent(){
         return view('public.add-students');
