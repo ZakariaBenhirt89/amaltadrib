@@ -110,7 +110,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::post('/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
         });
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
             Route::post('/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'delete'])->name("delete");
         });
         Route::prefix('/materials')->name("materials.")->group(function () {

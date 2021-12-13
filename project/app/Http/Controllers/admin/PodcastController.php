@@ -12,7 +12,7 @@ class PodcastController extends Controller
         $data = [
             "podcasts" => Podcast::all()
         ];
-        return view("admin.podcasts.all");
+        return view("admin.podcasts",$data);
     }
 
     public function delete(Podcast $podcast)
