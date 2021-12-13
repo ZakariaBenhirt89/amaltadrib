@@ -118,7 +118,8 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::post('/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'delete'])->name("delete");
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
-            Route::get('/', function () {return "////";})->name("all");
+            Route::get('/', [App\Http\Controllers\admin\JobController::class,'index'])->name("all");
+            Route::post('/{job:id}', [App\Http\Controllers\admin\JobController::class,'delete'])->name("delete");
         });
         Route::prefix('/internships')->name("internships.")->group(function () {
             Route::get('/', function () {return "////";})->name("all");
