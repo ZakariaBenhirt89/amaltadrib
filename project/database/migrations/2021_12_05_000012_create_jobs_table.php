@@ -41,7 +41,7 @@ class CreateJobsTable extends Migration
 
             $table->foreign('students_id', 'fk_jobs_students1_idx')
                 ->references('id')->on('students')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }

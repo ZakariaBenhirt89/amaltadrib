@@ -8,17 +8,17 @@ use \App\Models\Chef;
 use \App\Models\Center;
 class ChefController extends Controller
 {
-    function showChefs()
+    function index()
     {
         $chefs = Chef::all();
         return view('admin.chefs',['chefs'=>$chefs]);
     }
-    function showNewChefs()
+    function add()
     {
         $centers = Center::all();
         return view('public.new-chefs',compact('centers'));
     }
-    function addChefs(Request $request)
+    function store(Request $request)
     {
         $request->validate([
             'avatar' => 'required|mimes:jpg,jpeg,png',
@@ -33,13 +33,13 @@ class ChefController extends Controller
         $chefData = $request->except(['_token']);
         $chefData['avatar'] = basename($filePath);
         Chef::create($chefData);
-        return redirect()->route('admin-chefs');
+        return redirect()->route('admin.chefs');
     }
-    function showEditChefs(Chef $chef){
+    function edit(Chef $chef){
         $centers = Center::all();
         return view('public.edit-chefs',compact('chef','centers'));
     }
-    function editChef(Chef $chef,Request $request){
+    function update(Chef $chef,Request $request){
         $request->validate([
             'avatar' => 'nullable|mimes:jpg,jpeg,png',
             'fname' => 'required',
@@ -55,11 +55,11 @@ class ChefController extends Controller
             $chefData['avatar'] = basename($filePath);
         }
         Chef::where('id',$chef->id)->update($chefData);
-        return redirect()->route('admin-chefs');
+        return redirect()->route('admin.chefs.all');
     }
 
-    function deleteChef(Chef $chef){
+    function delete(Chef $chef){
         $chef->delete();
-        return redirect()->route('admin-chefs');
+        return redirect()->route('admin.chefs.all');
     }
 }

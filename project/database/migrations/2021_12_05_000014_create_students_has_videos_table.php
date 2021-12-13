@@ -30,12 +30,12 @@ class CreateStudentsHasVideosTable extends Migration
 
             $table->foreign('students_id', 'fk_students_has_videos_students1_idx')
                 ->references('id')->on('students')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
 
             $table->foreign('videos_id', 'fk_students_has_videos_videos1_idx')
                 ->references('id')->on('videos')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }

@@ -31,7 +31,7 @@ class CreateVideosTable extends Migration
 
             $table->foreign('chefs_id', 'fk_videos_chefs1_idx')
                 ->references('id')->on('chefs')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }

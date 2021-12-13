@@ -7,16 +7,16 @@ use Illuminate\Http\Request;
 use \App\Models\Center;
 class CenterController extends Controller
 {
-    function showCenters()
+    function index()
     {
         $centers = Center::all();
         return view('admin.centers', compact('centers'));
     }
-    function showNewCenter(Request $request)
+    function add(Request $request)
     {
-        return view('public.new-centers');
+        return view('admin.new-centers');
     }
-    function addCenter(Request $request)
+    function store(Request $request)
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -26,11 +26,11 @@ class CenterController extends Controller
         Center::create($request->all());
         return redirect()->route('admin-centers');
     }
-    function showEditCenter(Center $center)
+    function edit(Center $center)
     {
         return view('public.edit-centers',compact('center'));
     }
-    function editCenter(Center $center,Request $request)
+    function update(Center $center,Request $request)
     {
         // dd($center);
         $request->validate([
@@ -39,11 +39,11 @@ class CenterController extends Controller
             'phone' => 'required|max:255',
         ]);
         Center::where("id",$center->id)->update($request->except(['_token','_method']));
-        return redirect()->route('admin-centers');
+        return redirect()->route('admin.centers');
     }
-    function deleteCenter(Center $center)
+    function delete(Center $center)
     {
         $center->delete();
-        return redirect()->route('admin-centers');
+        return redirect()->route('admin.centers');
     }
 }

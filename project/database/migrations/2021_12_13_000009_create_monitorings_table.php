@@ -33,7 +33,7 @@ class CreateMonitoringsTable extends Migration
             $table->index(["students_id"], 'fk_monitoring_students1_idx');
             $table->index(["services_id"], 'fk_monitoring_services1_idx');
 
-            $table->foreign('students_id', 'fk_monitoring_students1_idx')->references('id')->on('students')->onDelete('no action')->onUpdate('no action');
+            $table->foreign('students_id', 'fk_monitoring_students1_idx')->references('id')->on('students')->onDelete('cascade')->onUpdate('no action');
             $table->foreign('services_id', 'fk_monitoring_services1_idx')->references('id')->on('services')->onDelete('cascade')->onUpdate('no action');
         });
     }
