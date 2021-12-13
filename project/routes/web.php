@@ -79,7 +79,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/new', [App\Http\Controllers\admin\StudentController::class,'showAddStudent'])->name('students_add');
             Route::get('/{student}/edit', [App\Http\Controllers\admin\StudentController::class,'showEditStudent'])->name('students_edit');
             Route::put('/{student}', [App\Http\Controllers\admin\StudentController::class,'editStudent'])->name('students_action_edit');
-            Route::delete('/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('students_action_delete');
+            Route::post('/{student}', [App\Http\Controllers\admin\StudentController::class,'deleteStudent'])->name('delete');
         });
 
         // centers routes
@@ -99,7 +99,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/new', [App\Http\Controllers\admin\ChefController::class,'showNewChefs'])->name('chefs_new');
             Route::get('/{chef}/edit', [App\Http\Controllers\admin\ChefController::class,'showEditChefs'])->name('chefs_edit');
             Route::put('/{chef}', [App\Http\Controllers\admin\ChefController::class,'editChef'])->name('chefs_action_edit');
-            Route::delete('/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('admin_chefs_action_delete');
+            Route::delete('/{chef}', [App\Http\Controllers\admin\ChefController::class,'deleteChef'])->name('delete');
         });
 
         // videos routes
@@ -107,12 +107,15 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/videos', [App\Http\Controllers\admin\VideoController::class,'showVideos'])->name('all');
             Route::get('/videos/new', [App\Http\Controllers\admin\VideoController::class,'showAddVideos'])->name('admin-videos_new');
             Route::post('/videos', [App\Http\Controllers\admin\VideoController::class,'addVideos']);
+            Route::post('/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
         });
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
             Route::get('/', function () {return "////";})->name("all");
+            Route::post('/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'delete'])->name("delete");
         });
         Route::prefix('/materials')->name("materials.")->group(function () {
             Route::get('/', function () {return "////";})->name("all");
+            Route::post('/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'delete'])->name("delete");
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
             Route::get('/', function () {return "////";})->name("all");

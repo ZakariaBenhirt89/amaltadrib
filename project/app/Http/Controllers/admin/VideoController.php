@@ -10,16 +10,16 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
-    function showVideos()
+    function index()
     {
         $videos = Video::all();
         return view('public.show-videos',compact('videos'));
     }
-    function showAddVideos(){
+    function create(){
         $chefs = \App\Models\Chef::all();
         return view('public.new-video',compact('chefs'));
     }
-    function addVideos(Request $request){
+    function store(Request $request){
         $this->validate($request,[
             'title' => 'required',
             'durartion' => 'numeric|required',
@@ -40,5 +40,15 @@ class VideoController extends Controller
         // $thumbnailFile = base64_decode($request->thumbnail);
         // $thumbnailPath = Storage::disk('local')->put('videos/thumbnails.jpg',$thumbnailFile);
         dd([$filePath,basename($filePath),$thumbnailPath]);
+    }
+
+    public function delete(Video $video)
+    {
+        try {
+            $video->delete();
+            return redirect()->route("admin.videos.all");
+        } catch (\Throwable $th) {
+            return redirect()->back();
+        }
     }
 }

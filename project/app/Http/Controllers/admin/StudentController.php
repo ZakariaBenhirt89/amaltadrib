@@ -14,7 +14,7 @@ class StudentController extends Controller
 {
     function showStudents(){
         $students = Student::all();
-        return view('public.show-students',['students'=>$students]);
+        return view('admin.show-students',['students'=>$students]);
     }
     function showAddStudent(){
         return view('public.add-students');
@@ -74,6 +74,6 @@ class StudentController extends Controller
     }
     function deleteStudent(Student $student){
         $student->delete();
-        return redirect()->route('admin-students');
+        return redirect()->route('admin.home');
     }
 }

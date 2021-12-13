@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="{{ asset('images/logo.svg') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
-<body class="admin show-side-bar">
+<body class="admin">
     <div class="sidebar shadow-sm bg-dark py-2" id="sideBar">
         <span class="close d-md-none" onclick="window.toggleSideBar()"><i class="fa fa-times-circle"></i></span>
         <nav>
