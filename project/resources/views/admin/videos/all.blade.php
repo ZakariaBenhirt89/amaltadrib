@@ -22,9 +22,9 @@
                         @isset($videos)
                           @foreach ($videos as $video)
                             <tr>
-                              <td><img src="{{ $video->thumbnail }}" width="30" height="30" class="mx-3" alt="">{{ $video->title }}</td>
-                              <td>{{ $video->durartion }}</td>
-                              <td><a target="_blank" href="{{ $video->file }}" class="btn btn-primary btn-sm">عرض</a></td>
+                              <td><img src="{{ route("resources.video.thumbnail",$video->thumbnail) }}" width="30" height="30" class="mx-3" alt="">{{ $video->title }}</td>
+                              <td>{{ gmdate("H:i:s", intval($video->durartion)) }}</td>
+                              <td><a target="_blank" href="{{ route("resources.video",$video->file) }}" class="btn btn-primary btn-sm">عرض</a></td>
                               <td>{{ $video->chef->fname }} {{ $video->chef->lname }}</td>
                               <td>
                                 <form action="{{ route("admin.videos.delete",$video->id) }}" method="post">

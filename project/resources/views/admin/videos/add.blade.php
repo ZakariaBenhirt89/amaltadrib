@@ -36,11 +36,12 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="">الفيديو:</label>
-                    <input type="file" name="file" class="form-control" placeholder="الفيديو..." />
+                    <input type="file" id="video-input" name="file" class="form-control" placeholder="الفيديو..." />
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">صورة مصغرة:</label>
-                    <input type="file" class="form-control" name="thumbnail" value="lorem" />
+                    <input type="file" class="form-control" name="thumbnail"/>
+                    <input type="text" class="form-control" name="_thumbnail" value="" />
                 </div>
             </div>
             <div class="row">
@@ -56,7 +57,7 @@
 @endsection
 @section('js')
 <script>
-     const videoInput = document.querySelector('input[type="file"]');
+     const videoInput = document.querySelector('#video-input');
         videoInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             const fileReader = new FileReader();

@@ -183,6 +183,20 @@ Route::get('/videos/{video}', function ($video) {
             }
             return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
         })->name("podcast");
+        Route::get('/video/{video}', function ($video) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."videos".DIRECTORY_SEPARATOR.$video; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("video");
+        Route::get('/video/thumbnail/{thumbnail}', function ($thumbnail) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."videos".DIRECTORY_SEPARATOR."thumbnails".DIRECTORY_SEPARATOR.$thumbnail; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("video.thumbnail");
     });
     Route::get('/students/avatars/{avatar?}', function ($avatar = null) {
         if($avatar == null){
