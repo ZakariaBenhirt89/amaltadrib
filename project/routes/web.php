@@ -113,7 +113,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\PodcastController::class,'store'])->name("store");
             Route::post('/edit/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'edit'])->name("edit");
             Route::post('/update/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'update'])->name("update");
