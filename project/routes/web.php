@@ -69,6 +69,8 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
     Route::get('/login', function () {return view("admin.login");})->name("login");
     Route::post('/login', [App\Http\Controllers\admin\AdminController::class,"login"]);
+    Route::get('/settings', [App\Http\Controllers\admin\AdminController::class,"get"])->name("profile");
+    Route::post('/settings/update', [App\Http\Controllers\admin\AdminController::class,"update"])->name("profile.update");
     // protected
     Route::middleware(['admin'])->group(function () {
         Route::post('/logout', [App\Http\Controllers\admin\AdminController::class,"logout"])->name("logout");
