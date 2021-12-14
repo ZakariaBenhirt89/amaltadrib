@@ -27,10 +27,10 @@
                               <td><a target="_blank" href="{{ route("resources.video",$video->file) }}" class="btn btn-primary btn-sm">عرض</a></td>
                               <td>{{ $video->chef->fname }} {{ $video->chef->lname }}</td>
                               <td>
-                                <form action="{{ route("admin.videos.delete",$video->id) }}" method="post">
-                                @csrf
-                                <button type="submit" class="btn btn-sm btn-danger">حذف</button>
-                              </form>
+                                <form class="d-inline-block" action="{{ route("admin.videos.delete",$video->id) }}" method="post">
+                                  @csrf
+                                  <button type="submit" class="btn btn-sm btn-danger">حذف</button>
+                                </form>
                               <a href="{{ route('admin.videos.edit',$video->id) }}" class="btn btn-sm btn-info"> تعديل </a>
                             </td>
                             </tr>

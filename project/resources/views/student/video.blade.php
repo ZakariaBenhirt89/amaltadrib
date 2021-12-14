@@ -12,7 +12,7 @@
                         </div>
                         <div class="shadow-md border border-warning rounded p-1 bg-warning">
                             <video width="100%" controls>
-                                <source src="{{ route('videos',[$video->file]) }}" type="video/mp4">
+                                <source src="{{ route('resources.video',[$video->file]) }}">
                                 متصفحك لا يدعم مشغل الفيديو
                             </video>
                         </div>

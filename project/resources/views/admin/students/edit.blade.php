@@ -33,9 +33,7 @@
             <input type="text"  class="form-control" name="adress" placeholder="adress" value="{{ $student->adress }}"/>
             <input type="text" class="form-control" name="email" placeholder="email" value="{{ $student->email }}"/>
             <input type="password" class="form-control" name="password" placeholder="password" />
-            <textarea rows="5" class="form-control" name="more_details" placeholder="more_details" value="">
-                {{ $student->more_details }}
-            </textarea>
+            <textarea rows="5" class="form-control" name="more_details" placeholder="more_details" value="">{{ $student->more_details }}</textarea>
             <input type="submit" value="Add" class="btn btn-info">
         </form>
     </div>

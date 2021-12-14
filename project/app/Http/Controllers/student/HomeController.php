@@ -16,11 +16,15 @@ class HomeController extends Controller
         $id = AuthHelper::loggedUser()->id;
         $videos = Video::all();
         $watched = WatchedVideo::where('students_id',$id)->get();
-        foreach($videos as $key=>$video){
-            $videos[$key]->watched=false;
-            foreach ($watched as $w) {
-                if($video->id == $w->videos_id){
-                    $videos[$key]->watched=true;
+        if($videos->count() == 1){
+            $videos[0]->watched = true;
+        }else{
+            foreach($videos as $key=>$video){
+                $videos[$key]->watched=false;
+                foreach ($watched as $w) {
+                    if($video->id == $w->videos_id){
+                        $videos[$key]->watched=true;
+                    }
                 }
             }
         }

@@ -27,12 +27,12 @@
                                     <td>{{ $center->adress }}</td>
                                     <td><a href="tel:{{ $center->phone }}" class="btn btn-info btn-sm" >{{ $center->phone }}</a></td>
                                     <td>
-                                        <form action="{{ route('admin.centers.delete',[$center->id]) }}" method="POST">
+                                        <form class="d-inline-block" action="{{ route('admin.centers.delete',[$center->id]) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                             <input type="submit" class="btn btn-sm btn-danger" value="حذف">
                                         </form>
-                                        <a href="{{ route('admin.centers.edit',$center->id) }}" class="btn btn-sm btn-info"> تعديل </ض>
+                                        <a href="{{ route('admin.centers.edit',$center->id) }}" class="btn btn-sm btn-info"> تعديل </a>
                                     </td>
                                 </tr>
                             @endforeach
