@@ -123,7 +123,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/materials')->name("materials.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\MaterialController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\MaterialController::class,'store'])->name("store");
             Route::post('/edit/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'edit'])->name("edit");
             Route::post('/update/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'update'])->name("update");
@@ -197,6 +197,13 @@ Route::get('/videos/{video}', function ($video) {
             }
             return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
         })->name("video.thumbnail");
+        Route::get('/material/{material}', function ($material) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."materials".DIRECTORY_SEPARATOR.$material; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("material");
     });
     Route::get('/students/avatars/{avatar?}', function ($avatar = null) {
         if($avatar == null){
