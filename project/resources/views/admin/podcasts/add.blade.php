@@ -21,7 +21,7 @@
                 <div class="form-group col-md-6">
                     <label for="title">العنوان</label>
                     <input type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="العنوان..." />
-                    <input type="hidden" name="durartion" value="{{ old("durartion") }}" />
+                    <input type="hidden" name="durartion" value="56" />
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">ملف الصوت:</label>
