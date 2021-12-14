@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','المدربين')
+@section('title', 'المدربين')
 @section('content')
   <div class="container-fluid">
     <div class="row mb-5">
@@ -52,7 +52,6 @@
           </div>
       </div>
     </div>
-  </div>
 @endsection
 @section('js')
     <script src="{{ asset('js/datatable.js') }}"></script>

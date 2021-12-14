@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 App::setLocale("ar");
 
 Route::prefix("/")->name("public.")->group(function () {
@@ -34,7 +35,7 @@ Route::prefix("student")->name("student.")->group(function () {
         Route::get('/home', [App\Http\Controllers\student\HomeController::class,'index'])->name("home");
         // Videos
         Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
-        Route::get('/video/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
+        Route::get('/videos/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
         // Podcasts
         Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
         Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
@@ -46,7 +47,7 @@ Route::prefix("student")->name("student.")->group(function () {
         Route::get('/jobs',  [App\Http\Controllers\student\JobController::class,'index'])->name("jobs");
         Route::post('/job/apply/{job:id}',  [App\Http\Controllers\student\JobController::class,'apply'])->name("job.apply");
         Route::get('/internships', [App\Http\Controllers\student\InternshipController::class,'index'])->name("internships");
-        Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply"); 
+        Route::post('/internship/apply/{internship:id}',  [App\Http\Controllers\student\InternshipController::class,'apply'])->name("internship.apply");
     });
 });
 // use App\Models\Admin;
@@ -65,9 +66,9 @@ Route::prefix("student")->name("student.")->group(function () {
 // });
 
 Route::prefix('/admin')->name("admin.")->group(function () {
-    
-    Route::get('/login', function () {return view("admin.login");});
-    Route::post('/login', [App\Http\Controllers\admin\AdminController::class,"login"])->name("login");
+
+    Route::get('/login', function () {return view("admin.login");})->name("login");
+    Route::post('/login', [App\Http\Controllers\admin\AdminController::class,"login"]);
     // protected
     Route::middleware(['admin'])->group(function () {
         Route::post('/logout', [App\Http\Controllers\admin\AdminController::class,"logout"])->name("logout");
@@ -111,6 +112,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::post('/update/{video:id}', [App\Http\Controllers\admin\VideoController::class,'update'])->name("update");
             Route::post('/delete/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
         });
+
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
@@ -162,6 +164,14 @@ Route::prefix('/admin')->name("admin.")->group(function () {
     });
 });
 
+Route::get('/videos/{video}', function ($video) {
+    $filePath = 'videos'.DIRECTORY_SEPARATOR.$video; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+    if(!Storage::disk('local')->exists($filePath)){
+        return abort(404);
+    }
+    return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+})->name("videos");
+
 
     //* Resources Routes
 
@@ -174,7 +184,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
         })->name("podcast");
     });
-    Route::get('/students/avatars/{avatar?}', function ($avatar = null) {        
+    Route::get('/students/avatars/{avatar?}', function ($avatar = null) {
         if($avatar == null){
             return response()->file("../public/images/student/avatar.png");
         }
@@ -206,6 +216,12 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
 
 
+//  \App\Models\Student::create([
+//     'fname'=>"abc",
+//     'email'=>"abc@def.gh",
+//     'password'=>Hash::make("12345678"),
+//     'avatar'=>"emptySTring",
+// ]);
 
 
 /*
@@ -233,12 +249,6 @@ Route::get('/student',function (){
 
 // Student::create([
 //     // 'username'=>"abc",
-//     'email'=>"abc@def.gh",
-//     'password'=>Hash::make("12345678"),
-//     'avatar'=>"emptySTring",
-// ]);
-// Admin::create([
-//     'username'=>"abc",
 //     'email'=>"abc@def.gh",
 //     'password'=>Hash::make("12345678"),
 //     'avatar'=>"emptySTring",

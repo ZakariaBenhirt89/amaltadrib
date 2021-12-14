@@ -1,24 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    @if($errors->any())
-    <pre>
-        {{ json_encode($errors->all()) }}
-    </pre>
-    @endif
-    <form action="{{ route('admin-centers-action_edit',[$center->id]) }}" method="POST" style="display: flex;flex-direction:column;gap:10px">
+@extends('layouts.admin')
+@section('title','______')
+@section('content')
+  <div class="container-fluid">
+    <div class="row mb-5">
+      <div class="col-md-12">
+          <h2 class="h3 mb-3">تعديل المتدربين</h2>
+      </div>
+      <div class="col-md-12">
+        <!---->
+        @if($errors->any())
+        <div class="col-8 mx-auto mb-5">
+            <ul class="list-group">
+                @foreach ($errors->all() as $item)
+                <li class="list-group-item text-danger text-center">{{ $item }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    <form action="{{ route('admin.centers.update',[$center->id]) }}" method="POST" style="display: flex;flex-direction:column;gap:10px">
         @csrf
         @method('PUT')
-        <input name="name" placeholder="name" type="text" value="{{ $center->name }}">
-        <input name="adress" placeholder="adress" type="text" value="{{ $center->adress }}">
-        <input name="phone" placeholder="phone" type="text" value="{{ $center->phone }}">
-        <input type="submit" value="Edit">
+        <input name="name" class="form-control" placeholder="name" type="text" value="{{ $center->name }}">
+        <input name="adress" class="form-control" placeholder="adress" type="text" value="{{ $center->adress }}">
+        <input name="phone" class="form-control" placeholder="phone" type="text" value="{{ $center->phone }}">
+        <input type="submit" class="btn btn-sm btn-info" value="Edit">
     </form>
-</body>
-</html>
+</div>
+</div>
+</div>
+@endsection
+@section('js')
+@endsection

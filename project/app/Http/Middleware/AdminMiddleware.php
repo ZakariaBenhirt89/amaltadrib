@@ -19,7 +19,7 @@ class AdminMiddleware
     {
         if(AuthHelper::getGuard() !== 'admin' || AuthHelper::loggedUser() == null){
             // TODO remplace with named routes
-            return redirect('login');
+            return redirect()->route('admin.login');
         }
         return $next($request);
     }
