@@ -14,10 +14,10 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            "username" => "Admin Amal tabrib",
+            "username" => "Admin",
             "email" => "admin@amaltadrib.com",
             "password" => Hash::make("pass1234"),
-            "avatar" => "images/admin/avatar.png",
+            "avatar" => "images/admin/avatar.png"
         ];
     }
 }

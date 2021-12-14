@@ -92,8 +92,11 @@
                     <div class="col-auto"><button onclick="window.toggleSideBar()" class="btn text-warning btn-lg"><i class="fas fa-bars"></i></button></div>
                     <div class="col"></div>
                     <div class="col-auto">
-                        <img src="{{asset('images/admin/avatar.png')}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border">
-                        <a href="{{ route("admin.logout") }}" class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</a>
+                        <a href="{{ route("admin.profile") }}"><img src="{{asset('images/admin/avatar.png')}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border"></a>
+                        <form class="d-inline-block" action="{{ route("admin.logout") }}" method="post">
+                            @csrf
+                            <button class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -71,7 +71,10 @@
                     <div class="col"></div>
                     <div class="col-auto">
                         <img src="{{asset('images/student/avatar.png')}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border">
-                        <a href="{{ route("student.logout") }}" class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</a>
+                        <form class="d-inline-block" action="{{ route("student.logout") }}" method="post">
+                            @csrf
+                            <button class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</button>
+                        </form>
                     </div>
                 </div>
             </div>
