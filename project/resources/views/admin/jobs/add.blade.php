@@ -73,12 +73,6 @@
                     </select>
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="description">الوصف:</label>
-                    <input required type="text" id="description" name="description" class="form-control" value="{{ old("description") }}" placeholder="الوصف..." />
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-3">
                     <label for="student">المعني:</label>
                     <select required id="student" name="student" class="form-control form-select" value="{{ old("student") }}">
                         <option value="" disabled selected>المعني...</option>
@@ -87,7 +81,12 @@
                         @endforeach
                     </select>
                 </div>
-
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label for="description">الوصف:</label>
+                    <textarea required type="text" id="description" name="description" class="form-control" value="{{ old("description") }}" placeholder="الوصف..." cols="30" rows="10">{{ old("description") }}</textarea>
+                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
