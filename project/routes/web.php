@@ -164,6 +164,16 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
 
     //* Resources Routes
+
+    Route::prefix('/resources')->name('resources.')->group(function () {
+        Route::get('/podcast/{podcast}', function ($podcast) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."podcasts".DIRECTORY_SEPARATOR.$podcast; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("podcast");
+    });
     Route::get('/students/avatars/{avatar?}', function ($avatar = null) {        
         if($avatar == null){
             return response()->file("../public/images/student/avatar.png");

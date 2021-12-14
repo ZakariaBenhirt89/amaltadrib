@@ -16,8 +16,8 @@
                   <table class="table table-striped table-bordered" id="table">
                       <thead>
                         <th>العنوان</th>
-                        <th>المدة الزمنية</th>
                         <th>الملف</th>
+                        <th>المدة الزمنية</th>
                         <th></th>
                       </thead>
                       <tbody>
@@ -25,12 +25,12 @@
                           @foreach ($podcasts as $podcast)
                             <tr>
                               <td>{{ $podcast->title }}</td>
-                              <td>{{ $podcast->duration }}</td>
                               <td>
                                 <audio controls>
-                                  <source src="{{ $podcast->file }}" type="audio/mp4">
+                                  <source src="{{ route('resources.podcast',$podcast->file) }}">
                                 </audio>
                               </td>
+                              <td>{{ gmdate("H:i:s", intval($podcast->duration)) }}</td>
                               <td>
                                 <form action="{{ route("admin.podcasts.delete",$podcast->id) }}" method="post">
                                   @csrf
@@ -43,8 +43,8 @@
                       </tbody>
                       <tfoot>
                         <th>العنوان</th>
-                        <th>المدة الزمنية</th>
                         <th>الملف</th>
+                        <th>المدة الزمنية</th>
                         <th></th>
                       </tfoot>
                   </table>
