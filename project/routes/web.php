@@ -139,7 +139,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/internships')->name("internships.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\InternshipController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\InternshipController::class,'store'])->name("store");
             Route::post('/edit/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'edit'])->name("edit");
             Route::post('/update/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'update'])->name("update");
