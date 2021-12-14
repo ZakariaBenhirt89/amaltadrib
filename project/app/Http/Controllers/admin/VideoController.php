@@ -25,11 +25,11 @@ class VideoController extends Controller
             'durartion' => 'numeric|required',
             'file' => 'mimes:mp4,mov,ogg|required',
             'thumbnail' => 'nullable|mimes:jpeg,jpg,png|max:2048',
-            '_thumbnail' => 'nullable|regex:/(data:image\/[^;]+;base64[^"]+)/',
+            // '_thumbnail' => 'nullable|regex:/(data:image\/[^;]+;base64[^"]+)/',
             'chefs_id' => 'exists:chefs,id|required',
         ]);
-        $videoPath = $request->file('file')->store('videos');
-        $thumbnailDirectory = 'videos/thumbnails';
+        $videoPath = $request->file('file')->store('resources/videos');
+        $thumbnailDirectory = 'resources/videos/thumbnails';
         $thumbnailPath = null;
         // dd([!$request->has('thumbnail') && !$request->has('_thumbnail'),$request->has('thumbnail') ,$request->has('_thumbnail')]);
         if(!isset($request->thumbnail) && !isset($request->_thumbnail)){

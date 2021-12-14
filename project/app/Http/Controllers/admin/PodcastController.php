@@ -41,7 +41,7 @@ class PodcastController extends Controller
             $podcastData['file'] = basename($filePath);
             $podcast = Podcast::create([
                 "title" => $podcastData["title"],
-                "durartion" => $podcastData["durartion"],
+                "duration" => $podcastData["durartion"],
                 "file" => $podcastData["file"],
             ]);
             return redirect()->route("admin.podcasts.all");

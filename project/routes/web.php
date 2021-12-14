@@ -123,7 +123,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/materials')->name("materials.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\MaterialController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\MaterialController::class,'store'])->name("store");
             Route::post('/edit/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'edit'])->name("edit");
             Route::post('/update/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'update'])->name("update");
@@ -131,7 +131,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\JobController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\JobController::class,'store'])->name("store");
             Route::post('/edit/{job:id}', [App\Http\Controllers\admin\JobController::class,'edit'])->name("edit");
             Route::post('/update/{job:id}', [App\Http\Controllers\admin\JobController::class,'update'])->name("update");
@@ -139,7 +139,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/internships')->name("internships.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\InternshipController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\InternshipController::class,'store'])->name("store");
             Route::post('/edit/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'edit'])->name("edit");
             Route::post('/update/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'update'])->name("update");
@@ -173,7 +173,38 @@ Route::get('/videos/{video}', function ($video) {
 })->name("videos");
 
 
-    // Resources Routes
+    //* Resources Routes
+
+    Route::prefix('/resources')->name('resources.')->group(function () {
+        Route::get('/podcast/{podcast}', function ($podcast) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."podcasts".DIRECTORY_SEPARATOR.$podcast; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("podcast");
+        Route::get('/video/{video}', function ($video) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."videos".DIRECTORY_SEPARATOR.$video; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("video");
+        Route::get('/video/thumbnail/{thumbnail}', function ($thumbnail) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."videos".DIRECTORY_SEPARATOR."thumbnails".DIRECTORY_SEPARATOR.$thumbnail; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("video.thumbnail");
+        Route::get('/material/{material}', function ($material) {
+            $filePath = 'resources'.DIRECTORY_SEPARATOR."materials".DIRECTORY_SEPARATOR.$material; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+            if(!Storage::disk('local')->exists($filePath)){
+                return abort(404);
+            }
+            return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+        })->name("material");
+    });
     Route::get('/students/avatars/{avatar?}', function ($avatar = null) {
         if($avatar == null){
             return response()->file("../public/images/student/avatar.png");

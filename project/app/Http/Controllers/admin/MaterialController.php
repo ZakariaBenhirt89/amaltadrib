@@ -13,7 +13,36 @@ class MaterialController extends Controller
         $data = [
             "materials" => Material::all()
         ];
-        return view("admin.materials",$data);
+        return view("admin.materials.all",$data);
+    }
+
+    public function add()
+    {
+        return view("admin.materials.add");
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "file" => "required"
+        ]);
+        try {
+            $matarialData = [
+                "title" => $request->input("title"),
+                "extention" => $request->file('file')->getClientOriginalExtension()
+            ];
+            $filePath = $request->file('file')->store('resources/materials');
+            $matarialData['file'] = basename($filePath);
+            Material::create([
+                "title" => $matarialData["title"],
+                "file" => $matarialData["file"],
+                "extention" => $matarialData["extention"]
+            ]);
+            return redirect()->route("admin.materials.all");
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
     }
 
     public function delete(Material $material)

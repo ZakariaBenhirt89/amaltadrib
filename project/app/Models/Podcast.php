@@ -11,7 +11,7 @@ class Podcast extends Model
 
     protected $fillable = [
         "title",
-        "durartion",
+        "duration",
         "file"
     ];
 }

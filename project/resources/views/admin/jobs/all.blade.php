@@ -4,7 +4,10 @@
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">فرص عمل</h2>
+        <div class="d-flex justify-content-between">
+            <h2 class="h3 mb-3">فرص عمل</h2>
+            <a href="{{ route("admin.jobs.add") }}" class="btn btn-dark shadow-md mb-3">أضف فرصة عمل</a>
+          </div>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -31,17 +34,17 @@
                         @isset($jobs)
                           @foreach ($jobs as $job)
                             <tr>
-                              <td>{{ $job->title}}</td>
-                              <td>{{ $job->salary}}dh</td>
-                              <td>{{ $job->position}}</td>
-                              <td>{{ $job->provider}}</td>
-                              <td style="min-width:170px;">{{ $job->location}}</td>
-                              <td>{{ $job->supervisor}}</td>
-                              <td>{{ $job->supervisor_email}}</td>
-                              <td>{{ $job->supervisor_phone}}</td>
-                              <td>{{ $job->start}}</td>
-                              <td>{{ $job->end}}</td>
-                              <td>{{ $job->contract_type}}</td>
+                              <td class="text-nowrap">{{ $job->title}}</td>
+                              <td class="text-nowrap">{{ $job->salary}}dh</td>
+                              <td class="text-nowrap">{{ $job->position}}</td>
+                              <td class="text-nowrap">{{ $job->provider}}</td>
+                              <td class="text-nowrap" style="min-width:170px;">{{ $job->location}}</td>
+                              <td class="text-nowrap">{{ $job->supervisor}}</td>
+                              <td class="text-nowrap"><a href="mailto:{{ $job->supervisor_email}}" class="btn btn-info btn-sm">{{ $job->supervisor_email}}</a></td>
+                              <td class="text-nowrap"><a href="mailto:{{ $job->supervisor_phone}}" class="btn btn-dark btn-sm">{{ $job->supervisor_phone}}</a></td>
+                              <td class="text-nowrap">{{ $job->start}}</td>
+                              <td class="text-nowrap">{{ $job->end}}</td>
+                              <td class="text-nowrap">{{ $job->contract_type}}</td>
                               <td><span class="text-truncate d-block" title="{{ $job->description}}" style="max-width: 300px;">{{ $job->description}}</span></td>
                               <td>
                                 @if($job->applied)

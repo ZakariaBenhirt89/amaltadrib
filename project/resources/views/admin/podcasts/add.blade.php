@@ -21,7 +21,7 @@
                 <div class="form-group col-md-6">
                     <label for="title">العنوان</label>
                     <input type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="العنوان..." />
-                    <input type="hidden" name="durartion" value="{{ old("durartion") }}" />
+                    <input type="hidden" name="durartion" value="56" />
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">ملف الصوت:</label>
@@ -40,5 +40,37 @@
 </div>
 @endsection
 @section('js')
-<script src="{{ asset('js/datatable.js') }}"></script>
+<script>
+     const audioInput = document.querySelector('input[type="file"]');
+        audioInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];            
+            const audio = document.createElement('audio');
+            audio.src = URL.createObjectURL(file);
+            audio.addEventListener('loadedmetadata', () => {
+                document.querySelector('input[name="durartion"]').value = audio.duration;
+            })
+            const generateVideoThumbnail = (file) => {
+                return new Promise((resolve) => {
+                    const canvas = document.createElement("canvas");
+                    const video = document.createElement("video");
+
+                    // this is important
+                    video.autoplay = true;
+                    video.muted = true;
+                    video.src = URL.createObjectURL(file);
+
+                    video.onloadeddata = () => {
+                        let ctx = canvas.getContext("2d");
+
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+
+                        ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+                        video.pause();
+                        return resolve(canvas.toDataURL("image/png"));
+                    };
+                });
+            };
+        })
+</script>
 @endsection
