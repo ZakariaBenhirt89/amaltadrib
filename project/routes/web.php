@@ -131,7 +131,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/jobs')->name("jobs.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\JobController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\JobController::class,'store'])->name("store");
             Route::post('/edit/{job:id}', [App\Http\Controllers\admin\JobController::class,'edit'])->name("edit");
             Route::post('/update/{job:id}', [App\Http\Controllers\admin\JobController::class,'update'])->name("update");
