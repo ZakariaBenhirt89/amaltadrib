@@ -15,7 +15,7 @@
                         @endforeach
                 </div>
             @endif
-        <form action="{{ route('admin.jobs.store') }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
+        <form action="{{ route('admin.internships.store') }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
             @csrf
             <div class="row">
                 <div class="form-group col-md-3">
@@ -64,8 +64,8 @@
                     <textarea required type="text" id="goals" name="goals" class="form-control" value="{{ old("goals") }}" placeholder="الإهداف..." cols="30" rows="10">{{ old("description") }}</textarea>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="instructions">الإرشادات:</label>
-                    <textarea required type="text" id="instructions" name="instructions" class="form-control" value="{{ old("instructions") }}" placeholder="الإرشادات..." cols="30" rows="10">{{ old("description") }}</textarea>
+                    <label for="guidlines">الإرشادات:</label>
+                    <textarea required type="text" id="guidlines" name="guidlines" class="form-control" value="{{ old("guidlines") }}" placeholder="الإرشادات..." cols="30" rows="10">{{ old("description") }}</textarea>
                 </div>
             </div>
             <div class="row">
