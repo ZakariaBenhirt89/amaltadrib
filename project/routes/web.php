@@ -147,7 +147,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/monitorings')->name("monitorings.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\MonitoringController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\MonitoringController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\MonitoringController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\MonitoringController::class,'store'])->name("store");
             Route::post('/edit/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'edit'])->name("edit");
             Route::post('/update/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'update'])->name("update");
@@ -155,7 +155,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
         });
         Route::prefix('/services')->name("services.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\ServiceController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\ServiceController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\ServiceController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\ServiceController::class,'store'])->name("store");
             Route::post('/edit/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'edit'])->name("edit");
             Route::post('/update/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'update'])->name("update");

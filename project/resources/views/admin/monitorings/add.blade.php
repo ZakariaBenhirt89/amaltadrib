@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title','أظف سطاج')
+@section('title','أظف دورة')
 @section('content')
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">أظف سطاج</h2>
+          <h2 class="h3 mb-3">أظف دورة</h2>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -15,7 +15,7 @@
                         @endforeach
                 </div>
             @endif
-        <form action="{{ route('admin.internships.store') }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
+        <form action="{{ route('admin.monitorings.store') }}" method="POST" enctype="multipart/form-data" style="display: flex;flex-direction:column;gap:10px">
             @csrf
             <div class="row">
                 <div class="form-group col-md-3">
@@ -23,8 +23,8 @@
                     <input required type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="العنوان..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="provider">المزود:</label>
-                    <input required type="text" id="provider" name="provider" class="form-control" value="{{ old("provider") }}" placeholder="المزود..." />
+                    <label for="place">المكان:</label>
+                    <input required type="text" id="place" name="place" class="form-control" value="{{ old("place") }}" placeholder="المكان..." />
                 </div>
                 <div class="form-group col-md-3">
                     <label for="start">من:</label>
@@ -36,19 +36,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-3">
-                    <label for="supervisor">المشرف:</label>
-                    <input required type="text" id="supervisor" name="supervisor" class="form-control" value="{{ old("supervisor") }}" placeholder="المشرف..." />
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="supervisor_email">البريد الإلكتروني للمشرف:</label>
-                    <input required type="email" id="supervisor_email" name="supervisor_email" class="form-control" value="{{ old("supervisor_email") }}" placeholder="البريد الإلكتروني للمشرف..." />
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="supervisor_phone">رقم هاتف المشرف:</label>
-                    <input required type="phone" id="supervisor_phone" name="supervisor_phone" class="form-control" value="{{ old("supervisor_phone") }}" placeholder="رقم هاتف المشرف..." />
-                </div>
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-6">
+                    <label for="service">الخدمة:</label>
+                    <select required id="service" name="service" class="form-control form-select" value="{{ old("service") }}">
+                        <option value="" disabled selected>المعني...</option>
+                        @foreach ($services as $service)
+                            <option value="{{ $service->id }}" {{ (old("service") == $service->id) ? 'selected="true"' : '' }}>{{ $service->id }} - {{$service->name}}</option>
+                        @endforeach
+                    </select>
                     <label for="student">المعني:</label>
                     <select required id="student" name="student" class="form-control form-select" value="{{ old("student") }}">
                         <option value="" disabled selected>المعني...</option>
@@ -57,15 +52,9 @@
                         @endforeach
                     </select>
                 </div>
-            </div>
-            <div class="row">
                 <div class="form-group col-md-6">
-                    <label for="goals">الإهداف:</label>
-                    <textarea required type="text" id="goals" name="goals" class="form-control" value="{{ old("goals") }}" placeholder="الإهداف..." cols="30" rows="10">{{ old("description") }}</textarea>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="guidlines">الإرشادات:</label>
-                    <textarea required type="text" id="guidlines" name="guidlines" class="form-control" value="{{ old("guidlines") }}" placeholder="الإرشادات..." cols="30" rows="10">{{ old("description") }}</textarea>
+                    <label for="description">الوصف:</label>
+                    <textarea required type="text" id="description" name="description" class="form-control" value="{{ old("description") }}" placeholder="الوصف..." cols="30" rows="10">{{ old("description") }}</textarea>
                 </div>
             </div>
             <div class="row">

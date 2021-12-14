@@ -12,7 +12,27 @@ class ServiceController extends Controller
         $data = [
             "services" => Service::all()
         ];
-        return view("admin.services",$data);
+        return view("admin.services.all",$data);
+    }
+
+    public function add()
+    {
+        return view("admin.services.add");
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            "title" => "required"
+        ]);
+        try {
+            Service::create([
+                "name" => $request->input("title")
+            ]);
+            return redirect()->route("admin.services.all");
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
+        }
     }
 
     public function delete(Service $service)

@@ -32,15 +32,15 @@
                           @foreach ($internships as $internship)
                             <tr>
                               <td class="text-nowrap">{{ $internship->title}}</td>
-                              <td>{{ $internship->provider}}</td>
-                              <td>{{ $internship->start}}</td>
-                              <td>{{ $internship->end}}</td>
-                              <td>{{ $internship->supervisor}}</td>
-                              <td><a class="btn btn-sm btn-info" href="mailto:{{ $internship->supervisor_email}}">{{ $internship->supervisor_email}}</a></td>
-                              <td><a class="btn btn-sm btn-secondary" href="tel:{{ $internship->supervisor_phone}}">{{ $internship->supervisor_phone}}</a></td>
+                              <td class="text-nowrap">{{ $internship->provider}}</td>
+                              <td class="text-nowrap">{{ $internship->start}}</td>
+                              <td class="text-nowrap">{{ $internship->end}}</td>
+                              <td class="text-nowrap">{{ $internship->supervisor}}</td>
+                              <td  class="text-nowrap"><a class="btn btn-sm btn-info" href="mailto:{{ $internship->supervisor_email}}">{{ $internship->supervisor_email}}</a></td>
+                              <td  class="text-nowrap"><a class="btn btn-sm btn-secondary" href="tel:{{ $internship->supervisor_phone}}">{{ $internship->supervisor_phone}}</a></td>
                               <td>{{ $internship->goals}}</td>
                               <td>{{ $internship->guidlines}}</td>
-                              <td>
+                              <td class="text-nowrap">
                                 @if($internship->applied)
                                   <span class="badge bg-success">تم التقدم للوظيفة</span>
                                 @else

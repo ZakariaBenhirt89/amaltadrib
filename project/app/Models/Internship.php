@@ -9,6 +9,19 @@ class Internship extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        "title",
+        "provider",
+        "start",
+        "end",
+        "supervisor",
+        "supervisor_email",
+        "supervisor_phone",
+        "goals",
+        "guidlines",
+        "students_id"
+    ];
+
     /**
      * Get the Student that owns the Internship
      *
