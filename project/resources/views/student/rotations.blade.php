@@ -39,7 +39,7 @@
                                                     <span class="badge bg-dark small p-1">تم الانتهاء</span>
                                                 @endif                                            
                                             </td>
-                                            <td>{{ $monitoring->service }}</td>
+                                            <td>{{ $monitoring->service->name }}</td>
                                             <td>{{ $monitoring->description }}</td>
                                             <td>
                                                 @if ($monitoring->status == 0)

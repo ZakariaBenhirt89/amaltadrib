@@ -44,9 +44,9 @@
                         <label for="">المستوى الدراسي: {{ old("level") }}</label>
                         <select name="level" id="level" class="form-control form-select">
                             <option value="" disabled selected>المستوى الدراسي...</option>
-                            <option {{ old('level') == "مرتبط" ? 'selected="true"' : 'مرتبط' }} value="مرتبط">مرتبط</option>
-                            <option {{ old('level') == "غير مرتبط" ? 'selected="true"' : 'غير مرتبط' }} value="غير مرتبط">غير مرتبط</option>
-                            <option {{ old('level') == "مطلق" ? 'selected="true"' : 'مطلق' }} value="مطلق">مطلق</option>
+                            <option {{ old('level') == "مدرسة ابتدائية" ? 'selected="true"' : 'مدرسة ابتدائية' }} value="مدرسة ابتدائية">مدرسة ابتدائية</option>
+                            <option {{ old('level') == "المدرسة المتوسطة" ? 'selected="true"' : 'المدرسة المتوسطة' }} value="المدرسة المتوسطة">المدرسة المتوسطة</option>
+                            <option {{ old('level') == "المدرسة الثانوية" ? 'selected="true"' : 'المدرسة الثانوية' }} value="المدرسة الثانوية">المدرسة الثانوية</option>
                         </select>
                     </div>
                 </div>
@@ -57,7 +57,12 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">الحالة العائلية:</label>
-                        <input class="form-control" type="number" name="family_situation" value="{{ old("family_situation") }}" placeholder="الحالة العائلية..." />
+                        <select name="family_situation" id="family_situation" class="form-control form-select">
+                            <option value="" disabled selected>الحالة العائلية...</option>
+                            <option {{ old('family_situation') == "مرتبط" ? 'selected="true"' : 'مرتبط' }} value="مرتبط">مرتبط</option>
+                            <option {{ old('family_situation') == "غير مرتبط" ? 'selected="true"' : 'غير مرتبط' }} value="غير مرتبط">غير مرتبط</option>
+                            <option {{ old('family_situation') == "مطلق" ? 'selected="true"' : 'مطلق' }} value="مطلق">مطلق</option>
+                        </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">عدد الأبناء:</label>

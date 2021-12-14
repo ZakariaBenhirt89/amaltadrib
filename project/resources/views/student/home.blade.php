@@ -68,7 +68,7 @@
                                         <h2 class="h5 text-white">{{ $video->title }}</h2>
                                         <div class="text-end d-block w-100">
                                             <span class="chef text-light small ms-auto">{{ $video->chef->fname }} {{ $video->chef->lname }}</span>,
-                                            <span class="duration text-light small ms-auto">{{ $video->durartion }}h</span>
+                                            <span class="duration text-light small ms-auto">{{ gmdate("H:i:s", intval($video->durartion)) }}</span>
                                         </div>
                                     </div>
                                 </div>

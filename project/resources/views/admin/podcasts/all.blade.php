@@ -32,7 +32,7 @@
                               </td>
                               <td>{{ gmdate("H:i:s", intval($podcast->duration)) }}</td>
                               <td>
-                                <form action="{{ route("admin.podcasts.delete",$podcast->id) }}" method="post">
+                                <form class="d-inline-block" action="{{ route("admin.podcasts.delete",$podcast->id) }}" method="post">
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
