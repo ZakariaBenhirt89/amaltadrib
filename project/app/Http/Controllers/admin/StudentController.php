@@ -14,37 +14,39 @@ class StudentController extends Controller
 {
     function index(){
         $students = Student::all();
-        return view('admin.students',['students'=>$students]);
+        return view('admin.students.all',['students'=>$students]);
     }
     function add(){
-        return view('public.add-students');
+        return view('admin.students.add');
     }
     function edit(Student $student){
-        return view('admin.edit-students',['student'=>$student]);
+        return view('admin.students.edit',['student'=>$student]);
     }
     function store(Request $request){
         // dd($request);
         $request->validate([
-            "avatar"=>"required|mimes:jpg,jpeg,png",
+            "avatar"=>"mimes:jpg,jpeg,png",
             "fname"=>"required",
             "lname"=>"required",
             "phone"=>"required",
-            "birthday"=>"required|date",
-            "level"=>"required",
+            "birthday"=>"date",
+            "level"=>"",
             "gardian_number"=>"required",
-            "family_situation"=>"required",
-            "number_of_children"=>"required|integer",
+            "family_situation"=>"",
+            "number_of_children"=>"integer",
             "cin_number"=>"required",
             "adress"=>"required",
             "email"=>"required|unique:students",
             "password"=>"required|min:6",
-            "more_details"=>"required",
+            "more_details"=>"",
         ]);
-        // $imageName = Storage::disk('local')->put('students/avatars', $request->avatar);
-        $imageName = $request->file('avatar')->store('students/avatars');
-        // dd([$imageName,basename($imageName)]);
         $studentData = $request->except('avatar');
-        $studentData['avatar'] = basename($imageName);
+        if($request->hasFile('avatar')){
+            // $imageName = Storage::disk('local')->put('students/avatars', $request->avatar);
+            $imageName = $request->file('avatar')->store('students/avatars');
+            // dd([$imageName,basename($imageName)]);
+            $studentData['avatar'] = basename($imageName);
+        }
         $studentData['password'] = Hash::make($studentData['password']);
         Student::create($studentData);
         return redirect()->route('admin.students.all');
@@ -96,6 +98,6 @@ class StudentController extends Controller
     }
     function delete(Student $student){
         $student->delete();
-        return redirect()->route('admin.students');
+        return redirect()->route('admin.students.all');
     }
 }

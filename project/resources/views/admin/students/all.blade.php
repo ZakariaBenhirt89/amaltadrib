@@ -4,7 +4,10 @@
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">المتدربين</h2>
+          <div class="d-flex justify-content-between">
+            <h2 class="h3 mb-3">المتدربين</h2>
+            <a href="{{ route("admin.students.add") }}" class="btn btn-dark shadow-md mb-3">أظف متدرب</a>
+          </div>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -27,12 +30,12 @@
                       <tbody>
                         @isset($students)
                           @foreach ($students as $student)
-                            <tr>
-                              <td class="text-nowrap"><img src="{{ route('student-avatar',$student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
-                              <td><a href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
+                          <tr>
+                              <td class="text-nowrap"><img src="{{ route("student-avatar",$student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
+                              <td class="text-nowrap"><a dir="ltr" href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
                               <td>{{ $student->birthday }}</td>
                               <td class="text-nowrap">{{ $student->level }}</td>
-                              <td><a href="tel:{{ $student->gardian_number}}" class="btn btn-sm btn-dark">{{ $student->gardian_number}}</a></td>
+                              <td class="text-nowrap"><a dir="ltr" href="tel:{{ $student->gardian_number}}" class="btn btn-sm btn-dark">{{ $student->gardian_number}}</a></td>
                               <td>{{ $student->family_situation }}</td>
                               <td>{{ $student->number_of_children }}</td>
                               <td>{{ $student->cin_number }}</td>

@@ -4,7 +4,10 @@
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
+        <div class="d-flex justify-content-between">
           <h2 class="h3 mb-3">المراكز</h2>
+          <a href="{{ route("admin.centers.add") }}" class="btn btn-dark shadow-md mb-3">أظف مركز</a>
+        </div>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">

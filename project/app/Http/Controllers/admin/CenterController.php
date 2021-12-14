@@ -10,11 +10,11 @@ class CenterController extends Controller
     function index()
     {
         $centers = Center::all();
-        return view('admin.centers', compact('centers'));
+        return view('admin.centers.all', compact('centers'));
     }
     function add(Request $request)
     {
-        return view('admin.new-centers');
+        return view('admin.centers.add');
     }
     function store(Request $request)
     {
@@ -24,7 +24,7 @@ class CenterController extends Controller
             'phone' => 'required|max:255',
         ]);
         Center::create($request->all());
-        return redirect()->route('admin-centers');
+        return redirect()->route('admin.centers.all');
     }
     function edit(Center $center)
     {
@@ -44,6 +44,6 @@ class CenterController extends Controller
     function delete(Center $center)
     {
         $center->delete();
-        return redirect()->route('admin.centers');
+        return redirect()->route('admin.centers.all');
     }
 }
