@@ -41,7 +41,7 @@
                 <div class="form-group col-md-6">
                     <label for="">صورة مصغرة:</label>
                     <input type="file" class="form-control" name="thumbnail"/>
-                    <input type="text" class="form-control" name="_thumbnail" value="" />
+                    <input type="hidden" class="form-control" name="_thumbnail" value="" />
                 </div>
             </div>
             <div class="row">

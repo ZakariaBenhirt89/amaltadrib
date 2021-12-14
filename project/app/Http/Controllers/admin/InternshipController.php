@@ -53,7 +53,7 @@ class InternshipController extends Controller
             ]);
             return redirect()->route("admin.internships.all");
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors([$th->getMessage(),__("message.an unexpected error, please try again")])->withInput();
+            return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
         }
     }
     public function delete(Internship $internship){
