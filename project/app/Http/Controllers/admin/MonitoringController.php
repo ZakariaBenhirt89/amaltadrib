@@ -25,7 +25,42 @@ class MonitoringController extends Controller
         ];
         return view("admin.monitorings.add",$data);
     }
+    public function edit(Monitoring $monitoring)
+    {
+        $data = [
+            "students" => Student::all(),
+            "services" => Service::all(),
+            "monitoring"=> $monitoring
+        ];
+        return view("admin.monitorings.edit",$data);
+    }
 
+    public function update(Monitoring $monitoring,Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "place" => "required",
+            "start" => "required",
+            "end" => "required",
+            "service" => "required",
+            "student" => "required",
+            "description" => "required"
+        ]);
+        try {
+            Monitoring::where('id',$monitoring->id)->update([
+                "title" => $request->input('title'),
+                "place" => $request->input('place'),
+                "start" => $request->input('start'),
+                "end" => $request->input('end'),
+                "services_id" => $request->input('service'),
+                "students_id" => $request->input('student'),
+                "description" => $request->input('description'),
+            ]);
+            return redirect()->route("admin.monitorings.all");
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([$th->getMessage(),__("message.")])->withInput();
+        }
+    }
     public function store(Request $request)
     {
         $request->validate([

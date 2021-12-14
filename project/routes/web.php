@@ -125,7 +125,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\MaterialController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\MaterialController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\MaterialController::class,'store'])->name("store");
-            Route::post('/edit/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'edit'])->name("edit");
+            Route::get('/edit/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'edit'])->name("edit");
             Route::post('/update/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'update'])->name("update");
             Route::post('/delete/{material:id}', [App\Http\Controllers\admin\MaterialController::class,'delete'])->name("delete");
         });
@@ -133,7 +133,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\JobController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\JobController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\JobController::class,'store'])->name("store");
-            Route::post('/edit/{job:id}', [App\Http\Controllers\admin\JobController::class,'edit'])->name("edit");
+            Route::get('/edit/{job:id}', [App\Http\Controllers\admin\JobController::class,'edit'])->name("edit");
             Route::post('/update/{job:id}', [App\Http\Controllers\admin\JobController::class,'update'])->name("update");
             Route::post('/{job:id}', [App\Http\Controllers\admin\JobController::class,'delete'])->name("delete");
         });
@@ -141,7 +141,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\InternshipController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\InternshipController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\InternshipController::class,'store'])->name("store");
-            Route::post('/edit/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'edit'])->name("edit");
+            Route::get('/edit/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'edit'])->name("edit");
             Route::post('/update/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'update'])->name("update");
             Route::post('/{internship:id}', [App\Http\Controllers\admin\InternshipController::class,'delete'])->name("delete");
         });
@@ -149,7 +149,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\MonitoringController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\MonitoringController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\MonitoringController::class,'store'])->name("store");
-            Route::post('/edit/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'edit'])->name("edit");
+            Route::get('/edit/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'edit'])->name("edit");
             Route::post('/update/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'update'])->name("update");
             Route::post('/{monitoring:id}', [App\Http\Controllers\admin\MonitoringController::class,'delete'])->name("delete");
         });
@@ -157,7 +157,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\ServiceController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\ServiceController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\ServiceController::class,'store'])->name("store");
-            Route::post('/edit/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'edit'])->name("edit");
+            Route::get('/edit/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'edit'])->name("edit");
             Route::post('/update/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'update'])->name("update");
             Route::post('/{service:id}', [App\Http\Controllers\admin\ServiceController::class,'delete'])->name("delete");
         });

@@ -6,7 +6,7 @@
       <div class="col-md-12">
         <div class="d-flex justify-content-between">
             <h2 class="h3 mb-3">فرص عمل</h2>
-            <a href="{{ route("admin.jobs.add") }}" class="btn btn-dark shadow-md mb-3">أضف فرصة عمل</a>
+            <a href="{{ route("admin.jobs.add") }}" class="btn btn-dark shadow-md mb-3">تعديل فرصة عمل</a>
           </div>
       </div>
       <div class="col-md-12">
@@ -59,8 +59,9 @@
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
+                                <a href="{{ route('admin.jobs.edit',$job->id) }}" class="btn btn-sm btn-info" > تعديل </a>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>

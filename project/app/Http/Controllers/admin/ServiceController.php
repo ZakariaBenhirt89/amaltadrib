@@ -19,7 +19,25 @@ class ServiceController extends Controller
     {
         return view("admin.services.add");
     }
+    public function edit(Service $service)
+    {
+        return view("admin.services.edit",["service"=>$service]);
+    }
 
+    public function update(Service $service,Request $request)
+    {
+        $request->validate([
+            "title" => "required"
+        ]);
+        try {
+            Service::where('id',$service->id)->update([
+                "name" => $request->input("title")
+            ]);
+            return redirect()->route("admin.services.all");
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
+        }
+    }
     public function store(Request $request)
     {
         $request->validate([

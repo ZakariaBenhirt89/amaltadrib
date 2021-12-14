@@ -29,8 +29,9 @@
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
+                                <a class="btn btn-sm btn-info" href="{{ route('admin.materials.edit',$material->id) }}"> تعديل </a>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>

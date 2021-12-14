@@ -22,7 +22,48 @@ class InternshipController extends Controller
         ];
         return view("admin.internships.add",$data);
     }
+    public function edit(Internship $internship)
+    {
+        $data = [
+            "students" => Student::all(),
+            "internship"=> $internship
+        ];
+        return view("admin.internships.edit",$data);
+    }
 
+    public function update(Internship $internship,Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "provider" => "required",
+            "start" => "required",
+            "end" => "required",
+            "supervisor" => "required",
+            "supervisor_email" => "required",
+            "supervisor_phone" => "required",
+            "student" => "required",
+            "goals" => "required",
+            "guidlines" => "required"
+        ]);
+
+        try {
+            Internship::where("id",$internship->id)->update([
+                "title" => $request->input("title"),
+                "provider" => $request->input("provider"),
+                "start" => isset($request->start) ? $request->input("start") : $internship->start,
+                "end" => isset($request->end) ? $request->input("end") : $internship->end,
+                "supervisor" => $request->input("supervisor"),
+                "supervisor_email" => $request->input("supervisor_email"),
+                "supervisor_phone" => $request->input("supervisor_phone"),
+                "students_id" => $request->input("student"),
+                "goals" => $request->input("goals"),
+                "guidlines" => $request->input("guidlines")
+            ]);
+            return redirect()->route("admin.internships.all");
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
+        }
+    }
     public function store(Request $request)
     {
         $request->validate([

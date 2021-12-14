@@ -20,6 +20,10 @@ class MaterialController extends Controller
     {
         return view("admin.materials.add");
     }
+    public function edit(Material $material)
+    {
+        return view("admin.materials.edit",['material'=>$material]);
+    }
 
     public function store(Request $request)
     {
@@ -39,6 +43,27 @@ class MaterialController extends Controller
                 "file" => $matarialData["file"],
                 "extention" => $matarialData["extention"]
             ]);
+            return redirect()->route("admin.materials.all");
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+    }
+    public function update(Material $material,Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "file" => "nullable"
+        ]);
+        try {
+            $matarialData = [
+                "title" => $request->input("title"),
+            ];
+            if($request->hasFile('file')){
+                $filePath = $request->file('file')->store('resources/materials');
+                $matarialData['extention'] = $request->file('file')->getClientOriginalExtension();
+                $matarialData['file'] = basename($filePath);
+            }
+            Material::where("id",$material->id)->update($matarialData);
             return redirect()->route("admin.materials.all");
         } catch (\Throwable $th) {
             echo $th->getMessage();

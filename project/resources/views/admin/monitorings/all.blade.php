@@ -47,8 +47,9 @@
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
+                                <a href="{{ route('admin.monitorings.edit',$monitoring->id) }}" class="btn btn-sm btn-info"> تعديل </a>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
