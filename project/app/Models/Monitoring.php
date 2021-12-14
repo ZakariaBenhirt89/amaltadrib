@@ -9,6 +9,17 @@ class Monitoring extends Model
 {
     use HasFactory;
 
+
+    protected $fillable = [
+        "title",
+        "place",
+        "start",
+        "end",
+        "services_id",
+        "students_id",
+        "description"
+    ];
+
     /**
      * Get the Student that owns the Monitoring
      *

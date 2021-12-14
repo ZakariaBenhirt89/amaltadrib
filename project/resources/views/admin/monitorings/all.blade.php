@@ -4,7 +4,10 @@
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">دورات</h2>
+        <div class="d-flex justify-content-between">
+            <h2 class="h3 mb-3">دورات</h2>
+            <a href="{{ route("admin.monitorings.add") }}" class="btn btn-dark shadow-md mb-3">أظف دورة</a>
+          </div>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -31,9 +34,9 @@
                               <td class="text-nowrap">{{ $monitoring->place}}</td>
                               <td>
                                 @if($monitoring->applied)
-                                <span class="badge bg-success">تم التقدم للوظيفة</span>
+                                <span class="badge bg-success">تم التقدم للدورة</span>
                                 @else
-                                <span class="badge bg-dark text-white">لم يتم التقدم للوظيفة بعد</span>
+                                <span class="badge bg-dark text-white">لم يتم التقدم للدورة بعد</span>
                                 @endif
                               </td>
                               <td class="text-nowrap">{{ $monitoring->service->name}}</td>
