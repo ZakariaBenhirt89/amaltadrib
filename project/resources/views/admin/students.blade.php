@@ -28,7 +28,7 @@
                         @isset($students)
                           @foreach ($students as $student)
                             <tr>
-                              <td class="text-nowrap"><img src="{{ asset($student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
+                              <td class="text-nowrap"><img src="{{ route('student-avatar',$student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
                               <td><a href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
                               <td>{{ $student->birthday }}</td>
                               <td class="text-nowrap">{{ $student->level }}</td>
@@ -39,11 +39,14 @@
                               <td><span class="text-nowrap">{{ $student->adress }}</span></td>
                               <td><a href="mailto:{{ $student->email }}" class="btn btn-sm btn-info">{{ $student->email }}</a></td>
                               <td><small title="{{ $student->more_details }}" class="text-truncate d-block" title style="max-width: 150px;">{{ $student->more_details }}</small></td>
-                              <td>
-                                  <form action="{{ route("admin.students.delete",$student->id) }}" method="post">
+                              <td class="d-flex flex-row justify-centent-center align-items-center">
+                                  <form class="h-100 w-100 d-flex flex-row justify-centent-center align-items-center m-0" action="{{ route("admin.students.delete",$student->id) }}" method="post">
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
+                                <a href="{{ route("admin.students.edit",[$student->id]) }}">
+                                    <button type="submit" class="btn btn-sm btn-info">تعديل</button>
+                                </a>
                               </td>
                             </tr>
                           @endforeach

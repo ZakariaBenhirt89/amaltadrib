@@ -37,22 +37,26 @@ class ChefController extends Controller
     }
     function edit(Chef $chef){
         $centers = Center::all();
-        return view('public.edit-chefs',compact('chef','centers'));
+        return view('admin.edit-chefs',compact('chef','centers'));
     }
     function update(Chef $chef,Request $request){
         $request->validate([
             'avatar' => 'nullable|mimes:jpg,jpeg,png',
             'fname' => 'required',
             'lname' => 'required',
-            'birthday' => 'required|date',
+            'birthday' => 'nullable|date',
             'gender' => 'required',
             'adress' => 'required',
             'centers_id' => 'required|exists:centers,id'
         ]);
-        $chefData = $request->except(["avatar",'_token',"_method"]);
+        // dd($request);
+        $chefData = $request->except(["avatar",'_token',"_method","birthday"]);
         if($request->hasFile('avatar')){
             $filePath =$request->file('avatar')->store('chefs/avatars');
             $chefData['avatar'] = basename($filePath);
+        }
+        if($request->birthday !== null ){
+            $chefData['birthday'] = $request->birthday;
         }
         Chef::where('id',$chef->id)->update($chefData);
         return redirect()->route('admin.chefs.all');

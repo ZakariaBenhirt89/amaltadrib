@@ -29,6 +29,7 @@
                                             @csrf
                                             <input type="submit" class="btn btn-sm btn-danger" value="حذف">
                                         </form>
+                                        <a href="{{ route('admin.centers.edit',$center->id) }}" class="btn btn-sm btn-info"> تعديل </ض>
                                     </td>
                                 </tr>
                             @endforeach

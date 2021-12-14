@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 App::setLocale("ar");
 
 Route::prefix("/")->name("public.")->group(function () {
@@ -170,15 +171,15 @@ Route::get('/videos/{video}', function ($video) {
     }
     return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
 })->name("videos");
+Route::get('/students/avatars/{avatar}', function ($avatar) {
+    $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+    if(!Storage::disk('local')->exists($filePath)){
+        return abort(404);
+    }
+    return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+})->name("student-avatar");
 /*
     //* Resources Routes
-    Route::get('/students/avatars/{avatar}', function ($avatar) {
-        $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
-        if(!Storage::disk('local')->exists($filePath)){
-            return abort(404);
-        }
-        return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
-    })->name("student-avatar");
     // ->middleware('authentificated');
     Route::get('/chefs/avatars/{avatar}', function ($avatar) {
         $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;

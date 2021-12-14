@@ -28,7 +28,7 @@ class CenterController extends Controller
     }
     function edit(Center $center)
     {
-        return view('public.edit-centers',compact('center'));
+        return view('admin.edit-centers',compact('center'));
     }
     function update(Center $center,Request $request)
     {
