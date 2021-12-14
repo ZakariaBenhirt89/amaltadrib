@@ -56,16 +56,16 @@ class VideoController extends Controller
         ]);
         return redirect()->route('admin.videos.all');
     }
-    function showEditVideos(Video $video){
+    function edit(Video $video){
         $chefs = \App\Models\Chef::all();
-        return view('admin.edit-video',compact('chefs','video'));
+        return view('admin.videos.edit',compact('chefs','video'));
     }
 
-    function editVideo(Video $video,Request $request){
+    function update(Video $video,Request $request){
         $this->validate($request,[
             'title' => 'required',
             'thumbnail' => 'nullable|mimes:jpeg,jpg,png|max:2048',
-            'chefs_id' => 'exists:chefs,id|required',
+            'chefs_id' => 'required|exists:chefs,id|required',
         ]);
         $thumbnail  = isset($request->thumbnail) ? basename($request->file('thumbnail')->store('videos/thumbnails')) : $video->thumbnail;
         $video->update([
@@ -73,10 +73,6 @@ class VideoController extends Controller
             'thumbnail' => $thumbnail,
             'chefs_id' => $request->chefs_id,
         ]);
-        return redirect()->route('admin.videos.all');
-    }
-    function deleteVideo(Video $video){
-        $video->delete();
         return redirect()->route('admin.videos.all');
     }
 

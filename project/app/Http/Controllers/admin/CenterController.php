@@ -28,18 +28,17 @@ class CenterController extends Controller
     }
     function edit(Center $center)
     {
-        return view('admin.edit-centers',compact('center'));
+        return view('admin.centers.edit',compact('center'));
     }
     function update(Center $center,Request $request)
     {
-        // dd($center);
         $request->validate([
             'name' => 'required|max:255',
             'adress' => 'required|max:255',
             'phone' => 'required|max:255',
         ]);
         Center::where("id",$center->id)->update($request->except(['_token','_method']));
-        return redirect()->route('admin.centers');
+        return redirect()->route('admin.centers.all');
     }
     function delete(Center $center)
     {

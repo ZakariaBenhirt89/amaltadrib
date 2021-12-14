@@ -39,7 +39,7 @@ class ChefController extends Controller
     }
     function edit(Chef $chef){
         $centers = Center::all();
-        return view('admin.edit-chefs',compact('chef','centers'));
+        return view('admin.chefs.edit',compact('chef','centers'));
     }
     function update(Chef $chef,Request $request){
         $request->validate([

@@ -23,6 +23,7 @@ class CreatePodcastsTable extends Migration
             $table->string('title', 70)->nullable();
             $table->string('duration', 45)->nullable();
             $table->text('file')->nullable();
+            $table->timestamps();
         });
     }
 

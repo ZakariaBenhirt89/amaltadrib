@@ -108,7 +108,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\VideoController::class,'index'])->name('all');
             Route::get('/add', [App\Http\Controllers\admin\VideoController::class,'add'])->name("add");
             Route::post('/stroe', [App\Http\Controllers\admin\VideoController::class,'store'])->name("store");
-            Route::post('/edit/{video:id}', [App\Http\Controllers\admin\VideoController::class,'edit'])->name("edit");
+            Route::get('/edit/{video:id}', [App\Http\Controllers\admin\VideoController::class,'edit'])->name("edit");
             Route::post('/update/{video:id}', [App\Http\Controllers\admin\VideoController::class,'update'])->name("update");
             Route::post('/delete/{video:id}', [App\Http\Controllers\admin\VideoController::class,'delete'])->name("delete");
         });
@@ -117,7 +117,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
             Route::get('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\PodcastController::class,'store'])->name("store");
-            Route::post('/edit/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'edit'])->name("edit");
+            Route::get('/edit/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'edit'])->name("edit");
             Route::post('/update/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'update'])->name("update");
             Route::post('/delete/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'delete'])->name("delete");
         });

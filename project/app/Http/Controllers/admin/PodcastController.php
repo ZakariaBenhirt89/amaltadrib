@@ -19,6 +19,10 @@ class PodcastController extends Controller
     {
         return view("admin.podcasts.add");
     }
+    public function edit(Podcast $podcast)
+    {
+        return view("admin.podcasts.edit",['podcast'=>$podcast]);
+    }
 
     public function store(Request $request)
     {
@@ -44,6 +48,18 @@ class PodcastController extends Controller
         } catch (\Throwable $th) {
             return redirect()->back()->withErrors([$th->getMessage(),__("message.an unexpected error during upload, please try again")])->withInput();
         }
+    }
+    public function update(Podcast $podcast,Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+        ]);
+
+        $podcastData =[
+            "title" => $request->input("title"),
+        ];
+        Podcast::where('id',$podcast->id)->update($podcastData);
+        return redirect()->route("admin.podcasts.all");
     }
 
     public function delete(Podcast $podcast)

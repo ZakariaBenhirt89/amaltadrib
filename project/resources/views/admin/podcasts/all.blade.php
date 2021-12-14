@@ -9,7 +9,7 @@
             <a href="{{ route("admin.podcasts.add") }}" class="btn btn-dark shadow-md mb-3">أظف بودكاست</a>
           </div>
       </div>
-      
+
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
               <div class="table-responsive">
@@ -36,8 +36,9 @@
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
+                                <a href="{{ route('admin.podcasts.edit',$podcast->id) }}" class="btn btn-sm btn-info"> تعديل </a>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
