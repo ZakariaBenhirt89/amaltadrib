@@ -114,7 +114,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
 
         Route::prefix('/podcasts')->name("podcasts.")->group(function () {
             Route::get('/', [App\Http\Controllers\admin\PodcastController::class,'index'])->name("all");
-            Route::post('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
+            Route::get('/add', [App\Http\Controllers\admin\PodcastController::class,'add'])->name("add");
             Route::post('/store', [App\Http\Controllers\admin\PodcastController::class,'store'])->name("store");
             Route::post('/edit/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'edit'])->name("edit");
             Route::post('/update/{podcast:id}', [App\Http\Controllers\admin\PodcastController::class,'update'])->name("update");
@@ -170,9 +170,13 @@ Route::get('/videos/{video}', function ($video) {
     }
     return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
 })->name("videos");
-/*
-    //* Resources Routes
-    Route::get('/students/avatars/{avatar}', function ($avatar) {
+
+
+    // Resources Routes
+    Route::get('/students/avatars/{avatar?}', function ($avatar = null) {        
+        if($avatar == null){
+            return response()->file("../public/images/student/avatar.png");
+        }
         $filePath = 'students'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
         if(!Storage::disk('local')->exists($filePath)){
             return abort(404);
@@ -180,14 +184,17 @@ Route::get('/videos/{video}', function ($video) {
         return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
     })->name("student-avatar");
     // ->middleware('authentificated');
-    Route::get('/chefs/avatars/{avatar}', function ($avatar) {
+    Route::get('/chefs/avatars/{avatar?}', function ($avatar) {
+        if($avatar == null){
+            return response()->file("../public/images/chefs/avatar.png");
+        }
         $filePath = 'chefs'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
         if(!Storage::disk('local')->exists($filePath)){
             return abort(404);
         }
         return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
     })->name("admin-avatar");;
-*/
+
 
 
 

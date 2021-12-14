@@ -12,7 +12,38 @@ class PodcastController extends Controller
         $data = [
             "podcasts" => Podcast::all()
         ];
-        return view("admin.podcasts",$data);
+        return view("admin.podcasts.all",$data);
+    }
+
+    public function add()
+    {
+        return view("admin.podcasts.add");
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            "title" => "required",
+            "durartion" => "required",
+            "file" => "required"
+        ]);
+
+        $podcastData =[
+            "title" => $request->input("title"),
+            "durartion" => $request->input("durartion")
+        ];
+        try {
+            $filePath = $request->file('file')->store('resources/podcasts');
+            $podcastData['file'] = basename($filePath);
+            $podcast = Podcast::create([
+                "title" => $podcastData["title"],
+                "durartion" => $podcastData["durartion"],
+                "file" => $podcastData["file"],
+            ]);
+            return redirect()->route("admin.podcasts.all");
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([$th->getMessage(),__("message.an unexpected error during upload, please try again")])->withInput();
+        }
     }
 
     public function delete(Podcast $podcast)

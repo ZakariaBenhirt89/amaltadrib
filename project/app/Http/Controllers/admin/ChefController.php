@@ -11,29 +11,31 @@ class ChefController extends Controller
     function index()
     {
         $chefs = Chef::all();
-        return view('admin.chefs',['chefs'=>$chefs]);
+        return view('admin.chefs.all',['chefs'=>$chefs]);
     }
     function add()
     {
         $centers = Center::all();
-        return view('public.new-chefs',compact('centers'));
+        return view('admin.chefs.add',compact('centers'));
     }
     function store(Request $request)
     {
         $request->validate([
-            'avatar' => 'required|mimes:jpg,jpeg,png',
+            'avatar' => 'mimes:jpg,jpeg,png',
             'fname' => 'required',
             'lname' => 'required',
-            'birthday' => 'required|date',
+            'birthday' => 'date',
             'gender' => 'required',
-            'adress' => 'required',
+            'adress' => '',
             'centers_id' => 'required|exists:centers,id'
         ]);
-        $filePath =$request->file('avatar')->store('chefs/avatars');
         $chefData = $request->except(['_token']);
-        $chefData['avatar'] = basename($filePath);
+        if($request->hasFile("avatar")){
+            $filePath =$request->file('avatar')->store('chefs/avatars');
+            $chefData['avatar'] = basename($filePath);
+        }
         Chef::create($chefData);
-        return redirect()->route('admin.chefs');
+        return redirect()->route('admin.chefs.all');
     }
     function edit(Chef $chef){
         $centers = Center::all();
