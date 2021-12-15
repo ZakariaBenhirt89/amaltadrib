@@ -18,11 +18,11 @@ App::setLocale("ar");
 Route::prefix("/")->name("public.")->group(function () {
     Route::get('/login', function () {return view("public.login");})->name("login");
     Route::post('/login', [App\Http\Controllers\student\StudentController::class,'login'])->name("login");
-    Route::get('/', [App\Http\Controllers\public\HomeController::class,'index'])->name("home");
-    Route::get('/about', [App\Http\Controllers\public\AboutController::class,'index'])->name("about");
-    Route::get('/contact', [App\Http\Controllers\public\ContactController::class,'index'])->name("contact");
-    Route::post('/contact', [App\Http\Controllers\public\ContactController::class,'store'])->name("contact");
-    // Route::get('/informations-bank', [App\Http\Controllers\public\InformationsBankController::class,'index'])->name("informations-bank");
+    Route::get('/', [App\Http\Controllers\frontpublic\HomeController::class,'index'])->name("home");
+    Route::get('/about', [App\Http\Controllers\frontpublic\AboutController::class,'index'])->name("about");
+    Route::get('/contact', [App\Http\Controllers\frontpublic\ContactController::class,'index'])->name("contact");
+    Route::post('/contact', [App\Http\Controllers\frontpublic\ContactController::class,'store'])->name("contact");
+    // Route::get('/informations-bank', [App\Http\Controllers\frontpublic\InformationsBankController::class,'index'])->name("informations-bank");
 });
 
 
