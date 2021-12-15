@@ -23,23 +23,23 @@
                     <input required type="text" id="title" name="title" class="form-control" value="{{ $monitoring->title }}" placeholder="العنوان..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="place">المكان:</label>
-                    <input required type="text" id="place" name="place" class="form-control" value="{{ $monitoring->place }}" placeholder="المكان..." />
+                    <label for="place">المركز:</label>
+                    <input required type="text" id="place" name="place" class="form-control" value="{{ $monitoring->place }}" placeholder="المركز..." />
                 </div>
                 <div class="form-group col-md-3">
                     <label for="start">من:</label>
-                    <input required type="time" id="start" name="start" class="form-control" value="{{ $monitoring->start }}" placeholder="من..." />
+                    <input required type="date" id="start" name="start" class="form-control" value="{{ $monitoring->start }}" placeholder="من..." />
                 </div>
                 <div class="form-group col-md-3">
                     <label for="end">إلى:</label>
-                    <input required type="time" id="end" name="end" class="form-control" value="{{ $monitoring->end }}" placeholder="إلى..." />
+                    <input required type="date" id="end" name="end" class="form-control" value="{{ $monitoring->end }}" placeholder="إلى..." />
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-6">
                     <label for="service">الخدمة:</label>
                     <select required id="service" name="service" class="form-control form-select" value="{{ $monitoring->service }}">
-                        <option value="" disabled selected>المعني...</option>
+                        <option value="" disabled selected>الخدمة...</option>
                         @foreach ($services as $service)
                             <option value="{{ $service->id }}" {{ ($monitoring->service->id == $service->id) ? 'selected="true"' : '' }}>{{ $service->id }} - {{$service->name}}</option>
                         @endforeach

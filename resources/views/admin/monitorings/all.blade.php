@@ -17,10 +17,8 @@
                         <th>العنوان</th>
                         <th>يبدأ في</th>
                         <th>ينتهي عند</th>
-                        <th>المكان</th>
-                        <th>الحالة</th>
+                        <th>المركز</th>
                         <th>الخدمة</th>
-                        <th>الوصف</th>
                         <th>الطالب</th>
                         <th></th>
                       </thead>
@@ -32,18 +30,10 @@
                               <td class="text-nowrap">{{ $monitoring->start}}</td>
                               <td class="text-nowrap">{{ $monitoring->end}}</td>
                               <td class="text-nowrap">{{ $monitoring->place}}</td>
-                              <td>
-                                @if($monitoring->applied)
-                                <span class="badge bg-success">تم التقدم للدورة</span>
-                                @else
-                                <span class="badge bg-dark text-white">لم يتم التقدم للدورة بعد</span>
-                                @endif
-                              </td>
                               <td class="text-nowrap">{{ $monitoring->service->name}}</td>
-                              <td class="text-nowrap">{{ $monitoring->description}}</td>
                               <td class="text-nowrap">{{ $monitoring->student->fname}} {{ $monitoring->student->lname}}</td>
                               <td>
-                                <form action="{{ route("admin.monitorings.delete",$monitoring->id) }}" method="post">
+                                <form class="d-inline-block" action="{{ route("admin.monitorings.delete",$monitoring->id) }}" method="post">
                                   @csrf
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
@@ -57,10 +47,8 @@
                         <th>العنوان</th>
                         <th>يبدأ في</th>
                         <th>ينتهي عند</th>
-                        <th>المكان</th>
-                        <th>الحالة</th>
+                        <th>المركز</th>
                         <th>الخدمة</th>
-                        <th>الوصف</th>
                         <th>الطالب</th>
                         <th></th>
                       </tfoot>
