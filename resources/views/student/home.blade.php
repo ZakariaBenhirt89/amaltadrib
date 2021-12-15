@@ -63,7 +63,7 @@
                         <div class="shadow-md border border-warning rounded p-1 bg-warning">
                             <a @if($video->watched) href="{{ route("student.video",$video->id)}}" @endif>
                                 <div class="video-box @if(!$video->watched) disabled @endif rounded">
-                                    <img src="{{asset('images/video-thumbnails.png')}}" alt="{{ $video->title }}" class="img-responsive img w-100">
+                                    <img src="{{route("resources.video.thumbnail",$video->thumbnail)}}" alt="{{ $video->title }}" class="img-responsive img w-100">
                                     <div class="details">
                                         <h2 class="h5 text-white">{{ $video->title }}</h2>
                                         <div class="text-end d-block w-100">

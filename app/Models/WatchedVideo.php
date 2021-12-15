@@ -20,4 +20,9 @@ class WatchedVideo extends Model
     {
         return $this->hasOne(Video::class, 'id', 'videos_id');
     }
+    
+    protected $fillable = [
+        "videos_id",
+        "students_id"
+    ];
 }

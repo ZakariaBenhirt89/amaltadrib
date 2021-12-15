@@ -36,6 +36,7 @@ Route::prefix("student")->name("student.")->group(function () {
         // Videos
         Route::get('/videos', [App\Http\Controllers\student\VideoController::class,'index'])->name("videos");
         Route::get('/videos/{video:id}', [App\Http\Controllers\student\VideoController::class,'get'])->name("video");
+        Route::get('/video/watched/{video:id}', [App\Http\Controllers\student\VideoController::class,'watched'])->name("video.watched");
         // Podcasts
         Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
         Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");

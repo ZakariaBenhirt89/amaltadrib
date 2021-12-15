@@ -13,18 +13,17 @@ class VideoController extends Controller
         $id = AuthHelper::loggedUser()->id;
         $videos = Video::all();
         $watched = WatchedVideo::where('students_id',$id)->get();
-        if($videos->count() == 1){
-            $videos[0]->watched = true;
-        }else{
             foreach($videos as $key=>$video){
+                $videos[0]->watched = true;
                 $videos[$key]->watched=false;
                 foreach ($watched as $w) {
                     if($video->id == $w->videos_id){
                         $videos[$key]->watched=true;
+                    }else if($key > 0 && $videos[$key-1]->id == $w->videos_id){
+                        $videos[$key]->watched=true;
                     }
                 }
             }
-        }
         $data = [
             "videos" => $videos
         ];
@@ -37,5 +36,13 @@ class VideoController extends Controller
             "video" => $video
         ];
         return view('student.video',$data);
+    }
+    
+    public function watched(Video $video){
+        WatchedVideo::updateOrCreate([
+            "videos_id" => $video->id,
+            "students_id" => $id = AuthHelper::loggedUser()->id
+        ]);
+        return true;
     }
 }
