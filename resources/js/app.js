@@ -1,4 +1,5 @@
 import "./bootstrap";
+import "bootstrap";
  window.toggleSideBar = () => {
     let body = document.querySelector('body');
     if(body.classList.contains('show-side-bar')){

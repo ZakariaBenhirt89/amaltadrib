@@ -5,6 +5,10 @@
     &::before{
         content: "\f144";
         position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
         inset-block: 0px;
         inset-inline: 0px;
         background-color: rgba($dark,0.4);
@@ -29,6 +33,10 @@
         &::after{
             content: "\f023";
             position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
             inset-block: 0px;
             inset-inline: 0px;
             background-color: rgba($white,0.3);
