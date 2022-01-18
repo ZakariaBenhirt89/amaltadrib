@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 App::setLocale("ar");
 
 Route::prefix("/")->name("public.")->group(function () {
-    Route::get('/login', function () {return view("public.login");})->name("login");
+    Route::get('/login', function () {return view("public.login");})->name("login-p");
     Route::post('/login', [App\Http\Controllers\student\StudentController::class,'login'])->name("login");
     Route::get('/', [App\Http\Controllers\frontpublic\HomeController::class,'index'])->name("home");
     Route::get('/about', [App\Http\Controllers\frontpublic\AboutController::class,'index'])->name("about");

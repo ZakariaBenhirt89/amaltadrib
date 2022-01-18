@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ route('public.contact')}}">تواصل معنا</a>
                   </li>
                 </ul>
-                  <a class="btn btn-dark" href="{{ route("public.login") }}">تسجيل الدخول</a>
+                  <a class="btn btn-dark" href="{{ route("public.login-p") }}">تسجيل الدخول</a>
               </div>
             </div>
           </nav>

@@ -18,7 +18,7 @@
                         @endforeach
                     </div>
                 @endif
-                <form action="{{ route('public.login') }}" method="POST" class="text-md-start">
+                <form action="{{ route('public.login-p') }}" method="POST" class="text-md-start">
                     @csrf
                     <div class="form-group mb-3">
                         <label class="text-end d-block" for="email">البريد الإلكتروني:</label>
