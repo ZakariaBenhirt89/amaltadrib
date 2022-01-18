@@ -115,7 +115,7 @@
                     <div class="file shadow-lg p-3 rounded bg-white">
                       <div class="thumbnail">
                         <img width="120" src="{{asset('images/file-icons/doc.png')}}" alt="file icon">
-                        <span class="extention">.{{ $material->extention }}</span>
+                        {{-- <span class="extention">.{{ $material->extention }}</span> --}}
                       </div>
                       <div class="text-dark h5 title">{{ $material->title }}</div>
                       <div class="download">
