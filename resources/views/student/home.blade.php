@@ -93,7 +93,7 @@
                                         <h2 class="h5 text-dark">{{ $podcast->title }}</h2>
                                     </div>
                                     <audio controls class="w-100">
-                                        <source src="{{ $podcast->title }}" type="audio/wave">
+                                        <source src="{{ route('resources.podcast',$podcast->file) }}" type="audio/wave">
                                             متصفحك لا يدعم مشغل الصوت.
                                     </audio>
                                     
