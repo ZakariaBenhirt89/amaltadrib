@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">تعديل المتدربين</h2>
+          <h2 class="h3 mb-3">تعديل المركز</h2>
       </div>
       <div class="col-md-12">
         <!---->
@@ -20,10 +20,22 @@
     <form action="{{ route('admin.centers.update',[$center->id]) }}" method="POST" style="display: flex;flex-direction:column;gap:10px">
         @csrf
         @method('PUT')
-        <input name="name" class="form-control" placeholder="name" type="text" value="{{ $center->name }}">
-        <input name="adress" class="form-control" placeholder="adress" type="text" value="{{ $center->adress }}">
-        <input name="phone" class="form-control" placeholder="phone" type="text" value="{{ $center->phone }}">
-        <input type="submit" class="btn btn-sm btn-info" value="Edit">
+        <div class="row">
+            <div class="form-group col-md">
+                <input name="name" class="form-control" placeholder="name" type="text" value="{{ $center->name }}">
+            </div>
+            <div class="form-group col-md">
+                <input name="adress" class="form-control" placeholder="adress" type="text" value="{{ $center->adress }}">
+            </div>
+            <div class="form-group col-md">
+                <input name="phone" class="form-control" placeholder="phone" type="text" value="{{ $center->phone }}">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <input type="submit" class="btn btn-sm btn-info" value="حفظ">
+            </div>
+        </div>
     </form>
 </div>
 </div>

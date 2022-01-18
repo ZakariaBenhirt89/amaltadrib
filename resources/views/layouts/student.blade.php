@@ -71,7 +71,7 @@
                     <div class="col"></div>
                     <div class="col-auto">
                         <img src="{{ route("student-avatar",Auth::guard('student')->user()->avatar)}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border">
-                        <form class="d-inline-block" action="{{ route("student.logout") }}" method="post">
+                        <form class="d-inline-block" action="{{ route("student.logout") }}" method="get">
                             @csrf
                             <button class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</button>
                         </form>

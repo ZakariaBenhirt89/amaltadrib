@@ -30,7 +30,9 @@
                                     <td>{{ $chef->birthday }}</td>
                                     <td>{{ $chef->gender }}</td>
                                     <td>{{ $chef->adress }}</td>
-                                    <td><form method="POST" action="{{ route('admin.chefs.delete',[$chef->id]) }}">
+                                    <td>
+                                      <a href="{{ route('admin.chefs.edit',[$chef->id]) }}" class="btn btn-primary btn-sm">تعديل</a>
+                                      <form method="POST" action="{{ route('admin.chefs.delete',[$chef->id]) }}">
                                         @csrf
                                         @method("DELETE")
                                         <input type="submit" class="btn btn-danger btn-sm" value="حذف">

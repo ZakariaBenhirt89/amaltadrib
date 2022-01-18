@@ -67,10 +67,22 @@ class VideoController extends Controller
             'thumbnail' => 'nullable|mimes:jpeg,jpg,png|max:2048',
             'chefs_id' => 'required|exists:chefs,id|required',
         ]);
-        $thumbnail  = isset($request->thumbnail) ? basename($request->file('thumbnail')->store('videos/thumbnails')) : $video->thumbnail;
+        if(isset($request->thumbnail)){
+            $thumbnail = basename($request->file('thumbnail')->store('resources/videos/thumbnails'));
+            Storage::delete(['resources/videos/thumbnails/'.$request->thumbnail]);
+        }else{
+            $thumbnail = $video->thumbnail;
+        }
+        if(isset($request->video)){
+            $videoFile = basename($request->file('video')->store('resources/videos'));
+            Storage::delete(['resources/videos/'.$request->video]);
+        }else{
+            $videoFile = $video->video;
+        }
         $video->update([
             'title' => $request->title,
             'thumbnail' => $thumbnail,
+            'file' => $videoFile,
             'chefs_id' => $request->chefs_id,
         ]);
         return redirect()->route('admin.videos.all');
@@ -80,6 +92,8 @@ class VideoController extends Controller
     {
         try {
             $video->delete();
+            Storage::delete(['resources/videos/thumbnails/'.$video->thumbnail]);
+            Storage::delete(['resources/videos/'.$video->file]);
             return redirect()->route("admin.videos.all");
         } catch (\Throwable $th) {
             return redirect()->back();

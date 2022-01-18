@@ -7,8 +7,8 @@
                 @foreach ($materials as $material)
                 <div class="col-md-4 col-lg-3 col-sm-6 text-center">
                     <div class="file shadow-lg p-3 rounded bg-white">
-                      <div class="thumbnail">
-                        <img width="120" src="{{asset('images/file-icons/'.$material->extention.'.png')}}" alt="file icon">
+                      <div class="thumbnail text-center">
+                        <img width="120" src="{{asset('images/file-icons/doc.png')}}" alt="file icon">
                         <span class="extention">.{{ $material->extention }}</span>
                       </div>
                       <div class="text-dark h5 title">{{ $material->title }}</div>

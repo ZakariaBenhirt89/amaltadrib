@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $id = AuthHelper::loggedUser()->id;
-        $videos = Video::all();
+        $videos = Video::limit(6)->get();
         $watched = WatchedVideo::where('students_id',$id)->get();
             foreach($videos as $key=>$video){
                 $videos[0]->watched = true;
@@ -29,8 +29,8 @@ class HomeController extends Controller
             }
         $data = [
             "videos" => $videos,
-            "podcasts" => Podcast::all(),
-            "materials" => Material::all()
+            "podcasts" => Podcast::limit(6)->get(),
+            "materials" => Material::limit(6)->get()
         ];
         return view('student.home',$data);
     }

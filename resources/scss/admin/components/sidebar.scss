@@ -73,6 +73,8 @@
             nav{
                 ul{
                     padding-inline: 40px;
+                    padding-left: 40px;
+                    padding-right: 40px;
                     list-style: none;
                     hr{
                         border: none;
@@ -99,7 +101,7 @@
                         }
                         &.title{
                             color: $dark;
-                            margin-inline-start: -1rem;
+                            // margin-inline-start: -1rem;
                             display: block;
                             background-color: $white;
                             border-radius: 8px;
@@ -125,7 +127,8 @@
     }
 }
 
-@media (max-width: 768px) {
+
+@media only screen and (max-width: 768px) {
  .admin{
      .sidebar{
         position: fixed;
@@ -137,6 +140,12 @@
         height: 100vh;
         overflow-y: auto;
         transform: translateX(100%);
+        nav{
+            ul{
+                padding-left: 40px;
+               padding-right: 40px;
+            }
+        }
         .close {
             color: $danger;
             padding: 1rem;

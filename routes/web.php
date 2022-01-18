@@ -74,7 +74,7 @@ Route::prefix('/admin')->name("admin.")->group(function () {
     Route::post('/settings/update', [App\Http\Controllers\admin\AdminController::class,"update"])->name("profile.update");
     // protected
     Route::middleware(['admin'])->group(function () {
-        Route::post('/logout', [App\Http\Controllers\admin\AdminController::class,"logout"])->name("logout");
+        Route::get('/logout', [App\Http\Controllers\admin\AdminController::class,"logout"])->name("logout");
         Route::get('/home', [App\Http\Controllers\admin\HomeController::class,'index'])->name("home");
         // students routes
         Route::prefix("/students")->name("students.")->group(function () {

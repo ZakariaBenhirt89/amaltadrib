@@ -19,7 +19,8 @@ class studentMiddleware
     {
         if(AuthHelper::getGuard() !== 'student' || AuthHelper::loggedUser() == null){
             // TODO remplace with named routes
-            return redirect('login');
+            // return redirect('login');
+            return redirect()->route('public.login');
         }
         return $next($request);
     }

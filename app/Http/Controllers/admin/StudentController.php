@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Student;
+use App\Models\WatchedVideo;
+use App\Models\Video;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -48,7 +50,14 @@ class StudentController extends Controller
             $studentData['avatar'] = basename($imageName);
         }
         $studentData['password'] = Hash::make($studentData['password']);
-        Student::create($studentData);
+        $student = Student::create($studentData);
+        $video = Video::orderBy('id','ASC')->first();
+        if($video){
+            WatchedVideo::updateOrCreate([
+                "videos_id" => $video->id,
+                "students_id" => $student->id
+            ]);
+        }
         return redirect()->route('admin.students.all');
     }
     function update(Student $student,Request $request){

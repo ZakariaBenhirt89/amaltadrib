@@ -174,7 +174,7 @@
                         @isset($students)
                           @foreach ($students as $student)
                             <tr>
-                              <td class="text-nowrap"><img src="{{ asset($student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
+                              <td class="text-nowrap"><img src="{{ route("student-avatar",$student->avatar) }}" width="30" height="30" class="d-inline-block rounded-circle" alt=""> {{ $student->fname }} {{ $student->lname }}</td>
                               <td><a href="tel:{{ $student->phone }}" class="btn btn-sm btn-dark">{{ $student->phone }}</a></td>
                               <td>{{ $student->birthday }}</td>
                               <td class="text-nowrap">{{ $student->level }}</td>
@@ -233,7 +233,7 @@
                         @isset($videos)
                           @foreach ($videos as $video)
                             <tr>
-                              <td><img src="{{ $video->thumbnail }}" width="30" height="30" class="mx-3" alt="">{{ $video->title }}</td>
+                              <td><img src="{{ route("resources.video.thumbnail",$video->thumbnail) }}" width="30" height="30" class="mx-3" alt="">{{ $video->title }}</td>
                               <td>{{ $video->durartion }}</td>
                               <td><a target="_blank" href="{{ $video->file }}" class="btn btn-primary btn-sm">عرض</a></td>
                               <td>{{ $video->chef->fname }} {{ $video->chef->lname }}</td>
