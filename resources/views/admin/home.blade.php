@@ -281,7 +281,7 @@
                               <td>{{ $podcast->duration }}</td>
                               <td>
                                 <audio controls>
-                                  <source src="{{ $podcast->file }}" type="audio/mp4">
+                                  <source src="{{ route('resources.podcast',$podcast->file) }}" type="audio/mp4">
                                 </audio>
                               </td>
                               <td>
