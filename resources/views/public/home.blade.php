@@ -12,7 +12,7 @@
                 <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.</p>
                 <div class="d-flex justify-content-center justify-content-md-start">
                     <a href="{{ route("public.login-p") }}" class="btn btn-dark me-2 my-3">تسجيل الدخول</a>
-                    <a href="{{ route("public.contact") }}" class="btn btn-warning me-2 my-3">الانضمام للمنصة</a>
+                    <a href="{{ route("public.contact-p") }}" class="btn btn-warning me-2 my-3">الانضمام للمنصة</a>
                 </div>
             </div>
             <div class="col-md-6 d-none d-md-block">

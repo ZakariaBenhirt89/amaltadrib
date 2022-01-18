@@ -27,7 +27,7 @@
                     <a class="nav-link" href="{{ route('public.about')}}">من نحن</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('public.contact')}}">تواصل معنا</a>
+                    <a class="nav-link" href="{{ route('public.contact-p')}}">تواصل معنا</a>
                   </li>
                 </ul>
                   <a class="btn btn-dark" href="{{ route("public.login-p") }}">تسجيل الدخول</a>
