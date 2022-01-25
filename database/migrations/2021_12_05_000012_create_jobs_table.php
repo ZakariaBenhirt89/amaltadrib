@@ -20,19 +20,10 @@ class CreateJobsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('title', 70)->nullable();
-            $table->decimal('salary', 8, 2)->nullable();
-            $table->string('position', 70)->nullable();
-            $table->string('provider', 70)->nullable();
-            $table->text('location')->nullable();
-            $table->string('supervisor', 70)->nullable();
-            $table->string('supervisor_email', 150)->nullable();
-            $table->string('supervisor_phone', 45)->nullable();
-            $table->string('start', 45)->nullable();
-            $table->string('end', 45)->nullable();
-            $table->string('contract_type', 70)->nullable();
-            $table->text('description')->nullable();
-            $table->boolean('applied')->nullable()->default(false);
+            $table->string('start', 100)->nullable()->default('...');
+            $table->string('end', 100)->nullable()->default('...');
+            $table->string('provider', 100)->nullable()->default('...');
+            $table->text('address')->nullable()->default('...');
             $table->unsignedBigInteger('students_id');
             $table->timestamps();
 
