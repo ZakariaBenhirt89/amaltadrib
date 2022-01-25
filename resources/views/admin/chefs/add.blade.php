@@ -60,6 +60,13 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-group col-md-4">
+                    <label for="status">الوضعية:</label>
+                    <select name="status" id="status" class="form-control" required>
+                        <option value="1" @if( old('status') == 1) selected="true" @endif>فعال</option>
+                        <option value="0" @if( old('status') == 0) selected="true" @endif>غير فعال</option>
+                    </select>
+                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">

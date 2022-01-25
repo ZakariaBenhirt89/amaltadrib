@@ -19,6 +19,7 @@
                         <th>تاريخ الميلاد</th>
                         <th>الجنس</th>
                         <th>العنوان</th>
+                        <th>الوضعية</th>
                         <th></th>
                       </thead>
                       <tbody>
@@ -30,6 +31,15 @@
                                     <td>{{ $chef->birthday }}</td>
                                     <td>{{ $chef->gender }}</td>
                                     <td>{{ $chef->adress }}</td>
+                                    <td>
+                                      @if($chef->status === 0)
+                                          <span title="غير فعال" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-danger"></span>
+                                        @elseif($chef->status === 1)
+                                          <span title="فعال" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-success"></span>
+                                        @else
+                                          <span title="غير معروفة" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-light border"></span>
+                                      @endif
+                                    </td>
                                     <td>
                                       <a href="{{ route('admin.chefs.edit',[$chef->id]) }}" class="btn btn-primary btn-sm">تعديل</a>
                                       <form method="POST" action="{{ route('admin.chefs.delete',[$chef->id]) }}">
@@ -47,6 +57,7 @@
                         <th>تاريخ الميلاد</th>
                         <th>الجنس</th>
                         <th>العنوان</th>
+                        <th>الوضعية</th>
                         <th></th>
                       </tfoot>
                   </table>
