@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">الهاتف:</label>
-                        <input required class="form-control" type="tel" name="phone" value="{{ old("phone") }}" placeholder="الهاتف..." />
+                        <input class="form-control" type="tel" name="phone" value="{{ old("phone") }}" placeholder="الهاتف..." />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">تاريخ الميلاد:</label>
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">رفم هاتف الوصي:</label>
-                        <input required class="form-control" type="tel" name="gardian_number" value="{{ old("gardian_number") }}" placeholder="رفم هاتف الوصي..." />
+                        <input class="form-control" type="tel" name="gardian_number" value="{{ old("gardian_number") }}" placeholder="رفم هاتف الوصي..." />
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">الحالة العائلية:</label>
@@ -72,11 +72,11 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="">رقم البطاقة الوطنية:</label>
-                        <input required class="form-control" type="text" name="cin_number" value="{{ old("cin_number") }}" placeholder="رقم البطاقة الوطنية..." />
+                        <input class="form-control" type="text" name="cin_number" value="{{ old("cin_number") }}" placeholder="رقم البطاقة الوطنية..." />
                     </div>
                     <div class="form-group col-md-8">
                         <label for="">العنوان:</label>
-                        <input required class="form-control" type="text" name="adress" value="{{ old("adress") }}" placeholder="العنوان..." />
+                        <input class="form-control" type="text" name="adress" value="{{ old("adress") }}" placeholder="العنوان..." />
                     </div>
                     <div class="form-group col-md-12">
                         <label for="">المزيد من التفاصيل:</label>

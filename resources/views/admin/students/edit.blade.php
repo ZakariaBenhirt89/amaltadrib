@@ -28,11 +28,11 @@
                 </div>
                 <div class="form-group col-md col-md-4">
                     <label for="">الإسم:</label>
-                    <input type="text"  class="form-control" name="fname" placeholder="fname" value="{{ $student->fname }}"/>
+                    <input required type="text"  class="form-control" name="fname" placeholder="fname" value="{{ $student->fname }}"/>
                 </div>
                 <div class="form-group col-md col-md-4">
                     <label for="">النسب:</label>
-                    <input type="text"  class="form-control" name="lname" placeholder="lname" value="{{ $student->lname }}"/>
+                    <input required type="text"  class="form-control" name="lname" placeholder="lname" value="{{ $student->lname }}"/>
                 </div>
               </div>
               <div class="row">
@@ -76,11 +76,11 @@
               <div class="row">
                 <div class="form-group col-md">
                     <label for="">البريد الإلكتروني:</label>
-                    <input type="text" class="form-control" name="email" placeholder="email" value="{{ $student->email }}"/>
+                    <input required type="text" class="form-control" name="email" placeholder="email" value="{{ $student->email }}"/>
                 </div>
                 <div class="form-group col-md">
                     <label for="">كلمة المرور:</label>
-                    <input type="password" class="form-control" name="password" placeholder="كلمة المرور..." />
+                    <input required type="password" class="form-control" name="password" placeholder="كلمة المرور..." />
                 </div>
               </div>
               <div class="row">

@@ -30,23 +30,21 @@ class StudentController extends Controller
             "avatar"=>"mimes:jpg,jpeg,png",
             "fname"=>"required",
             "lname"=>"required",
-            "phone"=>"required",
-            "birthday"=>"date",
+            "phone"=>"",
+            "birthday"=>"",
             "level"=>"",
-            "gardian_number"=>"required",
+            "gardian_number"=>"",
             "family_situation"=>"",
-            "number_of_children"=>"integer",
-            "cin_number"=>"required",
-            "adress"=>"required",
+            "number_of_children"=>"",
+            "cin_number"=>"",
+            "adress"=>"",
             "email"=>"required|unique:students",
             "password"=>"required|min:6",
             "more_details"=>"",
         ]);
         $studentData = $request->except('avatar');
         if($request->hasFile('avatar')){
-            // $imageName = Storage::disk('local')->put('students/avatars', $request->avatar);
             $imageName = $request->file('avatar')->store('students/avatars');
-            // dd([$imageName,basename($imageName)]);
             $studentData['avatar'] = basename($imageName);
         }
         $studentData['password'] = Hash::make($studentData['password']);
@@ -66,17 +64,17 @@ class StudentController extends Controller
             "avatar"=>"mimes:jpg,jpeg,png",
             "fname"=>"required",
             "lname"=>"required",
-            "phone"=>"required",
-            "birthday"=>"nullable|date",
-            "level"=>"required",
-            "gardian_number"=>"required|numeric",
-            "family_situation"=>"required",
-            "number_of_children"=>"required|integer",
-            "cin_number"=>"required",
-            "adress"=>"required",
-            "email"=>"required|unique:students,email,".$student->id,
-            "password"=>"nullable|string|min:6",
-            "more_details"=>"required",
+            "phone"=>"",
+            "birthday"=>"",
+            "level"=>"",
+            "gardian_number"=>"",
+            "family_situation"=>"",
+            "number_of_children"=>"",
+            "cin_number"=>"",
+            "adress"=>"",
+            "email"=>"required|unique:students",
+            "password"=>"required|min:6",
+            "more_details"=>"",
         ]);
         $studentData = [
             "fname"=>$request->fname,
