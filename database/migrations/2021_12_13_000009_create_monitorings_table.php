@@ -22,7 +22,7 @@ class CreateMonitoringsTable extends Migration
             $table->id();
             $table->string('code', 100)->nullable()->default('0000');
             $table->string('title', 70)->nullable();
-            $table->text('basic_recipes')->nullable()->default('...');
+            $table->text('basic_recipes')->nullable();
             $table->string('duration', 100)->nullable()->default('...');
             $table->string('result', 100)->nullable()->default('...');
             $table->tinyInteger('status')->comment("0:inprogress,1:graduated,2:not graduated")->ddefault("0");
