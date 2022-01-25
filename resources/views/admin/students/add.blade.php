@@ -52,7 +52,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label for="">رفم هاتف الوصي:</label>
+                        <label for="">رقم الهاتف الثاني:</label>
                         <input class="form-control" type="tel" name="gardian_number" value="{{ old("gardian_number") }}" placeholder="رفم هاتف الوصي..." />
                     </div>
                     <div class="form-group col-md-4">

@@ -51,7 +51,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-md col-md-4">
-                    <label for="">رقم هاتف الوصي:</label>
+                    <label for="">رقم الهاتف الثاني:</label>
                     <input type="text"  class="form-control" name="gardian_number" placeholder="gardian_number" value="{{ $student->gardian_number }}"/>
                 </div>
                 <div class="form-group col-md col-md-4">
