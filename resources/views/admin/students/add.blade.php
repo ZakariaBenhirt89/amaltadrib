@@ -66,7 +66,15 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="">عدد الأبناء:</label>
-                        <input class="form-control" type="number" name="number_of_children" value="{{ old("number_of_children") }}" placeholder="عدد الأبناء..." />
+                        <select name="number_of_children" id="number_of_children"  class="form-control form-select">
+                            <option value="" selected disabled>عدد الأبناء...</option>
+                            <option value="0" @if(old("number_of_children") === 0) selected="true"@endif>0</option>
+                            <option value="1" @if(old("number_of_children") === 1) selected="true"@endif>1</option>
+                            <option value="2" @if(old("number_of_children") === 2) selected="true"@endif>2</option>
+                            <option value="3" @if(old("number_of_children") === 3) selected="true"@endif>3</option>
+                            <option value="4" @if(old("number_of_children") === 4) selected="true"@endif>4</option>
+                            <option value="5" @if(old("number_of_children") === 5) selected="true"@endif>5</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">
