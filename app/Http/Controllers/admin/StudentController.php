@@ -72,7 +72,7 @@ class StudentController extends Controller
             "number_of_children"=>"",
             "cin_number"=>"",
             "adress"=>"",
-            "email"=>"required|unique:students",
+            "email"=>"required|unique:students,email,".$student->id,
             "password"=>"required|min:6",
             "more_details"=>"",
         ]);
