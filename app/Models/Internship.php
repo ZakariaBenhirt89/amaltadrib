@@ -10,15 +10,10 @@ class Internship extends Model
     use HasFactory;
 
     protected $fillable = [
-        "title",
-        "provider",
         "start",
         "end",
-        "supervisor",
-        "supervisor_email",
-        "supervisor_phone",
-        "goals",
-        "guidlines",
+        "provider",
+        "address",
         "students_id"
     ];
 

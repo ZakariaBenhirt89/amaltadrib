@@ -19,34 +19,20 @@
             @csrf
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label for="title">العنوان:</label>
-                    <input required type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="العنوان..." />
+                    <label for="start">من:</label>
+                    <input required type="text" id="start" name="start" class="form-control" value="{{ old("start") }}" placeholder="من..." />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="end">إلى:</label>
+                    <input required type="text" id="end" name="end" class="form-control" value="{{ old("end") }}" placeholder="إلى..." />
                 </div>
                 <div class="form-group col-md-3">
                     <label for="provider">المزود:</label>
                     <input required type="text" id="provider" name="provider" class="form-control" value="{{ old("provider") }}" placeholder="المزود..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="start">من:</label>
-                    <input required type="time" id="start" name="start" class="form-control" value="{{ old("start") }}" placeholder="من..." />
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="end">إلى:</label>
-                    <input required type="time" id="end" name="end" class="form-control" value="{{ old("end") }}" placeholder="إلى..." />
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-3">
-                    <label for="supervisor">المشرف:</label>
-                    <input required type="text" id="supervisor" name="supervisor" class="form-control" value="{{ old("supervisor") }}" placeholder="المشرف..." />
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="supervisor_email">البريد الإلكتروني للمشرف:</label>
-                    <input required type="email" id="supervisor_email" name="supervisor_email" class="form-control" value="{{ old("supervisor_email") }}" placeholder="البريد الإلكتروني للمشرف..." />
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="supervisor_phone">رقم هاتف المشرف:</label>
-                    <input required type="phone" id="supervisor_phone" name="supervisor_phone" class="form-control" value="{{ old("supervisor_phone") }}" placeholder="رقم هاتف المشرف..." />
+                    <label for="address">العنوان:</label>
+                    <input required type="text" id="address" name="address" class="form-control" value="{{ old("address") }}" placeholder="العنوان..." />
                 </div>
                 <div class="form-group col-md-3">
                     <label for="student">المعني:</label>
@@ -56,17 +42,7 @@
                             <option value="{{ $student->id }}" {{ (old("student") == $student->id) ? 'selected="true"' : '' }}>{{ $student->id }} - {{$student->fname}}{{ $student->lname }}</option>
                         @endforeach
                     </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="goals">الإهداف:</label>
-                    <textarea required type="text" id="goals" name="goals" class="form-control" value="{{ old("goals") }}" placeholder="الإهداف..." cols="30" rows="10">{{ old("description") }}</textarea>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="guidlines">الإرشادات:</label>
-                    <textarea required type="text" id="guidlines" name="guidlines" class="form-control" value="{{ old("guidlines") }}" placeholder="الإرشادات..." cols="30" rows="10">{{ old("description") }}</textarea>
-                </div>
+                </div>                
             </div>
             <div class="row">
                 <div class="form-group col-md-12">

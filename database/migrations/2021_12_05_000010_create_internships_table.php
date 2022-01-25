@@ -20,16 +20,10 @@ class CreateInternshipsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
-            $table->string('title', 70)->nullable();
-            $table->string('provider', 70)->nullable();
-            $table->string('start', 70)->nullable();
-            $table->string('end', 70)->nullable();
-            $table->string('supervisor', 45)->nullable();
-            $table->string('supervisor_email', 150)->nullable();
-            $table->string('supervisor_phone', 45)->nullable();
-            $table->text('goals')->nullable();
-            $table->text('guidlines')->nullable();
-            $table->boolean('applied')->nullable()->default(false);
+            $table->string('start', 100)->nullable()->default('...');
+            $table->string('end', 100)->nullable()->default('...');
+            $table->string('provider', 100)->nullable()->default('...');
+            $table->text('address')->nullable()->default('...');
             $table->unsignedBigInteger('students_id');
             $table->timestamps();
 

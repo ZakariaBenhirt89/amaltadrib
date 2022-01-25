@@ -34,30 +34,21 @@ class InternshipController extends Controller
     public function update(Internship $internship,Request $request)
     {
         $request->validate([
-            "title" => "required",
-            "provider" => "required",
             "start" => "required",
             "end" => "required",
-            "supervisor" => "required",
-            "supervisor_email" => "required",
-            "supervisor_phone" => "required",
-            "student" => "required",
-            "goals" => "required",
-            "guidlines" => "required"
+            "provider" => "required",
+            "address" => "required",
+            "student" => "required"
         ]);
 
         try {
             Internship::where("id",$internship->id)->update([
-                "title" => $request->input("title"),
+                "start" => $request->input("start"),
+                "end" => $request->input("end"),
                 "provider" => $request->input("provider"),
-                "start" => isset($request->start) ? $request->input("start") : $internship->start,
-                "end" => isset($request->end) ? $request->input("end") : $internship->end,
-                "supervisor" => $request->input("supervisor"),
-                "supervisor_email" => $request->input("supervisor_email"),
-                "supervisor_phone" => $request->input("supervisor_phone"),
-                "students_id" => $request->input("student"),
-                "goals" => $request->input("goals"),
-                "guidlines" => $request->input("guidlines")
+                "address" => $request->input("address"),
+                "students_id" => $request->input("student")
+                
             ]);
             return redirect()->route("admin.internships.all");
         } catch (\Throwable $th) {
@@ -67,34 +58,25 @@ class InternshipController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "title" => "required",
-            "provider" => "required",
             "start" => "required",
             "end" => "required",
-            "supervisor" => "required",
-            "supervisor_email" => "required",
-            "supervisor_phone" => "required",
-            "student" => "required",
-            "goals" => "required",
-            "guidlines" => "required"
+            "provider" => "required",
+            "address" => "required",
+            "student" => "required"
         ]);
 
         try {
             Internship::create([
-                "title" => $request->input("title"),
-                "provider" => $request->input("provider"),
                 "start" => $request->input("start"),
                 "end" => $request->input("end"),
-                "supervisor" => $request->input("supervisor"),
-                "supervisor_email" => $request->input("supervisor_email"),
-                "supervisor_phone" => $request->input("supervisor_phone"),
-                "students_id" => $request->input("student"),
-                "goals" => $request->input("goals"),
-                "guidlines" => $request->input("guidlines")
+                "provider" => $request->input("provider"),
+                "address" => $request->input("address"),
+                "students_id" => $request->input("student")
             ]);
             return redirect()->route("admin.internships.all");
-        } catch (\Throwable $th) {
-            return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
+        } catch (Exception $th) {
+            $th.getMessage();
+            // return redirect()->back()->withErrors([__("message.an unexpected error, please try again")])->withInput();
         }
     }
     public function delete(Internship $internship){
