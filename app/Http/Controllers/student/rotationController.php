@@ -16,11 +16,4 @@ class RotationController extends Controller
         ];
         return view("student.rotations",$data);
     }
-
-    public function accept(Monitoring $monitoring)
-    {
-        $monitoring->accepted = true;
-        $monitoring->save();
-        return redirect()->route('student.rotations');
-    }
 }

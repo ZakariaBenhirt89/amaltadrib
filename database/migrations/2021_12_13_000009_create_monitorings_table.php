@@ -20,12 +20,12 @@ class CreateMonitoringsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();
+            $table->string('code', 100)->nullable()->default('0000');
             $table->string('title', 70)->nullable();
-            $table->string('start', 45)->nullable();
-            $table->string('end', 45)->nullable();
-            $table->string('place', 150)->nullable();
-            $table->boolean('accepted')->nullable()->default(false);
-            $table->text('description')->nullable();
+            $table->text('basic_recipes')->nullable()->default('...');
+            $table->string('duration', 100)->nullable()->default('...');
+            $table->string('result', 100)->nullable()->default('...');
+            $table->tinyInteger('status')->comment("0:inprogress,1:graduated,2:not graduated")->ddefault("0");
             $table->unsignedBigInteger('students_id');
             $table->unsignedBigInteger('services_id');
             $table->timestamps();

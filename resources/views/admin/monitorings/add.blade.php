@@ -19,23 +19,34 @@
             @csrf
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label for="title">العنوان:</label>
-                    <input required type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="العنوان..." />
+                    <label for="code">رقم الدورة:</label>
+                    <input required type="number" id="code" name="code" class="form-control" value="{{ old("code") }}" placeholder="رقم الدورة..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="place">المركز:</label>
-                    <input required type="text" id="place" name="place" class="form-control" value="{{ old("place") }}" placeholder="المركز..." />
+                    <label for="title">إسم الدورة:</label>
+                    <input required type="text" id="title" name="title" class="form-control" value="{{ old("title") }}" placeholder="إسم الدورة..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="start">من:</label>
-                    <input required type="date" id="start" name="start" class="form-control" value="{{ old("start") }}" placeholder="من..." />
+                    <label for="basic_recipes">الوصفات الأساسية	:</label>
+                    <input required type="text" id="basic_recipes" name="basic_recipes" class="form-control" value="{{ old("basic_recipes") }}" placeholder="الوصفات الأساسية..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="end">إلى:</label>
-                    <input required type="date" id="end" name="end" class="form-control" value="{{ old("end") }}" placeholder="إلى..." />
+                    <label for="duration">مدة الدورة:</label>
+                    <input required type="text" id="duration" name="duration" class="form-control" value="{{ old("duration") }}" placeholder="مدة الدورة..." />
                 </div>
-            </div>
-            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="result">نتيجة الدورة:</label>
+                    <input required type="text" id="result" name="result" class="form-control" value="{{ old("result") }}" placeholder="نتيجة الدورة..." />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="status">الوضعية:</label>
+                    <select required id="status" name="status" class="form-control form-select" value="{{ old("status") }}">
+                        <option value="" disabled selected>الوضعية...</option>
+                        <option value="0" {{ (old("status") === 0) ? 'selected="true"' : '' }}>قيد التقدم</option>
+                        <option value="1" {{ (old("status") === 1) ? 'selected="true"' : '' }}>اكتمل</option>
+                        <option value="2" {{ (old("status") === 2) ? 'selected="true"' : '' }}>غير مكتمل</option>
+                    </select>
+                </div>
                 <div class="form-group col-md-6">
                     <label for="service">الخدمة:</label>
                     <select required id="service" name="service" class="form-control form-select" value="{{ old("service") }}">
@@ -52,14 +63,10 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="description">الوصف:</label>
-                    <textarea required type="text" id="description" name="description" class="form-control" value="{{ old("description") }}" placeholder="الوصف..." cols="30" rows="10">{{ old("description") }}</textarea>
-                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
-                    <input type="submit" class="btn btn-dark" value="حفظ">
+                    <input type="submit" class="btn w-25 btn-dark" value="حفظ">
                 </div>
             </div>
         </form>

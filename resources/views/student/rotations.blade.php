@@ -13,11 +13,12 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered" id="table">
                             <thead>
-                                <th>العنوان</th>
-                                <th>من</th>
-                                <th>إلى</th>
-                                <th>المركز</th>
-                                <th>الخدمة</th>
+                                <th>رقم الدورة</th>
+                                <th>إسم الدورة</th>
+                                <th>الوصفات الأساسية</th>
+                                <th>مدة الدورة</th>
+                                <th>نتيجة الدورة</th>
+                                <th>الوضعية</th>
                                 <th></th>
                             </thead>
                             <tbody>
@@ -42,14 +43,6 @@
                                     @endforeach
                                 @endisset
                             </tbody>
-                            <tfoot>
-                                <th>العنوان</th>
-                                <th>من</th>
-                                <th>إلى</th>
-                                <th>المكان</th>
-                                <th>الخدمة</th>
-                                <th></th>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

@@ -11,13 +11,14 @@ class Monitoring extends Model
 
 
     protected $fillable = [
+        "code",
         "title",
-        "place",
-        "start",
-        "end",
+        "basic_recipes",
+        "duration",
+        "result",
+        "status",
         "services_id",
-        "students_id",
-        "description"
+        "students_id"
     ];
 
     /**

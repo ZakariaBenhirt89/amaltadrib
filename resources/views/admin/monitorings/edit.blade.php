@@ -19,47 +19,54 @@
             @csrf
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label for="title">العنوان:</label>
-                    <input required type="text" id="title" name="title" class="form-control" value="{{ $monitoring->title }}" placeholder="العنوان..." />
+                    <label for="code">رقم الدورة:</label>
+                    <input required type="number" id="code" name="code" class="form-control" value="{{ $monitoring->code }}" placeholder="رقم الدورة..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="place">المركز:</label>
-                    <input required type="text" id="place" name="place" class="form-control" value="{{ $monitoring->place }}" placeholder="المركز..." />
+                    <label for="title">إسم الدورة:</label>
+                    <input required type="text" id="title" name="title" class="form-control" value="{{ $monitoring->title }}" placeholder="إسم الدورة..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="start">من:</label>
-                    <input required type="date" id="start" name="start" class="form-control" value="{{ $monitoring->start }}" placeholder="من..." />
+                    <label for="basic_recipes">الوصفات الأساسية	:</label>
+                    <input required type="text" id="basic_recipes" name="basic_recipes" class="form-control" value="{{ $monitoring->basic_recipes }}" placeholder="الوصفات الأساسية..." />
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="end">إلى:</label>
-                    <input required type="date" id="end" name="end" class="form-control" value="{{ $monitoring->end }}" placeholder="إلى..." />
+                    <label for="duration">مدة الدورة:</label>
+                    <input required type="text" id="duration" name="duration" class="form-control" value="{{ $monitoring->duration }}" placeholder="مدة الدورة..." />
                 </div>
-            </div>
-            <div class="row">
+                <div class="form-group col-md-3">
+                    <label for="result">نتيجة الدورة:</label>
+                    <input required type="text" id="result" name="result" class="form-control" value="{{ $monitoring->result }}" placeholder="نتيجة الدورة..." />
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="status">الوضعية:</label>
+                    <select required id="status" name="status" class="form-control form-select" value="{{ $monitoring->status }}">
+                        <option value="" disabled selected>الوضعية...</option>
+                        <option value="0" {{ ($monitoring->status === 0) ? 'selected="true"' : '' }}>قيد التقدم</option>
+                        <option value="1" {{ ($monitoring->status === 1) ? 'selected="true"' : '' }}>اكتمل</option>
+                        <option value="2" {{ ($monitoring->status === 2) ? 'selected="true"' : '' }}>غير مكتمل</option>
+                    </select>
+                </div>
                 <div class="form-group col-md-6">
                     <label for="service">الخدمة:</label>
-                    <select required id="service" name="service" class="form-control form-select" value="{{ $monitoring->service }}">
+                    <select required id="service" name="service" class="form-control form-select">
                         <option value="" disabled selected>الخدمة...</option>
                         @foreach ($services as $service)
                             <option value="{{ $service->id }}" {{ ($monitoring->service->id == $service->id) ? 'selected="true"' : '' }}>{{ $service->id }} - {{$service->name}}</option>
                         @endforeach
                     </select>
                     <label for="student">المعني:</label>
-                    <select required id="student" name="student" class="form-control form-select" value="{{ $monitoring->student }}">
+                    <select required id="student" name="student" class="form-control form-select">
                         <option value="" disabled selected>المعني...</option>
                         @foreach ($students as $student)
                             <option value="{{ $student->id }}" {{ ($monitoring->student->id == $student->id) ? 'selected="true"' : '' }}>{{ $student->id }} - {{$student->fname}}{{ $student->lname }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="description">الوصف:</label>
-                    <textarea required type="text" id="description" name="description" class="form-control" value="{{ $monitoring->description }}" placeholder="الوصف..." cols="30" rows="10">{{ $monitoring->description }}</textarea>
-                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-12">
-                    <input type="submit" class="btn btn-dark" value="حفظ">
+                    <input type="submit" class="btn w-25 btn-dark" value="حفظ">
                 </div>
             </div>
         </form>

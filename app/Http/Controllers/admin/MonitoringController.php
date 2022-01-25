@@ -38,23 +38,25 @@ class MonitoringController extends Controller
     public function update(Monitoring $monitoring,Request $request)
     {
         $request->validate([
+            "code" => "required",
             "title" => "required",
-            "place" => "required",
-            "start" => "required",
-            "end" => "required",
+            "basic_recipes" => "required",
+            "duration" => "required",
+            "result" => "",
+            "status" => "required",
             "service" => "required",
             "student" => "required",
-            "description" => "required"
         ]);
         try {
             Monitoring::where('id',$monitoring->id)->update([
+                "code" => $request->input('code'),
                 "title" => $request->input('title'),
-                "place" => $request->input('place'),
-                "start" => $request->input('start'),
-                "end" => $request->input('end'),
+                "basic_recipes" => $request->input('basic_recipes'),
+                "duration" => $request->input('duration'),
+                "result" => $request->input('result'),
+                "status" => $request->input('status'),
                 "services_id" => $request->input('service'),
-                "students_id" => $request->input('student'),
-                "description" => $request->input('description'),
+                "students_id" => $request->input('student')
             ]);
             return redirect()->route("admin.monitorings.all");
         } catch (\Throwable $th) {
@@ -64,23 +66,25 @@ class MonitoringController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            "code" => "required",
             "title" => "required",
-            "place" => "required",
-            "start" => "required",
-            "end" => "required",
+            "basic_recipes" => "required",
+            "duration" => "required",
+            "result" => "",
+            "status" => "required",
             "service" => "required",
             "student" => "required",
-            "description" => "required"
         ]);
         try {
             Monitoring::create([
+                "code" => $request->input('code'),
                 "title" => $request->input('title'),
-                "place" => $request->input('place'),
-                "start" => $request->input('start'),
-                "end" => $request->input('end'),
+                "basic_recipes" => $request->input('basic_recipes'),
+                "duration" => $request->input('duration'),
+                "result" => $request->input('result'),
+                "status" => $request->input('status'),
                 "services_id" => $request->input('service'),
-                "students_id" => $request->input('student'),
-                "description" => $request->input('description'),
+                "students_id" => $request->input('student')
             ]);
             return redirect()->route("admin.monitorings.all");
         } catch (\Throwable $th) {

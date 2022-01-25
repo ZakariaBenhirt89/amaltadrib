@@ -14,10 +14,12 @@
               <div class="table-responsive">
                   <table class="table table-striped table-bordered" id="table">
                       <thead>
-                        <th>العنوان</th>
-                        <th>يبدأ في</th>
-                        <th>ينتهي عند</th>
-                        <th>المركز</th>
+                        <th>رقم الدورة</th>
+                        <th>إسم الدورة</th>
+                        <th>الوصفات الأساسية</th>
+                        <th>مدة الدورة</th>
+                        <th>نتيجة الدورة</th>
+                        <th>الوضعية</th>
                         <th>الخدمة</th>
                         <th>الطالب</th>
                         <th></th>
@@ -26,12 +28,24 @@
                         @isset($monitorings)
                           @foreach ($monitorings as $monitoring)
                             <tr>
-                              <td class="text-nowrap">{{ $monitoring->title}}</td>
-                              <td class="text-nowrap">{{ $monitoring->start}}</td>
-                              <td class="text-nowrap">{{ $monitoring->end}}</td>
-                              <td class="text-nowrap">{{ $monitoring->place}}</td>
-                              <td class="text-nowrap">{{ $monitoring->service->name}}</td>
-                              <td class="text-nowrap">{{ $monitoring->student->fname}} {{ $monitoring->student->lname}}</td>
+                              <td>{{ $monitoring->code}}</td>
+                              <td>{{ $monitoring->title}}</td>
+                              <td>{{ $monitoring->basic_recipes}}</td>
+                              <td>{{ $monitoring->duration}}</td>
+                              <td>{{ $monitoring->result}}</td>
+                              <td>
+                                @if($monitoring->status === 0)
+                                <span title="قيد التقدم" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-warning"></span>
+                                  @elseif($monitoring->status === 1)
+                                  <span title="اكتمل" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-success"></span>
+                                  @elseif($monitoring->status === 2)
+                                  <span title="غير مكتمل" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-danger"></span>
+                                  @else
+                                  <span title="غير معروفة" style="height: 10px;width:10px;" class="d-block rounded-circle text-white small bg-light border"></span>
+                                @endif
+                              </td>
+                              <td>{{ $monitoring->service->name}}</td>
+                              <td>{{ $monitoring->student->fname}} {{ $monitoring->student->lname}}</td>
                               <td>
                                 <form class="d-inline-block" action="{{ route("admin.monitorings.delete",$monitoring->id) }}" method="post">
                                   @csrf

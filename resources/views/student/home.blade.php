@@ -2,7 +2,7 @@
 @section('title','لوحة تحكم المستخدم')
 @section('content')
     <div class="container-fluid">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-4 mb-3">
                 <div class="shadow-md rounded border-warning border p-3">
                     <div class=""><strong>الفيدوهات</strong></div>
@@ -54,9 +54,13 @@
                     <div class="small text-muted">ملفات التربوية</div>
                   </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row my-3">
-          <div class="col-md-12"><h2 class="h5 mb-3">فيديوهات أمل</h2></div>
+          <div class="col-md-12"><h2 class="h5 mb-3"> (@isset($videos)
+            {{ $videos->count() }}
+                      @else
+                      0
+                      @endisset  ) فيديوهات أمل</h2></div>
             @isset($videos)
                 @foreach ($videos as $video)
                     <div class="col-md-4 mb-3">
@@ -82,8 +86,12 @@
           </div>
         </div>
         <div class="row my-3">
-          <div class="col-md-12"><h2 class="h5 mb-3">بودكاستات</h2></div>
-          @isset($podcasts)
+          <div class="col-md-12"><h2 class="h5 mb-3">( @isset($podcasts)
+                              {{ $podcasts->count() }}
+                          @else
+                          0
+                          @endisset) بودكاستات</h2></div>
+            @isset($podcasts)
                 @foreach ($podcasts as $podcast)
                     <div class="col-md-4 mb-3">
                         <div class="shadow-md bg-light rounded border-warning border px-2 py-3">
@@ -96,7 +104,6 @@
                                       <source src="{{ route("resources.podcast",$podcast->file) }}">
                                           متصفحك لا يدعم مشغل الصوت.
                                   </audio>
-                                    
                                 </div>
                             </a>
                         </div>
@@ -108,7 +115,11 @@
           </div>
         </div>
         <div class="row my-3">
-          <div class="col-md-12"><h2 class="h5 mb-3">ملفات تربوية</h2></div>
+          <div class="col-md-12"><h2 class="h5 mb-3">(@isset($materials)
+            {{ $materials->count() }}
+        @else
+        0
+        @endisset) ملفات تربوية</h2></div>
           @isset($materials)
                 @foreach ($materials as $material)
                 <div class="col-md-4 col-lg-3 col-sm-6 mb-3 text-center">
