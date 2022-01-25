@@ -23,7 +23,7 @@ class CreateJobsTable extends Migration
             $table->string('start', 100)->nullable()->default('...');
             $table->string('end', 100)->nullable()->default('...');
             $table->string('provider', 100)->nullable()->default('...');
-            $table->text('address')->nullable()->default('...');
+            $table->text('address')->nullable();
             $table->unsignedBigInteger('students_id');
             $table->timestamps();
 
