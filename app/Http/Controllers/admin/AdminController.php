@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
+use Hash;
 use App\Models\Admin;
 
 class AdminController extends Controller
@@ -38,7 +39,7 @@ class AdminController extends Controller
             ]);
             try {
                 Admin::where("id",Auth::guard('admin')->user()->id)->update([
-                    "password" => $request->input("password")
+                    "password" => Hash::make($request->input("password"))
                 ]);
                 return redirect()->route("admin.profile");
             } catch (\Throwable $th) {
