@@ -10,10 +10,6 @@ use App\Helpers\AuthHelper;
 class PodcastController extends Controller
 {
     public function index(){
-        // $data = [
-        //     "podcasts" => Podcast::all()
-        // ];
-        // return view('student.podcasts',$data);
         $id = AuthHelper::loggedUser()->id;
         $podcasts = Podcast::all();
         $watched = WatchedPodcast::where('students_id',$id)->get();

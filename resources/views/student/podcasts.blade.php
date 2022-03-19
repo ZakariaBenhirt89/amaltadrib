@@ -26,12 +26,10 @@
         </div>
     </div>
     <script>
-
-
         const audios = document.querySelectorAll("audio");
         audios.forEach(audio => {
             const audioId = "audio-"+audio.dataset.id;
-            const requiredDuration = 1
+            const requiredDuration = 50
             const api = "{{url('/student/podcast/watched/')}}/"+audio.dataset.id
             audio.addEventListener('timeupdate', function() {
                 const persentage = audio.currentTime / audio.duration * 100;
