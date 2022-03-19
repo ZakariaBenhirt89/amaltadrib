@@ -40,6 +40,7 @@ Route::prefix("student")->name("student.")->group(function () {
         // Podcasts
         Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
         Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
+        Route::get('/podcast/watched/{video:id}', [App\Http\Controllers\student\PodcastController::class,'watched'])->name("podcast.watched");
         // Files
         Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
         Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
