@@ -71,7 +71,7 @@
                         <i class="fas fa-handshake text-warning"></i><span>سطاج</span>
                     </a>
                 </li>
-                
+
                 <li>
                     <a href="{{ route('admin.monitorings.all') }}">
                         <i class="fa fa-sync text-warning"></i><span>دورات</span>
@@ -92,7 +92,7 @@
                     <div class="col-auto"><button onclick="window.toggleSideBar()" class="btn text-warning btn-lg"><i class="fas fa-bars"></i></button></div>
                     <div class="col"></div>
                     <div class="col-auto">
-                        <a href="{{ route("admin.profile") }}"><img src="{{asset('images/admin/avatar.png')}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border"></a>
+                        <a href="{{ route("admin.profile") }}"><img src="{{ route("admin-avatar",Auth::guard('admin')->user()->avatar) }}" alt="student avatar" height="40" class="img img-responsive  rounded p-1 bg-light border border-warning mx-3 m-1 border"></a>
                         <form class="d-inline-block" action="{{ route("admin.logout") }}" method="get">
                             @csrf
                             <button class="btn badge p-1 py-2 btn-danger btn-sm rounded">تسجيل الخروج</button>
