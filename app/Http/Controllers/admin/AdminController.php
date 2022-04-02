@@ -34,13 +34,20 @@ class AdminController extends Controller
 
         public function update(Request $request)
         {
-            $request->validate([
-                "password" => "required|min:6"
-            ]);
             try {
-                Admin::where("id",Auth::guard('admin')->user()->id)->update([
-                    "password" => Hash::make($request->input("password"))
-                ]);
+
+                if($request->password){
+                    Admin::where("id",Auth::guard('admin')->user()->id)->update([
+                        "password" => Hash::make($request->input("password"))
+                    ]);
+                }
+                if($request->hasFile("avatar")){
+                    $imageName = $request->file('avatar')->store('admin/avatars');
+                    $avatar = basename($imageName);
+                    Admin::where("id",Auth::guard('admin')->user()->id)->update([
+                        "avatar" => $avatar
+                    ]);
+                }
                 return redirect()->route("admin.profile");
             } catch (\Throwable $th) {
                 return redirect()->back()->withErrors([$th->getMessage(),__("message.an unexpected error, please try again")])->withInput();

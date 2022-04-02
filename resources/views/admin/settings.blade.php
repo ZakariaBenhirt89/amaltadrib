@@ -15,25 +15,28 @@
                   @endforeach
           </div>
       @endif
-      <form action="{{ route('admin.profile.update') }}" method="POST" style="display: flex;flex-direction:column;gap:10px">
+      <form action="{{ route('admin.profile.update') }}" method="POST" style="display: flex;flex-direction:column;gap:10px" enctype="multipart/form-data">
         @csrf
         <div class="row justify-content-center">
             <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 col-xl-1">
-                <img src="{{ asset('images/admin/avatar.png') }}" alt="{{ $settings->username }}" class="img img-responsive img-thumbnail mx-auto w-100">
+                <label for="avatar" style="cursor: pointer">
+                    <img src="{{ route("admin-avatar",$settings->avatar) }}" alt="{{ $settings->username }}" id="avatar-prev" class="img img-responsive img-thumbnail mx-auto w-100">
+                </label>
             </div>
+            <input hidden type="file" id="avatar" name="avatar" accept="image/png, image/gif, image/jpeg" />
         </div>
         <div class="row">
             <div class="form-group col-md-4">
                 <label for="username">إسم الستخدم:</label>
-                <input required value="{{ $settings->username }}" name="username" disabled placeholder="إسم الستخدم..." type="text" class="form-control">
+                <input  value="{{ $settings->username }}" name="username" disabled placeholder="إسم الستخدم..." type="text" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <label for="email">البريد الإلكتروني:</label>
-                <input required value="{{ $settings->email }}" name="email" disabled placeholder="البريد الإلكتروني..." type="email" class="form-control">
+                <input  value="{{ $settings->email }}" name="email" disabled placeholder="البريد الإلكتروني..." type="email" class="form-control">
             </div>
             <div class="form-group col-md-4">
                 <label for="password">كلمة المرور:</label>
-                <input required  name="password" placeholder="كلمة المرور..." type="password" class="form-control">
+                <input   name="password" placeholder="كلمة المرور..." type="password" class="form-control">
             </div>
         </div>
         <div class="row">
@@ -46,6 +49,12 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+    const avatar = document.querySelector("#avatar")
+    avatar.addEventListener("change",function(e){
+        document.querySelector("#avatar-prev").setAttribute("src",URL.createObjectURL(e.target.files[0]))
+    })
+</script>
 @endsection
 @section('js')
 <script src="{{ asset('js/datatable.js') }}"></script>

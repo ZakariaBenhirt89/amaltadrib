@@ -40,6 +40,7 @@ Route::prefix("student")->name("student.")->group(function () {
         // Podcasts
         Route::get('/podcasts', [App\Http\Controllers\student\PodcastController::class,'index'])->name("podcasts");
         Route::get('/podcast/{podcast:id}', [App\Http\Controllers\student\PodcastController::class,'get'])->name("podcast");
+        Route::get('/podcast/watched/{video:id}', [App\Http\Controllers\student\PodcastController::class,'watched'])->name("podcast.watched");
         // Files
         Route::get('/files', [App\Http\Controllers\student\FileController::class,'index'])->name("files");
         Route::get('/file/{file:id}', [App\Http\Controllers\student\FileController::class,'get'])->name("file");
@@ -228,7 +229,19 @@ Route::get('/videos/{video}', function ($video) {
             return abort(404);
         }
         return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
-    })->name("admin-avatar");;
+    })->name("admin-avatar");
+
+
+    Route::get('/admins/avatars/{avatar?}', function ($avatar = null) {
+        if($avatar == null){
+            return response()->file("images/admin/avatar.png");
+        }
+        $filePath = 'admin'.DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar; //config('filesystems.disks.local.root').DIRECTORY_SEPARATOR."students".DIRECTORY_SEPARATOR."avatars".DIRECTORY_SEPARATOR.$avatar;
+        if(!Storage::disk('local')->exists($filePath)){
+            return abort(404);
+        }
+        return response()->file(storage_path().DIRECTORY_SEPARATOR.'app'.DIRECTORY_SEPARATOR.$filePath);
+    })->name("admin-avatar");
 
 
 

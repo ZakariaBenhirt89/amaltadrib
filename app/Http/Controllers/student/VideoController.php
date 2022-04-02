@@ -37,11 +37,11 @@ class VideoController extends Controller
         ];
         return view('student.video',$data);
     }
-    
+
     public function watched(Video $video){
         WatchedVideo::updateOrCreate([
             "videos_id" => $video->id,
-            "students_id" => $id = AuthHelper::loggedUser()->id
+            "students_id" => AuthHelper::loggedUser()->id
         ]);
         return true;
     }

@@ -8,6 +8,7 @@ use App\Models\Video;
 use App\Models\Podcast;
 use App\Models\Material;
 use App\Models\WatchedVideo;
+use App\Models\WatchedPodcast;
 use App\Helpers\AuthHelper;
 class HomeController extends Controller
 {
@@ -27,9 +28,22 @@ class HomeController extends Controller
                     }
                 }
             }
+        $podcasts = Podcast::limit(6)->get();
+        $watched = Watchedpodcast::where('students_id',$id)->get();
+            foreach($podcasts as $key=>$podcast){
+                $podcasts[0]->watched = true;
+                $podcasts[$key]->watched=false;
+                foreach ($watched as $w) {
+                    if($podcast->id == $w->podcasts_id){
+                        $podcasts[$key]->watched=true;
+                    }else if($key > 0 && $podcasts[$key-1]->id == $w->podcasts_id){
+                        $podcasts[$key]->watched=true;
+                    }
+                }
+            }
         $data = [
             "videos" => $videos,
-            "podcasts" => Podcast::limit(6)->get(),
+            "podcasts" => $podcasts,
             "materials" => Material::limit(6)->get()
         ];
         return view('student.home',$data);
