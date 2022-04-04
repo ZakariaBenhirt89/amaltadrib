@@ -65,7 +65,7 @@
                 @foreach ($videos as $video)
                     <div class="col-md-4 mb-3">
                         <div class="shadow-md border border-warning rounded p-1 bg-warning">
-                            <a @if($video->watched)  @endif>
+                            <a @if($video->watched) href="{{ route("student.video",$video->id)}}" @endif>
                                 <div class="video-box @if(!$video->watched) disabled @endif rounded">
                                     <img src="{{route("resources.video.thumbnail",$video->thumbnail)}}" alt="{{ $video->title }}" class="img-responsive img w-100">
                                     <div class="details">
@@ -95,7 +95,7 @@
                 @foreach ($podcasts as $key=>$podcast)
                     <div class="col-md-4 mb-3">
                         <div class="@if(!$podcast->watched) disabled-box @endif shadow-md bg-light rounded border-warning border px-2 py-3">
-                            <a @if($podcast->watched) href="{{ route("student.podcast",$podcast->id)}}" @endif>
+                            <a>
                                 <div class="podcast-box @if(!$podcast->watched) disabled @endif rounded">
                                     <div class="details">
                                         <h2 class="h5 text-dark">{{ $podcast->title }}</h2>
