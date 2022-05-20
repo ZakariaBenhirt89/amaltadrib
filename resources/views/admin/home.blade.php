@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-3 mb-3">
             <div class="shadow-md rounded border-warning border p-3">
-                <div class=""><strong>متدربين</strong></div>
+                <div class=""><strong>المتدربات</strong></div>
                 <div class="d-flex justify-content-between">
                   <div class="count"><span class="display-3 text-dark">
                     @isset($students)
                       {{$students->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -23,13 +23,13 @@
         </div>
         <div class="col-md-3 mb-3">
             <div class="shadow-md rounded border-warning border p-3">
-                <div class=""><strong>مدربين</strong></div>
+                <div class=""><strong>المدربات</strong></div>
                 <div class="d-flex justify-content-between">
                   <div class="count"><span class="display-3 text-dark">
                     @isset($chefs)
                       {{$chefs->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -47,7 +47,7 @@
                     @isset($videos)
                       {{$videos->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -65,7 +65,7 @@
                     @isset($podcasts)
                       {{$podcasts->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -83,7 +83,7 @@
                     @isset($materials)
                       {{$materials->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -101,7 +101,7 @@
                     @isset($services)
                       {{$services->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -119,7 +119,7 @@
                   @isset($jobs)
                     {{$jobs->count()}}
                     @else
-                    0  
+                    0
                   @endisset
               </span></div>
                 <div class=" h2 display-4 text-warning">
@@ -137,7 +137,7 @@
                     @isset($internships)
                       {{$internships->count()}}
                       @else
-                      0  
+                      0
                     @endisset
                 </span></div>
                   <div class=" h2 display-4 text-warning">
@@ -150,7 +150,7 @@
     </div>
     <div class="row mb-5">
       <div class="col-md-12">
-          <h2 class="h3 mb-3">المتدربين</h2>
+          <h2 class="h3 mb-3">المتدربات</h2>
       </div>
       <div class="col-md-12">
           <div class="p-2 shadow-md rounded border border-warning">
@@ -243,7 +243,7 @@
                                 <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                               </form>
                             </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
@@ -290,7 +290,7 @@
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
@@ -332,7 +332,7 @@
                                   <button type="submit" class="btn btn-sm btn-danger">حذف</button>
                                 </form>
                               </td>
-                            </tr> 
+                            </tr>
                           @endforeach
                         @endisset
                       </tbody>
@@ -351,4 +351,5 @@
 @endsection
 @section('js')
     <script src="{{ asset('js/datatable.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 @endsection

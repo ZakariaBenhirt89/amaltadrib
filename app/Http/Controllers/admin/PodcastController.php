@@ -10,7 +10,7 @@ class PodcastController extends Controller
     public function index()
     {
         $data = [
-            "podcasts" => Podcast::all()
+            "podcasts" => Podcast::orderBy("updated_at" , "asc")->get()
         ];
         return view("admin.podcasts.all",$data);
     }

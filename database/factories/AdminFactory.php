@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Hash;
 class AdminFactory extends Factory
@@ -11,12 +12,13 @@ class AdminFactory extends Factory
      *
      * @return array
      */
+    protected $modem = Admin::class;
     public function definition()
     {
         return [
-            "username" => "Admin",
-            "email" => "admin@amaltadrib.com",
-            "password" => Hash::make("pass1234"),
+            "username" => "Fatima",
+            "email" => "AdminFatima@amaltadrib.com",
+            "password" => Hash::make("Pass@1234"),
             "avatar" => "images/admin/avatar.png"
         ];
     }
