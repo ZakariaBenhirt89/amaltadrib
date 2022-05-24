@@ -89,7 +89,7 @@
         <header class="shadow-sm bg-dark py-2">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <div class="col-auto"><button onclick="window.toggleSideBar()" class="btn text-warning btn-lg" >إفتح</button></div>
+                    <div class="col-auto"><button onclick="window.hideSideBar()" class="btn text-warning btn-lg" >إفتح</button></div>
                     <div class="col"></div>
                     <div class="col-auto">
                         <a href="{{ route("admin.profile") }}"><img src="{{ route("admin-avatar",Auth::guard('admin')->user()->avatar) }}" alt="student avatar" height="40" class="img img-responsive  rounded p-1 bg-light border border-warning mx-3 m-1 border"></a>

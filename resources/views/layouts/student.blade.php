@@ -67,7 +67,7 @@
         <header class="shadow-sm bg-white py-2">
             <div class="container-fluid">
                 <div class="row align-items-center">
-                    <div class="col-auto"><button onclick="window.toggleSideBar()" class="btn text-warning btn-lg"><i class="fas fa-bars"></i></button></div>
+                    <div class="col-auto"><button onclick="window.hideSideBar()" class="btn text-warning btn-lg"><i class="fas fa-bars"></i></button></div>
                     <div class="col"></div>
                     <div class="col-auto">
                         <img src="{{ route("student-avatar",Auth::guard('student')->user()->avatar)}}" alt="student avatar" height="40" class="img img-responsive img-circle rounded-circle border border-warning mx-3 m-1 border">

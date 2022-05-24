@@ -15,15 +15,38 @@
             </div>
 
             <div class="col-md-6 d-none d-md-block">
-                <img src="{{asset('images/big-icon.svg')}}" alt="" class="img img-responsive big-icon me-auto d-block">
+
             </div>
         </div>
+
     </div>
+        <div class="hover01 column">
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393024/Amal_25_hirj46.jpg" height="200" width="300" />
+            </div>
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393024/Amal_4_hzz8ke.jpg" height="200" width="300" />
+            </div>
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393024/Amal_21_eu8m8r.jpg" height="200" width="300" />
+            </div>
+        </div>
+        <div class="hover01 column" >
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393024/Amal_12_h3yvvs.jpg" height="200" width="300" />
+            </div>
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393025/Amal_31_iyrorw.jpg" height="200" width="300" />
+            </div>
+            <div class="pic">
+                <img src="https://res.cloudinary.com/dy6vgsgr8/image/upload/v1653393025/Amal_48_repouu.jpg" height="200" width="300" />
+            </div>
+        </div>
+
         <hr>
-        <p><small>جمعية امل هي جمعية غير ربحية تعمل على تمكين وتعزيز قدرات النساء في وضعية صعبة لعيش حياة كريمة, مستقلة وولوج سوق الشغل</small> <b>جميع الحقوق محفوظة حقوق التأليف والنشر.
-                المنتج
-                مخصص
-                لجمعية أمل</b>  &copy;	</p>
+
     </div>
 </main>
+
+
 @endsection
