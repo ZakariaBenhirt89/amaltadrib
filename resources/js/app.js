@@ -23,3 +23,6 @@ window.hideSideBar = () => {
      document.getElementById("sideBar").style.display = "block"
     localStorage.setItem("showsidebar" , "false")
 }
+if (window.screen.width < 400){
+    document.getElementById("sideBar").style.display = "none"
+}
